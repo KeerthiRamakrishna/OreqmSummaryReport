@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_HidWiz_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/build/reqm/ReqM2_Native/asc_HidWiz_requirements_Requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</commandline>
+    <timestamp>Mon Jun 17 19:27:00 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_HidWiz_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/build/reqm/ReqM2_Native/asc_HidWiz_requirements_Requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req" title="Functional requirements">
+            <defaults>
+                <idprefix>Studio.AssistanceDialogs.HandleIdPolicies.</idprefix>
+            </defaults>
+            <specobject>
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be a handle ID policy calculating the PDU handle IDs of a processed
+                    module according to resource tags that provide for each BSW module adjacent to the
+                    processed module the following data: The information on whether the module acts as an
+                    upper layer, lower layer, or both; the information on whether the module provides a "Tp"
+                    interface, an "If" interface, or both; the information on where in the module
+                    configuration the PDUs reference parameters reside which point to their EcuC
+                    counterparts; the information on where the (PDU) handle IDs are stored in the adjacent
+                    module. The information on whether the adjacent module actually is an upper/lower layer
+                    for the processed module is retrieved from the "BSWModules" container list in the
+                    processed module configuration. </description>
+                <comment> BSW modules come with resource files which describe these static properties for
+                    the module. The "BSWModules" container list in the processed module configuration
+                    actually defines which module acts as an upper or lower layer wrt the processed module.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayers</srcid><srcstatus/><internalId>19</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersComDisabled</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComHidAlreadySet</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testBogusPduRModule</srcid><srcstatus/><internalId>28</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testXPathTrueFalse</srcid><srcstatus/><internalId>30</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersNto1PduRoutingPaths</srcid><srcstatus/><internalId>31</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testR2x11CommonIdRangeUpperLayerTx</srcid><srcstatus/><internalId>32</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+            <specobject>
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be a zero cost operation extension in the AdjacentLayerHandleIdPushOperation which
+                    copies handle IDs from adjacent layers into the corresponding PduR routing path handle
+                    ID entries after the ordinary (i.e. non zero cost) AdjacentLayerHandleId policy has
+                    finished. This is an extension to the AdjacentLayerHandleIdPushOperation which only
+                    applies to the PduR. </description>
+                <comment> The zero cost operation extension must be executed after the ordinary
+                    AdjacentLayerHandleId policy in order to selectively overwrite previously calculated
+                    handle IDs; the opposite is not allowed. Moreover, since the zero cost operation extension
+                    requires that the handle IDs in the adjacent layers are already available, the value of the "order"
+                    attribute of the AdjacentLayerHandleIdPushOperation must be greater than the value of the "order"
+                    attribute of any handle ID policy of the adjacent layers. </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCost</srcid><srcstatus/><internalId>21</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostNoEcuCModule</srcid><srcstatus/><internalId>22</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComSameEcuCRefDifferentHid</srcid><srcstatus/><internalId>23</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComSameEcuCRefSameHid</srcid><srcstatus/><internalId>24</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComHidAlreadySet</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostNoRoutingPath</srcid><srcstatus/><internalId>26</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostSoAdHidAlreadyDisabled</srcid><srcstatus/><internalId>27</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+            <specobject>
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ASR32ModuleSupport</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be an extension in the AdjacentLayerHandleIdPushOperation which copies Rx
+                    PDU handle IDs of an upper layer module into the Rx PDU handle ID fields of the
+                    corresponding PDU containers in the processed module. This is an extension to the
+                    AdjacentLayerHandleIdPushOperation which only applies to the PduR. </description>
+                <comment> The use-case is the support of customer CDDs situated above the PduR,
+                    implemented according to the AUTOSAR 3.2 specification. Since AUTOSAR 3.2 does not
+                    support dedicated handle IDs for CancelReceive() and ChangeParameter(), the original Rx handle ID of the upper
+                    layer must be copied into the respective handle ID field of the PduR module. It can be
+                    assumed that no zero cost operation extension will be active if there is at least one module
+                    implemented according to the AUTOSAR 3.2 specification. </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testASR32</srcid><srcstatus/><internalId>29</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>            
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.NTo1PduRRouting</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> The AdjacentLayerHandleIdPushOperation shall support the configuration of
+                    the PduRDestPduHandleId parameter in N:1 PduRRoutingPaths, in which two or more
+                    PduRRoutingPath refer to identical destination PDUs but to different source
+                    PDUs. The PduRDestPduHandleId parameters associated with the identical
+                    destination PDUs shall contain an identical handle value.</description>
+                <comment>N:1 Pdu routing is required by several OEMs</comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersNto1PduRoutingPaths</srcid><srcstatus/><internalId>31</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.R2x11</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description>
+                    The AdjacentLayerHandleIdPushOperation shall support the handle Id grouping required
+                    by the R2x11 PduR BSW module, which only puts the handle IDs Tx PDUs (Tp and If) of 
+                    an Upper Layer BSW module into one single range. For all other PDU groups (Lower Layer
+                    BSW modules and Upper Layer Rx PDUs), If and Tp PDUs get their own handle Id range.
+                </description>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testR2x11CommonIdRangeUpperLayerTx</srcid><srcstatus/><internalId>32</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.SimpleHandleIdGroupByXPathPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be an extension to the SimpleHandleIdPushOperation which supports
+                    grouping by values retrieved via XPath expression. </description>
+                <comment> Existing implementation only supports values of nodes defined via XPath by the
+                    groupBy parameter. </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.SimpleHandleIdGroupByXPathPushOperationTest.testXPathValue</srcid><srcstatus/><internalId>45</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.SimpleHandleIdSubGroupsPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be an extension to the SimpleHandleIdPushOperation which supports sub
+                    grouping by defined values.</description>
+                <comment> Existing implementation is not sufficient for LinIf/LinIfScheduleTableIndex.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.SimpleHandleIdSubGroupsPushOperationTest.testSubGrouping</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+            
+            <specobject>
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanTpRxNPduHandleIdPushOperation</id>
+                <status>rejected</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation for CanTpRxNPduId and CanTpRxFcNPduId, where handle IDs of
+                    containers referencing the same EcuC PDU shall be the same.
+                    CanTp/CanTpConfig/CanTpChannel/CanTpRxNSdu/CanTpRxNPdu/CanTpRxNPduId shall be numbered first,
+                    CanTp/CanTpConfig/CanTpChannel/CanTpTxNSdu/CanTpRxFcNPdu/CanTpRxFcNPduId shall be numbered
+                    second, starting from the last CanTpRxNPduId. Deactivated CanTpRxFcNPdu shall be ignored.</description>
+                <comment>
+                    This requirement is not applicable.
+                    An Rx-only handle Id policy is not required by CanTp any more. The requirement is superseded
+                    by CanTpNPduHandleIdPushOperation, which covers both Rx and Tx N-Pdu handle id generation for CanTp.
+                </comment>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanTpNPduHandleIdPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation that fulfills 
+                    Studio.AssistanceDialogs.HandleIdPoliciesCanTpRxNPduHandleIdPushOperation, and additionally
+                    calculates the handle Ids for CanTpTxNPduConfirmationPduId, and CanTpTxFcNPduConfirmationPduId in
+                    the same way as for CanTpRxNPduId, CanTpRxFcNPduId.</description>
+                <comment>From ACG 8.8.1 onwards, CanTp is supporting Tx NPdus which may refer to the same
+                    EcuC Pdu container, up to now that was only supported for Rx NPdus. For that additional
+                    CanTp feature, a dedicated handle id poilicy is required which provides Rx NPdu support as
+                    well as support for Tx NPdus.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanTpNPduHandleIdPushOperationTest.testHandleIdsRxAndTxNPdus</srcid><srcstatus/><internalId>37</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanTpNPduHandleIdPushOperation.R2011</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation that fulfills CanTpNPduHandleIdPushOperation for
+                    configurations of CanTp modules that are released according to AUTOSAR R20-11 or newer.</description>
+                <comment>
+                    AUTOSAR R20-11 CanTp uses a different container structure than AUTOSAR 4.0.x, hence the
+                    NPdu containers have to be collected differently.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanTpNPduHandleIdPushOperationTest.testHandleIdsRxAndTxNPdusR2011</srcid><srcstatus/><internalId>38</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+            
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanNmRxPduHandleIdPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation for CanNmRxPduId, where handle IDs of CanNmPdus residing
+                    in the same parent CanNmChannelConfig container shall obtain the same handle ID.</description>
+                <comment>
+                    Although not configured by the importer framework, it is possible to manually add more than
+                    one received Nm PDU to a given CanNmChannelConfig. CanNm hands the received PDUs over
+                    to the upper layer as if they were one and the same PDU, hence the handle ids must be
+                    identical.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanNmRxPduHandleIdPushOperationTest.testHandleIds</srcid><srcstatus/><internalId>36</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.UdpNmRxPduHandleIdPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation for UdpNmRxPduId, where handle IDs of UdpNmPdus residing
+                    in the same parent UdpNmChannelConfig container shall obtain the same handle ID.</description>
+                <comment>
+                    Although not configured by the importer framework, it is possible to manually add more than
+                    one received Nm PDU to a given UdpNmChannelConfig. UdpNm hands the received PDUs over
+                    to the upper layer as if they were one and the same PDU, hence the handle ids must be
+                    identical.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.UdpNmRxPduHandleIdPushOperationTest.testHandleIds</srcid><srcstatus/><internalId>47</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+            
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR40</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation for ASR 4.0 Can modules that distributes HOH handle IDs
+                    sorted according to the following scheme: RX HOHs of CC identified by handle ID zero,
+                    RX HOHs of CC identified by handle ID one, ... RX HOHs of CC identified by handle ID &lt;n&gt;,
+                    TX HOHs of CC identified by handle ID zero, TX HOHs of CC identified by handle ID one,
+                    ..., TX HOHs of CC identified by handle ID &lt;n&gt;.</description>
+                <comment>
+                  There is no official specification on how handle ids of several Can CCs must be handled. The
+                  bugzilla entry https://www.autosar.org/bugzilla/show_bug.cgi?id=48429#c9 indicates that
+                  MCAL vendors require the handle id distribution scheme outlined above.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR40</srcid><srcstatus/><internalId>33</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject> 
+
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR42</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> There shall be push operation for ASR 4.2 Can modules that distributes HOH handle IDs
+                    according to the same scheme as described in 
+                    Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR40.</description>
+                <comment>
+                  See rationale of Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR40;
+                  ASR 4.2 modules have a different parameter structure, i.e. only one single multiple configuration
+                  container.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR42</srcid><srcstatus/><internalId>34</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR42InvalidCanCChandleIds</srcid><srcstatus/><internalId>35</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+            
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.ComTxPduHandleIdPushOperation.ASR40</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> 
+                  There shall be push operation for ASR 4.0 Tx ComIPdus that distributes the handle ids in 
+                  such a way that minimizes Tx buffer reconfiguration in the CanIf module.
+                </description>
+                <comment>
+                  The CanIf reconfigures a Tx buffer if the Tx buffer is occupied by a PDU with low priority that
+                  has not yet been sent while a new transmission request for a high priority PDU for the same
+                  Tx buffer arrives. This inefficient reconfiguration shall be avoided as far as possible.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIds</srcid><srcstatus/><internalId>39</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIdsOnlyComDefined</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.ComTxPduHandleIdPushOperation.R2011</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> 
+                  There shall be push operation for R20-11 Tx ComIPdus that distributes the handle ids in 
+                  such a way that minimizes Tx buffer reconfiguration in the CanIf module.
+                </description>
+                <comment>
+                  The CanIf reconfigures a Tx buffer if the Tx buffer is occupied by a PDU with low priority that
+                  has not yet been sent while a new transmission request for a high priority PDU for the same
+                  Tx buffer arrives. This inefficient reconfiguration shall be avoided as far as possible.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIds_R2011</srcid><srcstatus/><internalId>40</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+           
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.HandleIdCopyPushOperation.FromSameModule</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description>
+                  There shall be push operation that supports the configuration of handle id parameters by
+                  copying the handle value from a different parameter in the same module.
+                </description>
+                <comment>
+                  Several BSW modules require that handle Id X must contain the same value as handle Id Y in the
+                  same module. The Copy Handle Id push operation accomplishes that by copying handle Id values from Y to X.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.HandleIdCopyPushOperationTest.testComSignalAndPduCopyHandleIdsFromOtherParameters</srcid><srcstatus/><internalId>43</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.HandleIdCopyPushOperationTest.testDoIPChannelHandleIdCopy</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+            <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.HandleIdCopyPushOperation.FromReference</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description>
+                  There shall be push operation that supports the configuration of handle id parameters by
+                  copying the handle value from a parameter which is situated in a relative position from the
+                  target of a reference parameter.
+                </description>
+                <comment>
+                  Several BSW modules require that handle Id X must contain the same value as handle Id Y which is
+                  in a given position relative to the destination of a given reference parameter.
+                  The Copy Handle Id push operation accomplishes that by copying handle Id values from Y to X.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.HandleIdCopyPushOperationTest.testComSignalAndPduCopyHandleIdsFromOtherParameters</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+             <specobject> 
+                <id>Studio.AssistanceDialogs.HandleIdPolicies.FrArTpNPduHandleIdPushOperation</id>
+                <status>approved</status>
+                <source>EB</source>
+                <version>1</version>
+                <description> 
+                    There shall be a push operation for FrArTp/FrArTpMultipleConfig/FrArTpChannel/FrArTpPdu/FrArTpPduId
+                    generating a zero based and dense value set. FrArTpPdu containers refering to the same EcuC PDU via FrArTpPduRef
+                    shall obtain the same value in FrArTpPduId.
+                </description>
+                <comment> There was no prior existing implementation.
+                </comment>
+                <needscoverage>
+                    <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.hidwiz.test.FrArTpNPduHandleIdPushOperationTest.testHandleIds</srcid><srcstatus/><internalId>42</internalId></linkedfrom></coveredby></needscov>
+                <containerCovstatus>covered</containerCovstatus></needscoverage>
+            <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+        </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayers</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>56</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy without ZeroCost&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersComDisabled</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>74</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy without ZeroCost, Com module disabled in PduR BSWModules
+entry&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCost</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>93</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostNoEcuCModule</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>111</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost, no EcuC module present, which invalidates all
+EcuCPduRefs module. Since no handleIds can be set, result = source&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComSameEcuCRefDifferentHid</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>129</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost, 2 Pdus in the Com reference the same EcuC Pdu,
+but have different HandleIds -&gt; warning&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComSameEcuCRefSameHid</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>148</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost, 2 Pdus in the Com reference the same EcuC Pdu,
+which also have the same handleIds -&gt; no warning&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostComHidAlreadySet</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>167</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost, 2 Pdus in the Com of different routing paths
+reference the same EcuC Pdu, -&gt; generates 2 warnings&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostNoRoutingPath</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>195</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost and one routing path missing in the PduR&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersZeroCostSoAdHidAlreadyDisabled</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>213</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with ZeroCost, 1 handleId cannot be disabled since it has
+already been configured (also disabled)&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ZeroCost</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testBogusPduRModule</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>239</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with a bogus PduR module for which several pushOps have been
+defined (missing params, bad params, etc.)&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testASR32</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>260</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy for ASR 3.2&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.ASR32ModuleSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testXPathTrueFalse</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>278</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation, test that xpath function returning true/false is evaluated
+correctly&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testAdjacentLayersNto1PduRoutingPaths</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>297</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with one N To 1 PduRRouting Path, i.e.
+two source PDUs map via gateway to one and the same destination PDU. In that case, both destination
+PDU header Ids must be the same&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.NTo1PduRRouting</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.AdjacentLayerHandleIdPushOperationTest.testR2x11CommonIdRangeUpperLayerTx</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/AdjacentLayerHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>319</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the AdjacentLayerHandleIdPushOperation policy with upper layer modules.
+the policy shall keep the Tx If and Tp PDUs in the same number range, whereeas
+Rx Tp and If PDUs shall have their own number range.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.AdjacentLayerHandleIdPushOperation.R2x11</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR40</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanHOHHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>35</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the CanHOHHandleIdPushOperation with correct input data on an ASR CAN 4.0 module&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR40</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR42</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanHOHHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>50</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the CanHOHHandleIdPushOperation with correct input data on an ASR CAN 4.2 module&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR42</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanHOHHandleIdPushOperationTest.testHandleIdsASR42InvalidCanCChandleIds</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanHOHHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>65</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that CanHOHHandleIdPushOperation issues an error if the CCs handle
+IDs are not zero-based and dense&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanHOHHandleIdPushOperation.ASR42</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanNmRxPduHandleIdPushOperationTest.testHandleIds</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanNmRxPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the CanNmRxPduHandleIdPushOperation policy&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanNmRxPduHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanTpNPduHandleIdPushOperationTest.testHandleIdsRxAndTxNPdus</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanTpNPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>35</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the CanTpNPduHandleIdPushOperation policy, assigning identical handle ids to NPdus
+that refer to the same EcuC NPdu. Rx and Tx Flow control NPDUs of functionally addressed
+Sdus won't obtain a handle id&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanTpNPduHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.CanTpNPduHandleIdPushOperationTest.testHandleIdsRxAndTxNPdusR2011</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/CanTpNPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;same as testHandleIdsRxAndTxNPdus(), but applying to R20-11 CanTp module configurations&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.CanTpNPduHandleIdPushOperation.R2011</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIds</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/ComTxPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>41</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the Handle Id Push operation that sorts Tx PDUs according to their CAN Id&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.ComTxPduHandleIdPushOperation.ASR40</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIds_R2011</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/ComTxPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>60</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the Handle Id Push operation that sorts Tx PDUs according to their CAN Id&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.ComTxPduHandleIdPushOperation.R2011</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.ComTxPduHandleIdPushOperationTest.testComTxPduHandleIdsOnlyComDefined</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/ComTxPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>79</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the Handle Id Push operation when only the Com module is defined. In that case,
+no NPEs shall occur&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.ComTxPduHandleIdPushOperation.ASR40</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.FrArTpNPduHandleIdPushOperationTest.testHandleIds</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/FrArTpNPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>29</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the FrArTpNPduHandleIdPushOperation policy&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.FrArTpNPduHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.HandleIdCopyPushOperationTest.testComSignalAndPduCopyHandleIdsFromOtherParameters</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/HandleIdCopyPushOperationTest.java</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the copying of handle Id values&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.HandleIdCopyPushOperation.FromSameModule</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.HandleIdCopyPushOperation.FromReference</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.HandleIdCopyPushOperationTest.testDoIPChannelHandleIdCopy</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/HandleIdCopyPushOperationTest.java</sourcefile>
+      <sourceline>47</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the copying of handle Id values from DoIPPduRRxPduId to DoIPPduRTxPduId if both are present and enabled&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.HandleIdCopyPushOperation.FromSameModule</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.SimpleHandleIdGroupByXPathPushOperationTest.testXPathValue</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/SimpleHandleIdGroupByXPathPushOperationTest.java</sourcefile>
+      <sourceline>33</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the SimpleHandleIdGroupByXPath policy with a valid XPath value expression.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.SimpleHandleIdGroupByXPathPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.SimpleHandleIdSubGroupsPushOperationTest.testSubGrouping</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/SimpleHandleIdSubGroupsPushOperationTest.java</sourcefile>
+      <sourceline>33</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the SimpleHandleIdSubGroups policy&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.SimpleHandleIdSubGroupsPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.hidwiz.test.UdpNmRxPduHandleIdPushOperationTest.testHandleIds</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_HidWiz)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_HidWiz/test/junit/plugin.Test_HidWizExt.Autosar/Java/dreisoft/tresos/hidwiz/test/UdpNmRxPduHandleIdPushOperationTest.java</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the CanNmRxPduHandleIdPushOperation policy&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.HandleIdPolicies.UdpNmRxPduHandleIdPushOperation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

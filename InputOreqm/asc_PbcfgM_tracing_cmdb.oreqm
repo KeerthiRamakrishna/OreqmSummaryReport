@@ -1,0 +1,2294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_PbcfgM_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_Native/asc_PbcfgM_requirements_PbcfgM_EBextension.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/common_req/PbcfgM_DbgInst_EB_Extension.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_DSN_GENERIC.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_OldReqdefImporter/reqm_DSN_LEGACY.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 19:37:17 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_PbcfgM_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_Native/asc_PbcfgM_requirements_PbcfgM_EBextension.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/common_req/PbcfgM_DbgInst_EB_Extension.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_DSN_GENERIC.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_OldReqdefImporter/reqm_DSN_LEGACY.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM102</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>
+            A configuration is valid
+              if the platform signature in the post build configuration equals the value
+                determined by the macro TS_PlatformSigIsValid.
+              if the link time signature in the post build configuration equals the link time
+                signature in the link time configuration file.
+              if the compile time signature in the post build configuration equals the value of
+                the macro &lt;MODULE&gt;_CFG_SIGNATURE.
+              if the compile time published information signature in the post build configuration
+                equals the value of the macro &lt;MODULE&gt;_PUBLIC_INFO_SIGNATURE.
+        </description>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_PUBLICINFOSIGNATURE</srcid><srcstatus/><internalId>64</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_LCFGSIGNATURE</srcid><srcstatus/><internalId>65</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_PLATFORMSIGNATURE</srcid><srcstatus/><internalId>66</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_CFGSIGNATURE</srcid><srcstatus/><internalId>67</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>      
+        
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM104</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>
+            For generalized consistency of the post build configuration versus the compile time
+              configuration
+              the post build configuration structure shall contain the uint32 value
+                CfgSignature.
+              The &lt;Module&gt;_Cfg.h file shall contain the macro
+                &lt;MODULE&gt;_CFG_SIGNATURE.
+              The MCG shall generate this signature value of compile time parameters. The x-path
+                function asc:getConfigSignature(nodeset) shall be used to determine the signature out
+                of a list of parameters. The list of compile time parameters shall determined with the
+                function asc:getConfigClassNodeList(cassString). 
+        </description>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_CFGSIGNATURE</srcid><srcstatus/><internalId>67</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>  
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM104_1</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>
+            For generalized consistency of the post build configuration versus the compile time
+              published informatin configuration
+              the post build configuration structure shall contain the uint32 value
+                PublicInfoSignature.
+              The &lt;Module&gt;_Cfg.h file shall contain the macro
+                &lt;MODULE&gt;_PUBLIC_INFO_SIGNATURE.
+              The MCG shall generate this signature value of compile time parameters. The x-path
+                function asc:getConfigSignature(nodeset) shall be used to determine the signature out
+                of a list of parameters. The list of compile time parameters shall determined with the
+                function asc:getConfigClassNodeList(cassString). 
+        </description>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_PUBLICINFOSIGNATURE</srcid><srcstatus/><internalId>64</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>  
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM105</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>
+            For generalized consistency of the post build configuration versus the link time
+              configuration
+              the post build configuration structure shall contain the uint32 value
+                LcfgSignature.
+              the link time configuration shall contain the uint32 value
+                &lt;Module&gt;_LcfgSignature.
+              The MCG shall generate this signature value of link time parameters. The x-path
+                function asc:getConfigSignature(nodeset) shall be used to determine the signature out
+                of a list of parameters. The list of link time parameters shall determined with the
+                function asc:getConfigClassNodeList(cassString). 
+        </description>
+        <comment>
+          See also:
+          http://wiki.elektrobit.com/index.php/Project:EB_tresos/Architecture/PostBuild#Current_Post-Build_Signature
+        </comment>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_LCFGSIGNATURE</srcid><srcstatus/><internalId>65</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>  
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM106</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>
+            For Platform verification
+              the &lt;Module&gt; post build configuration structure shall contain the value
+                uint32 PlatformSignature. This uint32 must be the first value of the post build
+                configuration structure to guarantee the correct access not disturbed by any padding
+                bytes.
+              the MCG shall generate this signature for the selected target. The generator shall
+                use the x-path function asc:getPlatformSignature() to determine this value.
+        </description>
+        <comment>
+          See also:
+          http://wiki.elektrobit.com/index.php/Project:EB_tresos/Architecture/PostBuild#Current_Post-Build_Signature
+          https://issue.ebgroup.elektrobit.com/browse/ASCBASE-1485
+        </comment>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_PLATFORMSIGNATURE</srcid><srcstatus/><internalId>66</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>  
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+      <specobject>
+        <id>PbcfgM.EB.PBCFGM300</id>
+        <status>approved</status>
+        <source>EB</source>
+        <version>1</version>
+        <description>The Module ID of the PbcfgM module shall be 8001 (hexadecimal).</description>
+        <comment> </comment>
+        <needscoverage>
+          <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_E_INIT_NULL_POINTER</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+        <containerCovstatus>covered</containerCovstatus></needscoverage>
+        
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM301</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: PbcfgM_ConfigType
+        Type: Structure
+        Range: Implementation specific 
+        Description: Data structure containing post-build-time configuration data of the
+          PbcfgM and the referenced modules.
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>dsn</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>PbcfgM.dsn.ConfigType</srcid><srcstatus/><internalId>35</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM302</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: PbcfgM_ModuleConfigPtrType
+        Type: void *
+        Range: --
+        Description: Pointer to data structure containing post build configuration data of a
+          module.
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM312</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name: PbcfgM_Init 
+        Syntax: void PbcfgM_Init( const PbcfgM_ConfigType* PbcfgM_ConfigPtr ) 
+        Service ID[hex]: 0x01
+        Sync/Async: Synchronous
+        Reentrancy: Non Reentrant
+        Parameters (in): PbcfgM_ConfigPtr, Pointer to post build configuration
+        Parameters (inout): None
+        Parameters (out): None
+        Return value: None
+        Description: Initializes the PbcfgM
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_01_NoPbCfg</srcid><srcstatus/><internalId>45</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_NULL_POINTER</srcid><srcstatus/><internalId>53</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_VALID_CONF_PDUR</srcid><srcstatus/><internalId>54</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_VALID_CONF_COM</srcid><srcstatus/><internalId>55</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_INVALID_MODULE_LINIF</srcid><srcstatus/><internalId>56</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_INCORRECT_MODULE_ID_PDUR</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM313.API</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name: PbcfgM_GetConfig
+        Syntax: Std_ReturnType PbcfgM_GetConfig( uint16 PbcfgM_ModuleId, uint16
+          PbcfgM_InstanceId, PbcfgM_ModuleConfigPtrType* PbcfgM_ModuleConfigPtr )
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_NULL_POINTER</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>    
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM313.ServiceId</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name: PbcfgM_GetConfig
+        Service ID[hex]: 0x02
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_NULL_POINTER</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>    
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM313.Successful</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        PbcfgM_GetConfig shall 
+        - return E_OK
+        - set parameter PbcfgM_ModuleConfigPtr to the configuration of the module with the provided module Id 
+        if
+        - parameter PbcfgM_ModuleId equals the module Id of a module which is referenced in PbcfgMBswModules/PbcfgMBswModuleRef
+        - parameter PbcfgM_InstanceId equals the configuration parameter PbcfgMBswModules/PbcfgMModuleInstanceID
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_VALID_CONF_PDUR</srcid><srcstatus/><internalId>54</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_VALID_CONF_COM</srcid><srcstatus/><internalId>55</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_INSTANCEIDVALID</srcid><srcstatus/><internalId>58</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM313.Unsucessful</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        PbcfgM_GetConfig shall 
+        - return E_NOT_OK
+        if
+        - parameter PbcfgM_ModuleId equals the module Id of a module which is not referenced in PbcfgMBswModules/PbcfgMBswModuleRef
+        - parameter PbcfgM_InstanceId does not equal the configuration parameter PbcfgMBswModules/PbcfgMModuleInstanceID
+        - the module was not initialized
+        - the PbcfgM_ModuleConfigPtr equals the NULL_PTR
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_E_UNINIT</srcid><srcstatus/><internalId>52</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_INVALID_MODULE_LINIF</srcid><srcstatus/><internalId>56</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_INCORRECT_MODULE_ID_PDUR</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM314.API</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name: PbcfgM_IsValidConfig
+        Syntax: Std_ReturnType PbcfgM_IsValidConfig( const PbcfgM_ConfigType* PbcfgM_ConfigPtr
+          )
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_OK</srcid><srcstatus/><internalId>62</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_NOT_OK</srcid><srcstatus/><internalId>63</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>    
+    
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM314.Functional</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Return value: Returns E_OK if the PbcfgM and all referenced module configurations are
+          valid otherwise E_NOT_OK. 
+        Description: This function determines if the PbcfgM and all referenced configurations
+          are valid. To accomplish this task the function calls the IsValid functions of all
+          referenced modules. This function can be called also before the PbcfgM is initialized
+          without generating any Det reports.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WITH_VALID_CONFIG</srcid><srcstatus/><internalId>60</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_WITH_NULL</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_OK</srcid><srcstatus/><internalId>62</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_NOT_OK</srcid><srcstatus/><internalId>63</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM317</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+          Following functions shall perform parameter checks:
+            PbcfgM_GetConfig()
+            - check PbcfgM_ModuleConfigPtr for null pointer and report to DET
+            PbcfgM_Init()
+            - check PbcfgM_ConfigPtr for null pointer and report to DET
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_E_INIT_NULL_POINTER</srcid><srcstatus/><internalId>51</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_NULL_POINTER</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM316</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>In the case a function parameter is set to NULL the error
+        PBCFGM_E_NULL_POINTER shall be reported to the DET.</description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_E_INIT_NULL_POINTER</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM318</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>Only the function PbcfgM_GetConfig() shall report the error PBCFGM_E_UNINIT to
+        the DET in the case the module is not initialized.
+        The function PbcfgM_IsValidConfig() shall operate as specified even before the module was initialized.
+        </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_E_UNINIT</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM319</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+          Following defines the value of error macros:
+            PBCFGM_E_UNINIT shall have the value 0x20.
+            PBCFGM_E_NULL_POINTER shall have the value 0x11.
+      </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_CON_E_INIT_NULL_POINTER</srcid><srcstatus/><internalId>51</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_CON_GETCONFIG_E_UNINIT</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+ 
+  <!-- Requirements regarding the PbcfgM configuration -->
+  <!-- ############################################### -->
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM400</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+          The PbcfgM configuration shall contain following items:
+            Container PbcfgMBswModules which contain list PbcfgMBswModules, 
+                  each item from the list refer to the post build capable module configuration. 
+            Container PbcfgMGeneral, which holds general PbcfgM parameters.
+      </description>
+      <comment/>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_30</srcid><srcstatus/><internalId>39</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_109</srcid><srcstatus/><internalId>42</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM402</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+          The container PbcfgMBswModules shall contain following items:
+            Parameter PbcfgMModuleInstanceID, if a certain Module exists in more than one
+              instance this parameter holds its instance ID. This parameter can not be obtained
+              automatically since the location of the instance ID can vary within the single module
+              configurations.
+            Reference PbcfgMBswModuleRef, reference to a module configuration which shall be
+              supplied by the PbcfgM.
+      </description>
+      <comment/>
+       <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_44</srcid><srcstatus/><internalId>40</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_64</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM403</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The PbcfgM configuration shall hold the common published information container. The
+          AUTOSAR version numbers shall hold the version of this document.
+      </description>
+      <comment/>
+       <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/PbcfgM_Version.h.m4_1</srcid><srcstatus/><internalId>37</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM404</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: PbcfgMRelocatableCfgEnable
+        Description: In order to support post build time configuration data handled by
+          relative offsets to the configuration start address. The container PbcfgMGeneral holds
+          this parameter.
+        Multiplicity: 1
+        Type: EcucBooleanParamDef
+        Default value: true
+      </description>
+      <comment/>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_RELOCATABLE_CFG_ENABLED</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_COM_RELOCATABLE_CFG_DISABLE</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_GEN_01_OnlyPbCfg</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.PBCFGM406</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: PbcfgMDevErrorDetect {PBCFGM_DEV_ERROR_DETECT}
+        Description: If true then PbcfgM will enable the error reporting to the Development
+          Error Tracer (DET). The container PbcfgMGeneral holds this parameter.
+        Multiplicity: 1
+        Type: EcucBooleanParamDef
+        Default value: true
+      </description>
+      <comment/>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_PBCFGM_DEV_ERROR_DETECT_ENABLE</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>TS_PBCFGM_COM_PBCFGM_DEV_ERROR_DETECT_DISABLE</srcid><srcstatus/><internalId>49</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+    
+    <specobject>
+      <id>PbcfgM.EB.PostBuild_1</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The &lt;Module&gt; module shall compile and build an executable even in the absence of a post build configuration,
+        i.e. without any post build generated .c and .h files available.      
+      </description>
+      <comment/>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_GEN_01_OnlyPbCfg</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+    
+    <specobject>
+      <id>PbcfgM.EB.Parameter.PbcfgMConstCfgAddress</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        A new config member named PbcfgMConstCfgAddress of config class PostBuild with a default value of 0 shall be added to the PbcfgM config underneath the PbcfgMGeneral container. The value of this config parameter shall be written as attribute "address" to the "instance" field of the PbcfgM to the file PbcfgM.xgen
+      </description>
+      <comment>
+        How to test:
+        - set to some particular value and generate the PbcfgM.srec file while PbcfgMRelocatableConfig=false.
+        - convert the srec file to a binary file
+        - compare the binary file to a binary file created by the compiler from PbcfgM_PBcfg.c
+        - PbcfgMConstCfgAddress shall be found as offset for all members of type TS_MAKEREF2CFG
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_GEN_01_OnlyPbCfg</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>    
+    
+
+    <specobject>
+      <id>PbcfgM.EB.PBSelectable.FileName</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If asc:getVariantName() returns a non-empty string (= variantName) the module's 
+        post-build-time configuration file names shall be changed in the following way:
+        &lt;Mod&gt;[_*]_PBcfg.* to &lt;Mod&gt;_&lt;variantName&gt;[_*]_PBcfg.*      
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>    
+
+    <specobject>
+      <id>PbcfgM.EB.PBSelectable.TypeName</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If asc:getVariantName() returns a non-empty string (= variantName) the module's 
+        post-build-time configuration type/variable names shall be changed in the following way:
+        - PbcfgM_[Const]ConfigLayoutType to PbcfgM_&lt;variantName&gt;_[Const]ConfigLayoutType
+        - PbcfgM_Config to PbcfgM_&lt;variantName&gt;_Config
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>    
+
+    <specobject>
+      <id>PbcfgM.EB.PBSelectable.ConfigName</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>2</version>
+      <description>
+        If post build selectable variant name is a non-empty string (= variantName) the module's 
+        post-build-time configuration name shall be: PbcfgM_&lt;variantName&gt;_ConfigRoot.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>    
+
+    <specobject>
+      <id>PbcfgM.EB.PBSelectable.Master</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>2</version>
+      <description>
+        If post build selectable variant name is a non-empty string the module
+        shall generate a post-build-time configuration file &lt;Mod&gt;_PBcfg.h/c) 
+        which includes all the variant specific 
+        post-build-time configurations (&lt;Mod&gt;_&lt;variantName&gt;[_*]_PBcfg.h/c).
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PBCFGM_COM_API_FUNCTIONS</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>    
+
+  </specobjects>
+    <specobjects doctype="req">
+
+    <specobject>
+      <id>PbcfgM.EB.DBGINST001</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Every public API of the module shall have debug instrumentation.
+      </description>
+      <comment> </comment>
+      <!-- Can be tested by an conformance and a compile test -->
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PbcfgM_DBGINST_001</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.DBGINST002</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The parameter of a API shall be available in the entry instrumentation.
+      </description>
+      <comment> </comment>
+      <!-- Can be tested by an conformance and a compile test -->
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PbcfgM_DBGINST_001</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.DBGINST003</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The parameter of a API shall be available in the exit instrumentation.
+        If the API has a return value, the very first parameter of the macro shall contain the expected return value.
+      </description>
+      <comment> </comment>
+      <!-- Can be tested by an conformance and a compile test -->
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PbcfgM_DBGINST_001</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.DBGINST004</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The default implementation of the debug instrumentation shall be an empty macro.
+      </description>
+      <comment> </comment>
+      <!-- Can be tested by an conformance and a compile test -->
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PbcfgM_DBGINST_001</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+
+    <specobject>
+      <id>PbcfgM.EB.DBGINST005</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The module shall include the header files Base_Dbg.h in order to allow changing the default implementation of the debug instrumentation.
+      </description>
+      <comment> </comment>
+      <!-- Can be tested by an conformance and a compile test -->
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_PbcfgM_DBGINST_001</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="dsn">
+    <specobject>
+      <id>PbcfgM.dsn.ConfigType</id>
+      <status>approved</status>
+      <source>EB design</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/doc/project/design/basic_software/information_view.xml</sourcefile>
+      <sourceline>43</sourceline>
+      <version>1</version>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/templates/xgen/PbcfgM.xgen_53</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM301</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="dsn">
+    <specobject>
+      <id>PbcfgM.PbcfgMTransition.T1</id>
+      <status>approved</status>
+      <source>EB design</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/doc/project/design/basic_software/state_dynamics_view.xml</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;DESIGN&lt;/pre&gt;</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/PbcfgM.c.m4_106</srcid><srcstatus/><internalId>38</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/PbcfgM_Version.h.m4_1</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/include/PbcfgM_Version.h.m4</sourcefile>
+      <sourceline>1</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM403</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/src/PbcfgM.c.m4_106</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/src/PbcfgM.c.m4</sourcefile>
+      <sourceline>106</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.PbcfgMTransition.T1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>dsn</linkdestdoctype><linkerror/><internalId>36</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_30</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/config/PbcfgM_EBParameters.xdm.m4</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM400</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_44</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/config/PbcfgM_EBParameters.xdm.m4</sourcefile>
+      <sourceline>44</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM402</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_64</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/config/PbcfgM_EBParameters.xdm.m4</sourcefile>
+      <sourceline>64</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM402</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/PbcfgM_EBParameters.xdm.m4_109</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/config/PbcfgM_EBParameters.xdm.m4</sourcefile>
+      <sourceline>109</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM400</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/generate/templates/xgen/PbcfgM.xgen_53</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/src/Autosar/generate/templates/xgen/PbcfgM.xgen</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.dsn.ConfigType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>dsn</linkdestdoctype><linkerror/><internalId>35</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PbcfgM_DBGINST_001</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/build/reqm/common_req/PbcfgM_DbgInst_Trace_APIs.c</sourcefile>
+      <sourceline>40</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test Dbg
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+  VP: Successful compilation test.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.DBGINST001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.DBGINST002</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.DBGINST003</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.DBGINST004</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>33</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.DBGINST005</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>34</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_COM_01_NoPbCfg</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_01_NoPbCfg/source/application/Test.c</sourcefile>
+      <sourceline>38</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+    This test shall prove that the PbcfgM also compiles without any post build information.
+    The test run is successful when the PbcfgM compiles under sticking to the precondition.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+    * Set TS_PBCFGM_COMPILE_WITH_POSTBUILD to FALSE in the merged make file to prevent the
+      compilation of the post build C file.
+    * The merged make file holds a rule which removes all post build files after generation.
+
+Test Execution: 
+  01: The test calls PbcfgM_Init just for checking plausibility
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_COM_API_FUNCTIONS</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_02/source/application/Application.c</sourcefile>
+      <sourceline>26</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+Compile test for all the API functions:
+ - PbcfgM_Init
+ - PbcfgM_GetConfig
+ - PbcfgM_IsValidConfig
+&lt;/para&gt;
+
+Test Object: 
+  Compilation and linking
+
+Test Precondition: 
+
+Test Execution: 
+ 01: The test calls PbcfgM_Init with NULL pointer
+ 02: The test calls PbcfgM_GetConfig  with NULL pointer
+ 03: The test calls PbcfgM_IsValidConfig   with NULL pointer
+ 04: VP(PbcfgM.EB.PBSelectable.FileName):
+		Verify that files PbcfgM_Variant1_PBcfg.h, PbcfgM_Variant2_PBcfg.h,
+		PbcfgM_Variant1_PBcfg.c and PbcfgM_Variant2_PBcfg.c exist.
+   (see files PbcfgM_PBcfg.h and PbcfgM_PBcfg.c for verification)
+ 05: VP(PbcfgM.EB.PBSelectable.TypeName):
+     Verify that types PbcfgM_Variant1_ConstConfigLayoutType and 
+     PbcfgM_Variant1_ConfigLayoutType exist.
+ 06: VP(PbcfgM.EB.PBSelectable.TypeName):
+     Verify that configuration variable PbcfgM_Variant1_Config exists.
+ 07: VP(PbcfgM.EB.PBSelectable.ConfigName):
+     Verify that symbol PbcfgM_Variant1_ConfigRoot exists.
+ 08: VP(PbcfgM.EB.PBSelectable.Master):
+      check that files PbcfgM_Variant1_PBcfg.h and PbcfgM_Variant2_PBcfg.h have been included.
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM302</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.API</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.API</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBSelectable.FileName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBSelectable.TypeName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBSelectable.ConfigName</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBSelectable.Master</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_COM_PBCFGM_DEV_ERROR_DETECT_ENABLE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_03/source/application/Application.c</sourcefile>
+      <sourceline>16</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+      This test shall prove that that the PbfgM/PbcfgMDevErrorDetect is defined 
+      and if is enabled. 
+  
+Test Object: 
+    Compilation and linking
+  
+Test Precondition: 
+  
+Test Execution: 
+    The test run is successful when the PbfgM compiles under sticking to the precondition.
+  
+Test Input: None.
+Test Output: 
+    compilation successful
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM406</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_COM_RELOCATABLE_CFG_ENABLED</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_03/source/application/Application.c</sourcefile>
+      <sourceline>49</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+      This test shall prove that that the PbfgM/PbcfgMRelocatableCfgEnable is defined 
+      and if is enabled. 
+  
+Test Object: 
+    Compilation and linking
+  
+Test Precondition: 
+  
+Test Execution: 
+    The test run is successful when the PbfgM compiles under sticking to the precondition.
+  
+Test Input: None.
+Test Output: 
+    compilation successful
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM404</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_COM_PBCFGM_DEV_ERROR_DETECT_DISABLE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_04/source/application/Application.c</sourcefile>
+      <sourceline>16</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+      This test shall prove that that the PbfgM/PbcfgMDevErrorDetect is defined 
+      and if is disable. 
+  
+Test Object: 
+    Compilation and linking
+  
+Test Precondition: 
+  
+Test Execution: 
+    The test run is successful when the PbfgM compiles under sticking to the precondition.
+  
+Test Input: None.
+Test Output: 
+    compilation successful
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM406</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_COM_RELOCATABLE_CFG_DISABLE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Compile/IN/PbcfgM_ComTest_04/source/application/Application.c</sourcefile>
+      <sourceline>49</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+      This test shall prove that that the PbfgM/PbcfgMRelocatableCfgEnable is defined 
+      and if is disable. 
+  
+Test Object: 
+    Compilation and linking
+  
+Test Precondition: 
+  
+Test Execution: 
+    The test run is successful when the PbfgM compiles under sticking to the precondition.
+  
+Test Input: None.
+Test Output: 
+    compilation successful
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM404</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_CON_E_INIT_NULL_POINTER</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_01/source/application/Tests.c</sourcefile>
+      <sourceline>49</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test module Id of PbcfgM (0x8001) and Det error PBCFGM_E_NULL_POINTER. 
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+  01: The test calls PbcfgM_Init with NULL pointer
+  02: VP (PBCFGM317,PBCFGM300,PBCFGM316,PBCFGM319):
+      Check if DET was called with error PBCFGM_E_NULL_POINTER, service Id 0x01,
+      module Id 0x8001 and instance id 0
+  03: VP: Check that no other API function was called
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM317</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM316</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM319</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM300</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_CON_GETCONFIG_E_UNINIT</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_01/source/application/Tests.c</sourcefile>
+      <sourceline>109</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+Test DET error PBCFGM_E_UNINIT.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+  01: The test calls PbcfgM_GetConfig  with valid module config variable
+  02: VP (PBCFGM317,PBCFGM318,PBCFGM319):
+      Check if DET was called with error PBCFGM_E_UNINIT, service Id 0x02,
+      module Id 0x8001 and instance id 0
+  03:VP: Check that no other API function was called
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM318</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM319</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Unsucessful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_CON_GETCONFIG_NULL_POINTER</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_01/source/application/Tests.c</sourcefile>
+      <sourceline>169</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+Test DET error PBCFGM_E_UNINIT.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+  01:VP(PBCFGM312): Initialize the PbcfgM 
+  02: VP(PbcfgM.EB.PBCFGM313.API, PbcfgM.EB.PBCFGM313.Unsucessful): 
+       The test calls PbcfgM_GetConfig  with NULL pointer
+  03: VP (PBCFGM317,PBCFGM313.ServiceId ):
+      Check if DET was called with error PBCFGM_E_NULL_POINTER, service Id 0x02,
+      module Id 0x8001 and instance id 0
+  04:VP: Check that no other API function was called
+  05: VP(PbcfgM.EB.PBCFGM313.API, PbcfgM.EB.PBCFGM313.Unsucessful): 
+       The test calls PbcfgM_GetConfig  with NULL pointer.
+  06:VP: Check that no other API function was called.
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM317</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.API</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.ServiceId</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_CON_VALID_CONF_PDUR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_02/source/application/Tests.c</sourcefile>
+      <sourceline>46</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test PbcfgM module with a PduR valid configuration.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+   01: VP(PBCFGM312): Initialize the PbcfgM 
+   02: VP(PbcfgM.EB.PBCFGM313.Successful): Try to get a  valid PduR configuration
+   03: Cast it to a PduR configuration
+   04: Check PduR configuration value - PduR_ConfigurationId
+   05:VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Successful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_CON_VALID_CONF_COM</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_02/source/application/Tests.c</sourcefile>
+      <sourceline>112</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test PbcfgM module with a Com valid configuration.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+   01: VP(PBCFGM312): Initialize the PbcfgM 
+   02: VP(PbcfgM.EB.PBCFGM313.Successful): Try to get a  valid Com configuration
+   03: Cast it to a Com configuration
+   04: Check Com dummy configuration value 
+   05:VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Successful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_CON_INVALID_MODULE_LINIF</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_02/source/application/Tests.c</sourcefile>
+      <sourceline>176</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test PbcfgM_GetConfig to read an invalid LinIf post build configuration.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+  01: VP(PBCFGM312): Initialize the PbcfgM
+  02: VP(PBCFGM313.Unsucessful): Try to get LinIf configuration, but because LinIf is not
+      in the list PbcfgMBswModules then PbcfgM_GetConfig shall return E_NOT_OK
+  03: VP: Check that no other API function was called
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Unsucessful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_CON_INCORRECT_MODULE_ID_PDUR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_02/source/application/Tests.c</sourcefile>
+      <sourceline>233</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+   Test PbcfgM module with a PduR valid configuration for the case when module 
+   instance ID is wrong.
+&lt;/para&gt;
+
+Test Object: PbcfgM_GetConfig
+Test Precondition: 
+
+Test Execution: 
+   01: VP(PBCFGM312): Initialize the PbcfgM 
+   02: VP(PBCFGM313.Unsucessful): Try to get a  valid PduR configuration with an incorrect
+       Module Instance ID
+   03: VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM312</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Unsucessful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_CON_INSTANCEIDVALID</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Conformance/IN/PbcfgM_ConTest_03/source/application/Tests.c</sourcefile>
+      <sourceline>56</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test that PbcfgM_GetConfig() selects the correct configuration based on instance InstanceId.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+  In configuration tool the PbcfgM/PbcfgMBswModules/PbcfgMModuleInstanceID is enabled and
+  different for same module types.
+
+Test Execution: 
+   01: Get valid configuration for first InstanceId.
+   02 VP(PbcfgM.EB.PBCFGM313.Successful): Check that the configuration is of the first InstanceId
+      by verifying a config value.
+   03: Get valid configuration for a second InstanceId.
+   04 VP(PbcfgM.EB.PBCFGM313.Successful): Check that the configuration is of the second InstanceId
+      by verifying a config value.
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM313.Successful</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_GEN_01_OnlyPbCfg</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Generic/IN/PbcfgM_GenTest_01_OnlyPbCfg/source/application/PbcfgM_GenTest_01_OnlyPBcfg.h</sourcefile>
+      <sourceline>27</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+    This test shall prove that the PbcfgM post build configuration also compiles stand alone and that the binary
+    file created by the toolchain equals to the binary file created from the generated src file.
+
+    This is done by a diff of the generated hex file in /output/generated/ and the compiled hex file
+    in /output/bin/. The diff result is then compared with the reference file. The reference file
+    contains the allowed differences between the two hex files.
+    The reference file can be created manually with the script /tools/create_reference_file.sh.
+&lt;/para&gt;
+
+Test Object: None.
+Test Precondition: 
+    * Set TS_BUILD_POST_BUILD_BINARY to TRUE in the merged make file to prevent the compilation
+      of all other PbcfgM C files.
+    * Remove all other generated PbcfgM C files for a double check
+
+Test Execution: 
+    The test run is successful when the PbcfgM compiles under sticking to the precondition and 2 equivalent 
+    binary files (from toolchain and from xgen file) are generated.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PostBuild_1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.Parameter.PbcfgMConstCfgAddress</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM404</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_WITH_VALID_CONFIG</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration.
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig and Com_IsValidConfig to return E_OK
+  02: The test call PbcfgM_IsValidConfig with a valid PbcfgM configuration
+  03: The return value of PbcfgM_IsValidConfig shall be E_OK
+  04: VP(PBCFGM314.Functional): PduR_IsValidConfig shall be called
+  05: VP(PBCFGM314.Functional): Com_IsValidConfig shall be called 
+  06: Check PduR ConfigPtr shall not be NULL_PTR
+  07: Check Com ConfigPtr shall not be NULL_PTR
+  08: Prepare PduR_IsValidConfig to return  E_OK
+  09: Prepare Com_IsValidConfig to return  E_NOT_OK
+  10: The test call PbcfgM_IsValidConfig again   
+  11: VP: PduR_IsValidConfig shall be called
+  12: VP: PduR_IsValidConfig shall be called 
+  13: VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.Functional</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_WITH_NULL</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>155</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+    Tests the IsValidConfig function  with parameter NULL
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: VP(PbcfgM.EB.PBCFGM314.Functional): Check the return value of function PbcfgM_IsValidConfig with 
+      NULL_PTR
+  02: VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.Functional</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_OK</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>208</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration
+  for the case PduR_IsValidConfig and Com_IsValidConfig return E_OK
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig and Com_IsValidConfig to return E_OK
+  02: VP(PbcfgM.EB.PBCFGM314.API): The test call PbcfgM_IsValidConfig with a 
+      valid PbcfgM configuration
+  03: VP(PbcfgM.EB.PBCFGM314.Functional): The return value of PbcfgM_IsValidConfig 
+      shall be E_OK
+  04: VP: PduR_IsValidConfig shall be called
+  05: VP: Com_IsValidConfig shall be called 
+  06: VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.API</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.Functional</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_RET_NOT_OK</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>281</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration
+  for the case PduR_IsValidConfig return E_NOT_OK and Com_IsValidConfig 
+  return E_OK 
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig to return E_NOT_OK and Com_IsValidConfig 
+      to return E_OK 
+  02: VP(PbcfgM.EB.PBCFGM314.API): The test call PbcfgM_IsValidConfig with a 
+      valid PbcfgM configuration
+  03: VP(PbcfgM.EB.PBCFGM314.Functional): The return value of PbcfgM_IsValidConfig 
+      shall be E_NOT_OK
+  04: VP: PduR_IsValidConfig shall be called
+  05: VP: Com_IsValidConfig shall not be called 
+  06: VP: Check that no other API function was called 
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.API</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM314.Functional</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_PUBLICINFOSIGNATURE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>356</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    Verify that PublicInfoSignature is implemented as specified.
+  
+Test Object: 
+    PbcfgM_IsValidConfig()
+  
+Test Precondition: 
+    The PbcfgM module is not initialized.
+  
+Test Execution: 
+    01: Create an invalid configuration regarding the published information configuration.
+    02: Call the function PbcfgM_IsValidConfig() with this invalid configuration.
+    03: VP(PbcfgM.EB.PBCFGM104_1):
+       The function must have returned with E_NOT_OK.
+    04: Call the function PbcfgM_IsValidConfig() with a valid configuration.
+    05: VP(PbcfgM.EB.PBCFGM104_1, PbcfgM.EB.PBCFGM102):
+       The function must have returned with E_OK.
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM104_1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM102</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_LCFGSIGNATURE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>426</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration 
+  but with a corrupted LcfgSignature
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig and Com_IsValidConfig to return E_OK.
+  02: VP(PbcfgM.EB.PBCFGM102): The test call PbcfgM_IsValidConfig with a valid PbcfgM configuration.
+  03: PduR_IsValidConfig shall be called.
+  04: Com_IsValidConfig shall be called.
+  05: Create an invalid configuration regarding the LcfgSignature.
+  06: The test call PbcfgM_IsValidConfig with a corrupt PbcfgM configuration.
+  07: VP(PbcfgM.EB.PBCFGM105): The return value of PbcfgM_IsValidConfig shall be E_NOT_OK.
+  08: VP: Check that no other API function was called.
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM105</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM102</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_PLATFORMSIGNATURE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>514</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration 
+  but with a corrupted PlatformSignature
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig and Com_IsValidConfig to return E_OK
+  02: VP(PBCFGM102): The test call PbcfgM_IsValidConfig with a valid PbcfgM configuration
+  03: PduR_IsValidConfig shall be called  
+  04: Com_IsValidConfig shall be called 
+  05: Invalidate the alignment and endianness verification value of PlatformSignature
+  06: The test call PbcfgM_IsValidConfig with a corrupt PbcfgM configuration 
+  07: VP(PBCFGM106): The return value of PbcfgM_IsValidConfig shall be E_NOT_OK
+  08: VP: Check that no other API function was called
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM102</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM106</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+    <specobject>
+      <id>TS_PBCFGM_IMP_ISVALIDCONFIG_WRONG_CFGSIGNATURE</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_PbcfgM)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PbcfgM/test/ts5/Implementation/IN/PbcfgM_Imp_02/source/application/Tests.c</sourcefile>
+      <sourceline>593</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  Test the IsValidConfig function with a valid PduR and Com dummy configuration 
+  but with a corrupted CfgSignature
+&lt;/para&gt;
+
+Test Object: PbcfgM_IsValidConfig
+Test Precondition: 
+
+Test Execution: 
+  01: Prepare PduR_IsValidConfig and Com_IsValidConfig to return E_OK.
+  02: VP(PbcfgM.EB.PBCFGM102): The test call PbcfgM_IsValidConfig with a valid PbcfgM configuration. 
+  03: PduR_IsValidConfig shall be called.
+  04: Com_IsValidConfig shall be called.
+  05: Create an invalid configuration regarding the CfgSignature.
+  06: The test call PbcfgM_IsValidConfig with a corrupt PbcfgM configuration
+  07: VP(PbcfgM.EB.PBCFGM104): The return value of PbcfgM_IsValidConfig shall be E_NOT_OK
+  08: VP: Check that no other API function was called
+
+Test Input: 
+
+Test Output: 
+&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM102</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>PbcfgM.EB.PBCFGM104</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

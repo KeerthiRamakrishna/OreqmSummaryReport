@@ -1,0 +1,2139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_DiagSrvWrapper_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules_RMP4_0.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_Native/asc_DiagSrvWrapper_requirements_EB_Requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_Native/asc_DiagSrvWrapper_test_DiagSrvWrapper_Manual_Verification.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_GenericImporter/reqm_IMPL.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_GenericImporter/reqm_IMPLXML.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_DocBookImporter/reqm_SWDD.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_OldCImporter/reqm_SWUTS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 21:28:48 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules_RMP4_0.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_DiagSrvWrapper_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_Native/asc_DiagSrvWrapper_requirements_EB_Requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_Native/asc_DiagSrvWrapper_test_DiagSrvWrapper_Manual_Verification.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_GenericImporter/reqm_IMPL.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_GenericImporter/reqm_IMPLXML.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_DocBookImporter/reqm_SWDD.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/build/reqm/ReqM2_OldCImporter/reqm_SWUTS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/1018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>swpad</regex>      <!-- since 10/1018: introduced for updated tracing model-->
+      <regex>swts</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/1018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/1010: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+
+      <!-- legacy items -->
+      <regex>dev</regex>
+      <regex>man</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+    <!-- The Ruleset for RMP4.0 is currently identical to the previous rule set. This rule is
+        intoduce to show that the right file is uses. It will be removed when the RMP4.0 rule set is
+    reworked -->
+    <rule>
+      <name>INFO.Rule set RMP4.0</name>
+      <description>This rules indicates that RMP4.0 rule set is used.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.general.doctypes</name>
+      <description>The used doctype is not part of the tracing model</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobjects/@doctype</applyto>
+          <condition>((. != 'creq') or (. != 'fea') or (. != 'swpad') or (. != 'swts') or (. != 'swrs') or (. !='swad') or (. != 'swintts') or (.!= 'swdd') or (. != 'swurs') or (. != 'swmts') or (. != 'swuts') or (. != 'impl') or (. != 'dev') or (. != 'man') or (. != 'lim'))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected.coverage</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.count</name>
+      <description>Unit requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='swurs') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='swrs') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs') and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs') and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swdd.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd') and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by swurs, swad, dev, lim, swdd, impl, swuts, swmts, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs')]</applyto>
+          <condition>(./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swurs, swad, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swuts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swmts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swmts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swintts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.impl.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='impl')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+          </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swmts.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+  </rules>
+    <oreqmRules>
+
+        <rule>
+            <name>WRN.swts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.man.needscoverage.count</name>
+            <description>Violated if there are more than 10 man specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='man']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='man']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>man.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.swintts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swintts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swintts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swintts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swintts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.swmts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swmts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swmts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swmts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swmts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swuts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swuts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swuts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swuts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swuts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swpad.needscoverage.count</name>
+            <description>Violated if there are more than 10 swpad specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swpad']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swpad']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swpad.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swrs.needscoverage.count</name>
+            <description>Violated if there are more than 10 swrs specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swrs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swrs']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swrs.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swad.needscoverage.count</name>
+            <description>Violated if there are more than 10 swad specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swad']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swad']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swad.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swurs.needscoverage.count</name>
+            <description>Violated if there are more than 10 swurs specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swurs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swurs']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swurs.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swdd.needscoverage.count</name>
+            <description>Violated if there are more than 10 swdd specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swdd']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swdd']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swdd.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.impl.needscoverage.count</name>
+            <description>Violated if there are more than 10 impl specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='impl']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='impl']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>impl.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swrs.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swrs specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swrs'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swrs'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swrs.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swad.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swad specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swad'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swad'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swad.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swurs.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swurs specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swurs'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swurs'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swurs.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swdd.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swdd specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swdd'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swdd'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swdd.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="swurs">
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.GetConnectionId.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_GetConnectionId
+        Syntax             | uint16 DiagSrvWrapper_GetConnectionId(
+                           |   uint16 TesterSourceAddress
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | TesterSourceAddress | TesterSourceaddress for the DcmDslMainConnection
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | uint16              | Connection Index
+        Description        | Internal function to fetch the ConnectionIndex through TesterSourceAddress.
+        Available via      | Internal function
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_70</srcid><srcstatus/><internalId>42</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.GetConnectionId.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When the DiagSrvWrapper_GetConnectionId() internal function is called by the generated
+        Manufacturer/Supplier Indication/Confirmation function definitions,
+        the function shall, based on the input DcmDslProtocolRxTesterSourceAddr,
+        return the found connection index.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_84</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When the DiagSrvWrapper_GetConnectionId() internal function returns an invalid connection index
+        then the DiagSrvWrapper module shall perform no changes and return with E_NOT_OK.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_169</srcid><srcstatus/><internalId>30</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_237</srcid><srcstatus/><internalId>33</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_310</srcid><srcstatus/><internalId>38</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_362</srcid><srcstatus/><internalId>40</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidConnectionId</srcid><srcstatus/><internalId>61</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_'Configured-Name'_SupplierIndication
+        Syntax             | Std_ReturnType DiagSrvWrapper_'Configured-Name'_SupplierIndication(
+                           |   uint8 SID,
+                           |   uint8* RequestData,
+                           |   uint16 DataSize,
+                           |   uint8 ReqType,
+                           |   uint16 SourceAddress,
+                           |   Dcm_NegativeResponseCodeType* ErrorCode
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | SID            | Value of service identifier
+                           | RequestData    | Contains the complete request data (diagnostic buffer), except the service ID
+                           | DataSize       | Defines how many bytes in the RequestData parameter are valid
+                           | ReqType        | Addressing type of the request (0 = physical request, 1 = functional request)
+                           | SourceAddress  | TesterSource address
+                           | ErrorCode      | Negative response code type
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType | E_OK: Operation successful
+                           |                | E_NOT_OK: Operation failed
+                           |                | E_REQUEST_NOT_ACCEPTED: No response will be sent
+        Description        | Internal function to do the conversion of AUTOSAR R4.2.2 SupplierIndication to
+                           | AUTOSAR R20-11 SupplierIndication's function signature.
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_275</srcid><srcstatus/><internalId>36</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's SupplierIndication-specific function is called by the Dcm module,
+        the DiagSrvWrapper module shall provide AUTOSAR R20-11 information to the requesting SWCs.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_320</srcid><srcstatus/><internalId>39</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Invalid</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper's SupplierIndication-specific function is called with an invalid source address,
+        the DiagSrvWrapper module shall perform no changes and return with error E_NOT_OK.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidSourceAddress</srcid><srcstatus/><internalId>62</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_'Configured-Name'_SupplierConfirmation
+        Syntax             | Std_ReturnType DiagSrvWrapper_'Configured-Name'_SupplierConfirmation(
+                           |   uint8 SID,
+                           |   uint8 ReqType,
+                           |   uint16 SourceAddress,
+                           |   Dcm_ConfirmationStatusType ConfirmationStatus
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | SID                | Value of service identifier
+                           | ReqType            | Addressing type of the request (0 = physical request, 1 = functional request)
+                           | SourceAddress      | TesterSource address
+                           | ConfirmationStatus | ConfirmationStatus Type
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType     | E_OK: Operation successful
+                           |                    | E_NOT_OK: Operation failed
+                           |                    | E_REQUEST_NOT_ACCEPTED: No response will be sent
+        Description        | Internal function to do the conversion of ASR422 SupplierConfirmation to
+                           | R20-11 SupplierConfirmation function signature.
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_276</srcid><srcstatus/><internalId>37</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Invalid</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper's SupplierConfirmation-specific function is called with an invalid source address,
+        the DiagSrvWrapper module shall perform no changes and return with error E_NOT_OK.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidSourceAddress</srcid><srcstatus/><internalId>62</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's SupplierConfirmation-specific function is called by the Dcm module,
+        the DiagSrvWrapper module shall provide AUTOSAR R20-11 information to the requesting SWCs.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_372</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_'Configured-Name'_ManufacturerIndication
+        Syntax             | Std_ReturnType DiagSrvWrapper_'Configured-Name'_ManufacturerIndication(
+                           |   uint8 SID,
+                           |   uint8* RequestData,
+                           |   uint16 DataSize,
+                           |   uint8 ReqType,
+                           |   uint16 SourceAddress,
+                           |   Dcm_NegativeResponseCodeType* ErrorCode
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | SID            | Value of service identifier
+                           | RequestData    | Contains the complete request data (diagnostic buffer), except the service ID
+                           | DataSize       | Defines how many bytes in the RequestData parameter are valid
+                           | ReqType        | Addressing type of the request (0 = physical request, 1 = functional request)
+                           | SourceAddress  | TesterSource address
+                           | ErrorCode      | Negative response code type
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType | E_OK: Operation successful
+                           |                | E_NOT_OK: Operation failed
+                           |                | E_REQUEST_NOT_ACCEPTED: No response will be sent
+        Description        | Internal function to do the conversion of ASR422 ManufacturerIndication to
+                           | R20-11 ManufacturerIndication function signature.
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_134</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's ManufacturerIndication-specific function is called by the Dcm module,
+        the DiagSrvWrapper module shall provide AUTOSAR R20-11 information to the requesting SWCs.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_179</srcid><srcstatus/><internalId>31</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Invalid</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper's ManufacturerIndication-specific function is called with an invalid source address,
+        the DiagSrvWrapper module shall perform no changes and return with error E_NOT_OK.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidSourceAddress</srcid><srcstatus/><internalId>62</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_'Configured-Name'_ManufacturerConfirmation
+        Syntax             | Std_ReturnType DiagSrvWrapper_'Configured-Name'_ManufacturerConfirmation(
+                           |   uint8 SID,
+                           |   uint8 ReqType,
+                           |   uint16 SourceAddress,
+                           |   Dcm_ConfirmationStatusType ConfirmationStatus
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | SID                | Value of service identifier
+                           | ReqType            | Addressing type of the request (0 = physical request, 1 = functional request)
+                           | SourceAddress      | TesterSource address
+                           | ConfirmationStatus | ConfirmationStatus Type
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType | E_OK: Operation successful
+                           |                | E_NOT_OK: Operation failed
+                           |                | E_REQUEST_NOT_ACCEPTED: No response will be sent
+        Description        | Internal function to do the conversion of ASR422 ManufacturerConfirmation to
+                           | R20-11 ManufacturerConfirmation function signature.
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_135</srcid><srcstatus/><internalId>29</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's ManufacturerConfirmation-specific function is called by the Dcm module,
+        the DiagSrvWrapper module shall provide AUTOSAR R20-11 information to the requesting SWCs.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_247</srcid><srcstatus/><internalId>34</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Invalid</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper's ManufacturerConfirmation-specific function is called with an invalid source address,
+        the DiagSrvWrapper module shall perform no changes and return with error E_NOT_OK.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidSourceAddress</srcid><srcstatus/><internalId>62</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManInd</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's ManufacturerIndication-specific function is called by the Dcm module
+        with the "SID" parameter set to "ClearDtcNotification" and the "RequestData" parameter set to the "clear all DTCs" value,
+        the DiagSrvWrapper module shall prepare a "clear DTC notification" for the next ManufacturerConfirmation call.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_199</srcid><srcstatus/><internalId>32</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManConf</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When DiagSrvWrapper's ManufacturerConfirmation-specific function is called by the Dcm module
+        with the "SID" parameter set to "ClearDtcNotification" while a global "clear DTC notification" is requested,
+        the DiagSrvWrapper module shall call the "ClearDtcNotification" operation.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_260</srcid><srcstatus/><internalId>35</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.SelectDTC.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_SelectDTC
+        Syntax             | Std_ReturnType DiagSrvWrapper_SelectDTC(
+                           |   uint32 DTC,
+                           |   Dem_DTCFormatType DTCFormat,
+                           |   Dem_DTCOriginType DTCOrigin
+                           | )
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | dtc            | Value of cleared DTC
+                           | dtcFormat      | format of cleared DTC
+                           | dtcOrigin      | origin of cleared DTC
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType | RTE_E_OK: Operation successful
+        Description        | Internal function to store the DTC information required for Clearing the DTCs
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_94</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.1</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper_SelectDTC() API is called through the Rte with "DTCOrigin" equal to the configured
+        DiagSrvWrapperDemUserDefinedMemory value, then a subsequent DiagSrvWrapper_ClearDTC() call
+        will use "0x04U" as DTCOrigin.
+      </description>
+      <comment>
+        "0x04U" refers to event information that is located in secondary memory.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_114</srcid><srcstatus/><internalId>45</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_SelectClearDTC</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.2</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper_SelectDTC() API is called through the Rte with "DTCOrigin" not equal to the configured
+        DiagSrvWrapperDemUserDefinedMemory value, then a subsequent DiagSrvWrapper_ClearDTC() call
+        will use "0x00U" as DTCOrigin.
+      </description>
+      <comment>
+        "0x00U" refers to an invalid memory location.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_119</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_SelectClearDTC</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ClearDTC.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_ClearDTC
+        Syntax             | Std_ReturnType DiagSrvWrapper_ClearDTC(void)
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | None
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | Std_ReturnType | E_OK: Operation successful
+                           |                | E_NOT_OK: Operation failed
+        Description        | Internal function trigger for clearing the selected DTCs
+        Available via      | Rte_DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_125</srcid><srcstatus/><internalId>47</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.ClearDTC.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        When the DiagSrvWrapper_ClearDTC() API is called through the Rte,
+        it shall pass the DTC, DTCFormat and DTCOrigin argument data to the Dem_ASR42_ClearDTC() API.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_129</srcid><srcstatus/><internalId>48</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_SelectClearDTC</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.DiagSrvWrapperRequestDataArray</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Parameter Name            | DiagSrvWrapperRequestDataArray
+        Parent Container          | DiagSrvWrapperGeneral
+        Description               | Defines the size of the Buffer for Request data Array.
+        Multiplicity              | 1
+        Type                      | Integer
+        Default value             | 1063
+        Range                     | 8 .. 4294967294
+        Value Configuration Class | Pre-compile time | X | All Variants
+        Scope / Dependency        | scope: local
+                                  | dependency: none
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/DiagSrvWrapper.xdm.m4_52</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.DiagSrvWrapperEnableDemInterfaces</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Parameter Name            | DiagSrvWrapperEnableDemInterfaces
+        Parent Container          | DiagSrvWrapperGeneral
+        Description               | If parameter is enabled, the ClearDTC interface for Dem
+                                  | is enabled in the DiagSrvWrapper.
+        Multiplicity              | 1
+        Type                      | BOOLEAN
+        Default value             | true
+        Value Configuration Class | Pre-compile time | X | All Variants
+        Scope / Dependency        | scope: local
+                                  | dependency: none
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/DiagSrvWrapper.xdm.m4_104</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.DiagSrvWrapperGetConnectionIdByRxPduId</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Parameter Name            | DiagSrvWrapperGetConnectionIdByRxPduId
+        Parent Container          | DiagSrvWrapperGeneral
+        Description               | If parameter is enabled, the DiagSrvWrapper module provides DiagSrvWrapper_GetConnectionId_RxPduId. interface.
+        Multiplicity              | 1
+        Type                      | BOOLEAN
+        Default value             | false
+        Value Configuration Class | Pre-compile time | X | All Variants
+        Scope / Dependency        | scope: local
+                                  | dependency: DcmBootLoaderInteractionASRVersion == AUTOSAR_R22_11
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/DiagSrvWrapper.xdm.m4_134</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_GetConnectionId_ByRxPduId</srcid><srcstatus/><internalId>60</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.FunctionDef</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service Name       | DiagSrvWrapper_GetConnectionId_RxPduId
+        Syntax             | uint16 DiagSrvWrapper_GetConnectionId_RxPduId(uint16 RxPduId)
+        Service ID [hex]   | None
+        Sync/Async         | Synchronous
+        Reentrancy         | Reentrant
+        Parameters (in)    | RxPduId
+        Parameters (inout) | None
+        Parameters (out)   | None
+        Return value       | uint16 | ConnectionId corresponding to RxPduId
+        Description        | Function that maps from an Rx Pdu Id to Connection Id.
+        Available via      | DiagSrvWrapper.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_138</srcid><srcstatus/><internalId>49</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_GetConnectionId_ByRxPduId</srcid><srcstatus/><internalId>60</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+
+    <specobject>
+      <id>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.Behavior</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the DiagSrvWrapper_GetConnectionId_RxPduId() API is called with a RxPduId which is not configured,
+        then DiagSrvWrapper_GetConnectionId_RxPduId() shall return 0xFFFFU (which represents an invalid connection id).
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/DiagSrvWrapper.c_141</srcid><srcstatus/><internalId>50</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ConTest_StdDiag_GetConnectionId_ByRxPduId</srcid><srcstatus/><internalId>60</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="man">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ResourceConsumption_Manual</id>
+      <status>approved</status>
+      <source>EB manual test</source>
+      <version>1</version>
+      <description>
+        01: Get RAM/ROM consumption of the reference tests
+        02 VP(DiagSrvWrapper.swdd.ROMConsumption): Check the ROM consumption of
+           the test run against the threshold specified in the requirement.
+        03 VP(DiagSrvWrapper.swdd.RAMConsumption): Check the RAM consumption of
+           the test run against the threshold specified in the requirement.
+        Action if test any verification point is not fulfilled:
+        If the consumption exceeds the threshold, an analysis shall be started to find the cause
+        of the additional resource consumption.
+        The result of the analysis shall trigger either:
+        * an update of the resource view in the design and the existing threshold if there is a
+          rationale for the additional resource consumption.
+        OR
+        * measurements to reduce the additional resource consumption below the existing threshold
+          if there is no rationale for the additional resource consumption.
+      </description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.swdd.ROMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>54</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.swdd.RAMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>55</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_134</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>134</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_135</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>135</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_169</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>169</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_179</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>179</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_199</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>199</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManInd</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_237</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>237</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_247</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>247</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_260</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>260</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManConf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_275</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>275</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_276</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>276</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_310</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>310</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_320</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>320</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_362</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>362</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/generate/src/DiagSrvWrapper_Cfg.c_372</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/generate/src/DiagSrvWrapper_Cfg.c</sourcefile>
+      <sourceline>372</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_70</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>70</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_84</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>84</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_94</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>94</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.SelectDTC.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_114</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>114</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_119</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>119</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.2</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_125</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>125</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDTC.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_129</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>129</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDTC.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_138</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>138</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/DiagSrvWrapper.c_141</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/src/DiagSrvWrapper.c</sourcefile>
+      <sourceline>141</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/config/DiagSrvWrapper.xdm.m4_52</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/config/DiagSrvWrapper.xdm.m4</sourcefile>
+      <sourceline>52</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapperRequestDataArray</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/DiagSrvWrapper.xdm.m4_104</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/config/DiagSrvWrapper.xdm.m4</sourcefile>
+      <sourceline>104</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapperEnableDemInterfaces</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/DiagSrvWrapper.xdm.m4_134</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/src/Autosar/config/DiagSrvWrapper.xdm.m4</sourcefile>
+      <sourceline>134</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapperGetConnectionIdByRxPduId</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd">
+    <specobject>
+      <id>DiagSrvWrapper.swdd.ROMConsumption</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/doc/project/design/pdf/DiagSrvWrapper_Design-profiled.xml</sourcefile>
+      <sourceline>2222</sourceline>
+      <version>1</version>
+      <description>
+                  The ROM consumption for reference configuration for code and configuration must not exceed 8 bytes.
+                </description>
+      <rationale>
+                  The defined ROM consumption is the result of all analyzed configuration parameters of reference configuration.
+                </rationale>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ResourceConsumption_Manual</srcid><srcstatus/><internalId>27</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ResourceConsumption</srcid><srcstatus/><internalId>56</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd">
+    <specobject>
+      <id>DiagSrvWrapper.swdd.RAMConsumption</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/doc/project/design/pdf/DiagSrvWrapper_Design-profiled.xml</sourcefile>
+      <sourceline>2255</sourceline>
+      <version>1</version>
+      <description>
+                  The RAM consumption for reference configuration must not exceed 618 bytes.
+                </description>
+      <rationale>
+                  The defined RAM consumption is the result of all analyzed configuration parameters of reference configuration.
+                  The number is based on the assumption of amount and size of analyzed configuration parameters.
+                </rationale>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ResourceConsumption_Manual</srcid><srcstatus/><internalId>27</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_DiagSrvWrapper_ResourceConsumption</srcid><srcstatus/><internalId>56</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ResourceConsumption</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Compile/IN/DiagSrvWrapper_ComTest_ResourceConsumption/source/application/EbTest.h</sourcefile>
+      <sourceline>20</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+    Build the compile test in order to measure the resource (RAM/ROM) consumption
+    VP(DiagSrvWrapper.swdd.ROMConsumption): Verify the ROM consumption of the test application
+      is below the threshold specified in the requirement.
+    VP(DiagSrvWrapper.swdd.RAMConsumption): Verify the RAM consumption of the test application
+      is below the threshold specified in the requirement.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslServiceRequestManufacturerNotification container
+    At least one entry is configured in DcmDslServiceRequestSupplierNotification container
+  
+Test Execution: 
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.swdd.ROMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>54</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.swdd.RAMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>55</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_SelectClearDTC</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_Select_Clear_DTC/source/application/EbTest.c</sourcefile>
+      <sourceline>48</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify if the SelectDTC and ClearDTC APIs from DiagSrvWrapper behave as expected
+      when called through the Rte.
+
+      There are two events (APPL_E_0 and APPL_E_1)
+      with two operation cycles configured (DEM_OPCYC_POWER and DEM_OPCYCLE_0).
+
+      SelectDTC is called for all UDS DTCs with a DTCOrigin equal to:
+      - 0x0100U (the configured DiagSrvWrapperDemUserDefinedMemory value)
+      - 0x0110U (an invalid value)
+      ClearDTC is then called with values set by the SelectDTC call beforehand.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    DemRteUsage = true
+    DemDefaultASRServiceAPI = AUTOSAR_42
+    DiagSrvWrapperDemUserDefinedMemory = 256 (0x0100U)
+  
+Test Execution: 
+    01 AP: Initialize the Dem module
+    02 AP: Set the state of the configured operation cycles to start
+    03 AP: Set the status of the configured events to failed
+    04 AP: Call the main function
+    05 AP: Prepare values for the DiagSrvWrapper_SelectDTC() API call.
+           UDS DTCs with an origin equal to the configured DiagSrvWrapperDemUserDefinedMemory, 256 (0x100)
+    06 VP (DiagSrvWrapper.EB.Req.SelectDTC.Behavior.1): Call the DiagSrvWrapper_SelectDTC() API
+                                                        through the Rte - always returns E_OK
+    07 VP (DiagSrvWrapper.EB.Req.ClearDTC.Behavior): Call the DiagSrvWrapper_ClearDTC() API through the Rte.
+                                                     Should return DEM_CLEAR_PENDING as requested is to be processed.
+    08 AP: Call the main function to start processing
+    09 VP (DiagSrvWrapper.EB.Req.ClearDTC.Behavior): Call the DiagSrvWrapper_ClearDTC() API through the Rte again.
+                                                     Should return E_OK now, as requested was processed.
+    10 AP: Change the DTC origin of the next SelectDTC call.
+           This time, the value is invalid.
+    11 VP (DiagSrvWrapper.EB.Req.SelectDTC.Behavior.2): Call the DiagSrvWrapper_SelectDTC() API
+                                                        through the Rte - always returns E_OK
+    12 VP (DiagSrvWrapper.EB.Req.ClearDTC.Behavior): Call the DiagSrvWrapper_ClearDTC() API through the Rte.
+                                                     Should return DEM_CLEAR_PENDING as requested is to be processed.
+    13 AP: Call the main function to start processing
+    14 VP (DiagSrvWrapper.EB.Req.ClearDTC.Behavior): Call the DiagSrvWrapper_ClearDTC() API through the Rte again.
+                                                     Should return E_OK now, as requested was processed.
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.SelectDTC.Behavior.2</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDTC.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_StdDiag</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_StdDiag/source/application/EbTest.c</sourcefile>
+      <sourceline>119</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify that the data, sent from Dcm to SWCs via DiagWrapper's interfaces, are correctly.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslServiceRequestManufacturerNotification container
+    At least one entry is configured in DcmDslServiceRequestSupplierNotification container
+  
+Test Execution: 
+    01. Initialize the reception of a diagnostic request.
+    02. VP: Verify if the request was successfully received.
+    03. Copy the data from receive TP buffer to the DCM receive buffer.
+    04. VP: Check if data was copied successfully.
+    05. Indicate successful reception.
+    06. VP: Verify the data sent from Dcm via indication interface are correct.
+    07. Perform a transmission of a service response.
+    08. Verify a positive response for the service.
+    09. Verify if the transmission buffer can be provided.
+    10. Invoke Dcm_TpTxConfirmation with E_OK to indicate that the message has been sent successfully.
+    11. VP: Verify the data sent from Dcm via confirmation interface are correct.
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_StdDiag_ClearDtcNotification</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_StdDiag/source/application/EbTest.c</sourcefile>
+      <sourceline>243</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify that the data, sent from Dcm to SWCs via DiagWrapper's interfaces, are correctly.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslServiceRequestManufacturerNotification container
+    At least one entry is configured in DcmDslServiceRequestSupplierNotification container
+  
+Test Execution: 
+    01. Initialize the reception of a diagnostic request.
+    02. VP: Verify if the request was successfully received.
+    03. Copy the data from receive TP buffer to the DCM receive buffer.
+    04. VP: Check if data was copied successfully.
+    05. Indicate successful reception.
+    06. VP: Verify the data sent from Dcm via indication interface are correct.
+    07. Perform a transmission of a service response.
+    08. Verify a positive response for the service.
+    09. Verify if the transmission buffer can be provided.
+    10. Invoke Dcm_TpTxConfirmation with E_OK to indicate that the message has been sent successfully.
+    11. VP: Verify the data sent from Dcm via confirmation interface are correct.
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManInd</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ClearDtcNotification.Behavior.ManConf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_StdDiag_GetConnectionId_ByRxPduId</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_StdDiag_GetConnectionId_RxPduId/source/application/EbTest.c</sourcefile>
+      <sourceline>59</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify the DiagSrvWrapper_GetConnectionId_RxPduId function functionality:
+        - verified that it returns the correct Connection Id value for the Rx Pdu Id
+        - verified that it returns invalid Connection Id value for NOT configured Rx Pdu Id
+
+      Dcm configuration:
+        DcmDslProtocolRow_0
+          DcmDslConnection_0
+          Connection Id: 2
+            Type: DcmDslMainConnection
+              DcmDslProtocolRx_1
+                Rx Pdu Id: 0
+              DcmDslProtocolRx_2
+                Rx Pdu Id: 1
+          DcmDslConnection_1
+          Connection Id: 1
+            Type: DcmDslMainConnection
+              DcmDslProtocolRx_1
+                Rx Pdu Id: 2
+              DcmDslProtocolRx_2
+                Rx Pdu Id: 3
+          DcmDslConnection_2
+            Type:DcmDslResponseOnEvent
+
+        DcmDslProtocolRow_1
+          DcmDslConnection_0
+            Type: DcmDslResponseOnEvent
+          DcmDslConnection_1
+          Connection Id: 10000
+            Type: DcmDslMainConnection
+              DcmDslProtocolRx_1
+                Rx Pdu Id: 4
+          DcmDslConnection_2
+            Type: DcmDslPeriodicTransmission
+          DcmDslConnection_3
+          Connection Id: 3
+            Type: DcmDslMainConnection
+              DcmDslProtocolRx_1
+                Rx Pdu Id: 5
+              DcmDslProtocolRx_2
+                Rx Pdu Id: 6
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslConnection container with DcmDslMainConnection type
+  
+Test Execution: 
+    01. Call DiagSrvWrapper_GetConnectionId_RxPduId function with Rx Pdu Id 0 - associated with Connection Id 2.
+    02. Verify the returned Connection Id.
+    03. Call DiagSrvWrapper_GetConnectionId_RxPduId function with Rx Pdu Id 5 - associated with Connection Id 3.
+    04. Verify the returned Connection Id.
+    05. Call DiagSrvWrapper_GetConnectionId_RxPduId function with Rx Pdu Id 4 - associated with Connection Id 10000.
+    06. Verify the returned Connection Id.
+    07. Call DiagSrvWrapper_GetConnectionId_RxPduId function with Rx Pdu Id 2 - associated with Connection Id 1.
+    08. Verify the returned Connection Id.
+    09. Call DiagSrvWrapper_GetConnectionId_RxPduId function with Rx Pdu Id NOT CONFIGURED.
+    10 VP(DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.Behavior): Verify the returned Connection Id - should be an invalid value because Rx Pdu Id is NOT CONFIGURED.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapperGetConnectionIdByRxPduId</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.FunctionDef</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.DiagSrvWrapper_GetConnectionId_RxPduId.Behavior</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidConnectionId</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_StdDiag_InvalidConnectionId/source/application/EbTest.c</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify if the DiagSrvWrapper uses an invalid value for the connection index
+      then the DiagSrvWrapper module shall perform no changes and return with E_NOT_OK.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslServiceRequestManufacturerNotification container
+    At least one entry is configured in DcmDslServiceRequestSupplierNotification container
+  
+Test Execution: 
+    01. Initialize the reception of a diagnostic request.
+    02. VP: Verify if the request was successfully received.
+    03. Copy the data from receive TP buffer to the DCM receive buffer.
+    04. VP: Check if data was copied successfully.
+    05. Invoke Dcm_TpRxIndication with E_OK to indicate the result of the transmission.
+    06. VP(DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex): Verify that the data from Dcm has not been sent
+        and the indication interface from SWC have not been called.
+    07. Perform a transmission of a service response.
+    08: Verify a negative response for the TesterPresent service was received.
+    09. Verify if the transmission buffer can be provided.
+    10. Invoke Dcm_TpTxConfirmation with E_OK to indicate the result of the transmission.
+    11. VP(DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex): Verify that the data from Dcm has not been sent
+        and the confirmation interface from SWC have not been called.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.GetConnectionId.InvalidConnectionIndex</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_DiagSrvWrapper_ConTest_StdDiag_InvalidSourceAddress</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_DiagSrvWrapper)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_DiagSrvWrapper/test/ts5/Conformance/IN/DiagSrvWrapper_ConTest_StdDiag_InvalidConnectionId/source/application/EbTest_DiagWrapper_Swc.c</sourcefile>
+      <sourceline>31</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      Verify that DiagSrvWrapper interfaces called with an invalid source address perform no changes and return with E_NOT_OK.
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    At least one entry is configured in DcmDslServiceRequestManufacturerNotification container
+    At least one entry is configured in DcmDslServiceRequestSupplierNotification container
+  
+Test Execution: 
+    01. Call DiagSrvWrapper interfaces with an invalid source address.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierIndication.Generic.Invalid</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.SupplierConfirmation.Generic.Invalid</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerIndication.Generic.Invalid</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+        <provcov>
+          <linksto>DiagSrvWrapper.EB.Req.ServiceRequestNotification.ManufacturerConfirmation.Generic.Invalid</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

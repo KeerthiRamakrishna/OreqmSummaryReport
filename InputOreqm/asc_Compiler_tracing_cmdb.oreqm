@@ -1,0 +1,2738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_Compiler_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_Native/asc_Compiler_requirements_AUTOSAR_SWS_CompilerAbstraction_ASR403.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 21:30:46 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_Compiler_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_Native/asc_Compiler_requirements_AUTOSAR_SWS_CompilerAbstraction_ASR403.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER048</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The SWS Compiler Abstraction is applicable for each AUTOSAR
+        basic software module and application software components. Therefore, the
+        implementation of the memory class (memclass) and pointer class (ptrclass) macro
+        parameters (see COMPILER040) shall fulfill the implementation and configuration
+        specific needs of each software module in a specific build scenario. (BSW00328,
+        BSW00384)
+      </description>
+         <comment>
+        This requirement is not applicable.
+        "Proven in use", Compiler.h is used in each tests and demo.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER052</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Include structure of the compiler specific language extension
+        header:
+        Compiler.h includes Compiler_Cfg.h
+        Std_Types.h includes Compiler.h
+        (BSW00348, BSW00381, BSW00412)
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SWS_Compiler_header_file_structure</srcid><srcstatus/><internalId>114</internalId></linkedfrom><linkedfrom><srcid>TS_Compiler_ComTest_2</srcid><srcstatus/><internalId>116</internalId></linkedfrom><linkedfrom><srcid>TS_Compiler_macro_file_inclusion</srcid><srcstatus/><internalId>117</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER052_EB</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Include structure of the compiler specific language extension
+        header:
+        Compiler.h includes Compiler_Cfg.h
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_32</srcid><srcstatus/><internalId>60</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_32</srcid><srcstatus/><internalId>75</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_32</srcid><srcstatus/><internalId>99</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER003</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        For each compiler and platform an own compiler abstraction has to be provided.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_5</srcid><srcstatus/><internalId>59</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_5</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_5</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER004</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The file name of the compiler abstraction shall be `Compiler.h'.
+        (BSW00348, BSW00361)
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_5</srcid><srcstatus/><internalId>59</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_5</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_5</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER053</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The file Compiler.h shall contain the definitions and macros
+        specified in chapter 9. Those are fix for one specific compiler and platform. ()
+      </description>
+         <comment>
+        currently supported target's Compiler.h files are located in /include/TARGET/ folders
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_5</srcid><srcstatus/><internalId>59</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_5</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_5</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER005</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        If a compiler does not require or support the usage of special
+        keywords; the corresponding macros specified by this specification shall be provided
+        as empty definitions or definitions without effect.
+        Example:
+        #define FUNC(type, memclass) type
+        /* not required for DIABDATA */ ()
+      </description>
+         <comment>
+        This requirement is informational only.
+        Each special define shall be available according to chapter 9, empty or with required keyword(s).
+        Therefore for each keyword there exist an other requirement in SWS.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER010</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define a symbol for the target
+        compiler according to the following naming convention:
+        _COMPILERNAME_C_PLATFORMNAME_
+      </description>
+         <comment>
+        ACG version uses this define whereas the PLATFORMNAME is always the TARGET variable
+        MCAL uses different naming, which shall be part of Compiler_CfgExtMcal.h
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h or target specific Compiler_Specific.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/ARC/gnu/Compiler_Specific.h_23</srcid><srcstatus/><internalId>40</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARC/metaware/Compiler_Specific.h_23</srcid><srcstatus/><internalId>41</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM/armkeil/Compiler_Specific.h_23</srcid><srcstatus/><internalId>42</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM/dcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>43</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM/gnu/Compiler_Specific.h_23</srcid><srcstatus/><internalId>44</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM/multi/Compiler_Specific.h_23</srcid><srcstatus/><internalId>45</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM/ticgt/Compiler_Specific.h_23</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM64/armkeil/Compiler_Specific.h_23</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM64/dcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/ARM64/gnu/Compiler_Specific.h_23</srcid><srcstatus/><internalId>49</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/arm5/Compiler_Specific.h_23</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/armkeil/Compiler_Specific.h_23</srcid><srcstatus/><internalId>51</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/dcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>52</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/gnu/Compiler_Specific.h_23</srcid><srcstatus/><internalId>53</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/iar/Compiler_Specific.h_22</srcid><srcstatus/><internalId>54</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/linaro/Compiler_Specific.h_22</srcid><srcstatus/><internalId>55</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/multi/Compiler_Specific.h_23</srcid><srcstatus/><internalId>56</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/CORTEXM/ticgt/Compiler_Specific.h_23</srcid><srcstatus/><internalId>57</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler_Specific.h_23</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/PA/dcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/PA/htgcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/PA/multi/Compiler_Specific.h_23</srcid><srcstatus/><internalId>91</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/RH850/multi/Compiler_Specific.h_23</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/TRICORE/clang/Compiler_Specific.h_23</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/TRICORE/dcc/Compiler_Specific.h_23</srcid><srcstatus/><internalId>94</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/TRICORE/gnu/Compiler_Specific.h_23</srcid><srcstatus/><internalId>95</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/TRICORE/tasking/Compiler_Specific.h_23</srcid><srcstatus/><internalId>96</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler_Specific.h_23</srcid><srcstatus/><internalId>112</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations><ruleid>WRN.src.needscoverage.count</ruleid></oreqmViolations><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER030</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        "Compiler.h" shall provide information of the supported compiler
+        vendor and the applicable compiler version. ()
+      </description>
+         <comment>
+        This requirement is not applicable.
+        The supported compiler vendor and compiler version is part of the
+        configuration management of the user.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER035</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The macro parameters memclass and ptrclass shall not be filled
+        with the compiler specific keywords but with one of the configured values in
+        COMPILER040. (BWS00306, BSW006)
+      </description>
+         <comment>
+        This requirement is informational only.
+        Compiler_Cfg.h can be adapted for its use by the user and therefore the
+        adaptions needs to be checked seperately.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER036</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        C forbids the use of the far/near-keywords on function local
+        variables (auto-variables). For this reason when using the macros below to allocate a
+        pointer on stack, the memclass-parameter shall be set to AUTOMATIC.
+        (BWS00306, BSW006)
+      </description>
+         <comment>
+        This requirement is informational only.
+        Each module shall use the defined compiler abstractions.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER047_Conf</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The Compiler.h header file shall protect itself against multiple
+        inclusions.
+        For instance:
+        #ifndef COMPILER_H
+        #define COMPILER_H
+        /* implementation of Compiler.h */
+        ...
+        #endif /* COMPILER_H */
+        There may be only comments outside of the ifndef - endif bracket. ()
+      </description>
+         <comment>
+        define can be verified with a compile test
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_2</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_2</srcid><srcstatus/><internalId>73</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_2</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SWS_Compiler_header_file_structure</srcid><srcstatus/><internalId>114</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER050</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        It is allowed to extend the Compiler Abstraction header with
+        vendor specific extensions. Vendor specific extended elements shall contain the
+        AUTOSAR Vendor ID in the name. ()
+      </description>
+         <comment>
+        This requirement is informational only.
+        Compiler_Cfg.h file can be adapted by user. Therefore the Compiler Abstraction header is extentable.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER055</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The file Compiler_Cfg.h shall contain the module/component
+        specific parameters (ptrclass and memclass) that are passed to the macros
+        defined in Compiler.h. See COMPILER040 for memory types and required syntax.
+        ()
+      </description>
+         <comment>
+        This requirement is informational only.
+        Compiler_Cfg.h file can be adapted by user.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER054</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Module specific extended elements shall contain the module
+        abbreviation of the BSW module in the name. Application software component
+        specific extended elements shall contain the Software Component Type's name. ()
+      </description>
+         <comment>
+        This requirement is informational only.
+        Compiler_Cfg.h file can be adapted by user.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER046</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The memory class AUTOMATIC shall be provided as empty
+        definition, used for the declaration of local pointers.
+      </description>
+         <comment>
+        Currently part of Compiler_Common.h located in Base plugin.
+        Needs to be moved from Base module into Compiler module.
+        No src requirement tracing possible at the moment.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER059</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The memory class TYPEDEF shall be provided as empty
+        definition. This memory class shall be used within type definitions, where no
+        memory qualifier can be specified. This can be necessary for defining pointer
+        types, with e.g. P2VAR, where the macros require two parameters. First
+        parameter can be specified in the type definition (distance to the memory location
+        referenced by the pointer), but the second one (memory allocation of the pointer
+        itself) cannot be defined at this time. Hence, memory class TYPEDEF shall be
+        applied.
+      </description>
+         <comment>
+        Currently part of Compiler_Common.h located in Base plugin.
+        Needs to be moved from Base module into Compiler module.
+        No src requirement tracing possible at the moment.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file
+        <needsobj>src</needsobj> -->
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER051</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall provide the NULL_PTR define
+        with a void pointer to zero definition.
+      </description>
+         <comment>
+        Currently part of Compiler_Common.h located in Base plugin.
+        Needs to be moved from Base module into Compiler module.
+        No src requirement tracing possible at the moment.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file
+        <needsobj>src</needsobj> -->
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER057</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall provide the INLINE define for
+        abstraction of the keyword inline.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_62</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_76</srcid><srcstatus/><internalId>76</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_76</srcid><srcstatus/><internalId>100</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER060</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall provide the LOCAL_INLINE
+        define for abstraction of the keyword inline in functions with static scope.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_85</srcid><srcstatus/><internalId>62</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_95</srcid><srcstatus/><internalId>77</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_95</srcid><srcstatus/><internalId>101</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER001</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the FUNC macro for the
+        declaration and definition of functions that ensures correct syntax of function
+        declarations as required by a specific compiler.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_103</srcid><srcstatus/><internalId>63</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_113</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_113</srcid><srcstatus/><internalId>102</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER058</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        In the parameter list of this macro no further Compiler
+        Abstraction macros shall be nested. Instead, use a previously defined type as
+        return type or use FUNC_P2CONST/FUNC_P2VAR.
+        Example:
+          typedef P2VAR(uint8, AUTOMATIC, PREFIX_VAR) NearDataType;
+          FUNC(NearDataType, PREFIX_CODE) FarFuncReturnsNearPtr(void);
+      </description>
+         <comment>
+        This requirement is informational only.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER061</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the FUNC_P2CONST
+        macro for the declaration and definition of functions returning a pointer to a
+        constant. This shall ensure the correct syntax of function declarations as required
+        by a specific compiler.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_126</srcid><srcstatus/><internalId>64</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_136</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_136</srcid><srcstatus/><internalId>103</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER062</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        In the parameter list of the FUNC_P2CONST, no further
+        Compiler Abstraction macros shall be nested.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_126</srcid><srcstatus/><internalId>64</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_136</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_136</srcid><srcstatus/><internalId>103</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER063</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the FUNC_P2VAR macro
+        for the declaration and definition of functions returning a pointer to a variable. This
+        shall ensure the correct syntax of function declarations as required by a specific
+        compiler.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_151</srcid><srcstatus/><internalId>65</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_161</srcid><srcstatus/><internalId>80</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_161</srcid><srcstatus/><internalId>104</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER064</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        In the parameter list of the macro FUNC_P2VAR, no further
+        Compiler Abstraction macros shall be nested.
+      </description>
+         <comment>
+        This requirement is informational only.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+            <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_151</srcid><srcstatus/><internalId>65</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_161</srcid><srcstatus/><internalId>80</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_161</srcid><srcstatus/><internalId>104</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER006</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the P2VAR macro for the
+        declaration and definition of pointers in RAM, pointing to variables.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_174</srcid><srcstatus/><internalId>66</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_184</srcid><srcstatus/><internalId>81</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_184</srcid><srcstatus/><internalId>105</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER013</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the P2CONST macro for
+        the declaration and definition of pointers in RAM pointing to constants
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_194</srcid><srcstatus/><internalId>67</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_204</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_204</srcid><srcstatus/><internalId>106</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER031</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the CONSTP2VAR macro
+        for the declaration and definition of constant pointers accessing variables.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_214</srcid><srcstatus/><internalId>68</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_224</srcid><srcstatus/><internalId>83</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_224</srcid><srcstatus/><internalId>107</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER032</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the CONSTP2CONST
+        macro for the declaration and definition of constant pointers accessing constants.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_234</srcid><srcstatus/><internalId>69</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_244</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_244</srcid><srcstatus/><internalId>108</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER039</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the P2FUNC macro for the
+        type definition of pointers to functions.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_252</srcid><srcstatus/><internalId>70</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_262</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_262</srcid><srcstatus/><internalId>109</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER023</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the CONST macro for the
+        declaration and definition of constants.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_286</srcid><srcstatus/><internalId>71</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_298</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_298</srcid><srcstatus/><internalId>110</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER026</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The compiler abstraction shall define the VAR macro for the
+        declaration and definition of variables.
+      </description>
+         <comment>
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file -->
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Compiler.h_303</srcid><srcstatus/><internalId>72</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/LINUX/Compiler.h_315</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/include/WINDOWS/Compiler.h_315</srcid><srcstatus/><internalId>111</internalId></linkedfrom></coveredby></needscov>
+            <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Compiler_ComTest_1</srcid><srcstatus/><internalId>115</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER044</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Container Name PREFIX_MemoryAndPointerClasses
+        This container contains the memory and pointer class parameters of a
+        single module or of an application software component.
+        For each module, this container has to be provided.
+        The number of different pointer and memory classes per module
+        depends on the different types of variables, constants and pointers used
+        by the module. It is allowed to extend the classes by module specific
+        Description classes.
+      </description>
+         <comment>
+        This requirement is informational only.
+        Compiler_Cfg.h file can be adapted by user.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER042</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The file Compiler.h is specific for each build scenario. Therefore
+        there is no standardized configuration interface specified. ()
+      </description>
+         <comment>
+        This requirement is informational only.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER001_PI</id>
+         <status>approved</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The standardized common published parameters as
+        required by BSW00402 in the General Requirements on Basic Software Modules [2]
+        shall be published within the header file of this module and need to be provided in the
+        BSW Module Description. The according module abbreviation can be found in the
+        List of Basic Software Modules [1]. (BWS003, BWS00318, BSW00321, BSW00374,
+        BSW00379, BSW00402)
+      </description>
+         <comment>
+        Currently part of Compiler_Common.h located in Base plugin.
+        Needs to be moved from Base module into Compiler module.
+        No src requirement tracing possible at the moment.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+         <needscoverage>
+        <!-- Link in each Compiler.h file
+        <needsobj>src</needsobj> -->
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SWS_Compiler_published_information</srcid><srcstatus/><internalId>113</internalId></linkedfrom></coveredby></needscov>
+         <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER012</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        The following table defines target compiler symbols according to
+        COMPILER010. For each compiler supported by AUTOSAR a symbol has to be
+        defined. (BWS00306, BSW006)
+      </description>
+         <comment>
+        This requirement is not applicable to this specification.
+        The list of compiler symbols in this specification is only an example.
+        Compiler.h file is only for one compiler and for one target.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER040</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Each AUTOSAR software module and application software
+        component shall support the distinction of at least the following different memory
+        classes and pointer classes.
+        It is allowed to add module specific memory classes and pointer classes as they are
+        mapped and thus are configurable within the Compiler_Cfg.h
+        file.
+<para>
+Located in Compiler_Cfg.h:
+Code      &lt;PREFIX&gt;_CODE
+Constants &lt;PREFIX&gt;_CONST
+Pointer   &lt;PREFIX&gt;_APPL_DATA
+Pointer   &lt;PREFIX&gt;_APPL_CONST
+Pointer   &lt;PREFIX&gt;_APPL_CODE
+Variables &lt;PREFIX&gt;_CALLOUT_CODE
+Variables &lt;PREFIX&gt;_VAR_NOINIT
+Variables &lt;PREFIX&gt;_VAR_CLEARED
+Variables &lt;PREFIX&gt;_VAR_POWER_ON_INIT
+Variables &lt;PREFIX&gt;_VAR_FAST
+Variables  &lt;PREFIX&gt;_VAR
+Located in Compiler.h:
+Variables         AUTOMATIC
+Type Definitions  TYPEDEF
+</para>
+
+         </description>
+         <comment>
+        This requirement is not applicable.
+        Keyword AUTOMATIC is specified in CompilerAbstraction.ASR403.COMPILER046.
+        Keyword TYPEDEF is specified in CompilerAbstraction.ASR403.COMPILER059.
+        All other keywords has to be part of Compiler_Cfg.h file which can be adapted by user.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER041</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        Each  AUTOSAR  software  module  and  application  software
+        component  shall  wrap  declaration  and  definition  of  code,  variables,  constants  and
+        pointer types using the following keyword macros: ()
+      </description>
+         <comment>
+        This requirement is not applicable to this specification.
+        It has to be verified in each AUTOSAR module itself.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+
+      <specobject>
+         <id>CompilerAbstraction.ASR403.COMPILER999</id>
+         <status>rejected</status>
+         <source>AUTOSAR_SWS_CompilerAbstraction, v4.0.3</source>
+         <version>1</version>
+         <description>
+        These requirements are not applicable to this specification.
+        (BSW00300, BSW00301, BSW00302, BSW00304, BSW00305, BSW00307,
+        BSW00308, BSW00309, BSW00310, BSW00312, BSW00314, BSW00323,
+        BSW00324, BSW00325, BSW00326, BSW00327, BSW00329, BSW00330,
+        BSW00331, BSW00333, BSW00334, BSW00335, BSW00336, BSW00338,
+        BSW00339, BSW00341, BSW00342, BSW00343, BSW00344, BSW00346,
+        BSW00350, BSW00353, BSW00355, BSW00357, BSW00358, BSW00359,
+        BSW00360, BSW00369, BSW00370, BSW00371, BSW00373, BSW00375,
+        BSW00376, BSW00377, BSW00378, BSW00380, BSW00385, BSW00386,
+        BSW00387, BSW00390, BSW00391, BSW00392, BSW00393, BSW00394,
+        BSW00395, BSW00398, BSW00399, BSW004, BSW00400, BSW00401,
+        BSW00404, BSW00405, BSW00406, BSW00407, BSW00408, BSW00409,
+        BSW00410, BSW00411, BSW00413, BSW00414, BSW00415, BSW00416,
+        BSW00417, BSW00419, BSW00420, BSW00422, BSW00423, BSW00424,
+        BSW00425, BSW00426, BSW00427, BSW00428, BSW00429, BSW00431,
+        BSW00432, BSW00433, BSW00434, BSW005, BSW007, BSW009, BSW010,
+        BSW158, BSW161, BSW162, BSW164, BSW167, BSW168, BSW170, BSW171,
+        BSW172)
+      </description>
+         <comment>
+        This requirement is not applicable.
+      </comment>
+         <releases>
+            <release>AUTOSAR 4.0.3</release>
+         </releases>
+      <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARC/gnu/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARC/gnu/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARC/metaware/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARC/metaware/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM/armkeil/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM/armkeil/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM/dcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM/dcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM/gnu/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM/gnu/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM/multi/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM/multi/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM/ticgt/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM/ticgt/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM64/armkeil/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM64/armkeil/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM64/dcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM64/dcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/ARM64/gnu/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/ARM64/gnu/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/arm5/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/arm5/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/armkeil/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/armkeil/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/dcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/dcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/gnu/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/gnu/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/iar/Compiler_Specific.h_22</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/iar/Compiler_Specific.h</sourcefile>
+      <sourceline>22</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/linaro/Compiler_Specific.h_22</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/linaro/Compiler_Specific.h</sourcefile>
+      <sourceline>22</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/multi/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/multi/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/CORTEXM/ticgt/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/CORTEXM/ticgt/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_2</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>2</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER047_Conf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_5</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>5</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER003</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER004</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER053</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_32</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052_EB</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_62</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>62</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER057</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_85</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>85</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER060</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_103</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>103</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_126</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>126</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER061</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER062</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_151</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>151</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER063</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER064</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_174</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>174</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_194</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>194</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER013</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_214</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>214</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER031</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>68</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_234</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>234</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER032</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>69</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_252</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>252</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER039</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>70</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_286</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>286</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER023</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>71</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Compiler.h_303</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/Compiler.h</sourcefile>
+      <sourceline>303</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER026</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>72</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_2</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>2</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER047_Conf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>73</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_5</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>5</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER003</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER004</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER053</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>74</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_32</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052_EB</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>75</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_76</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>76</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER057</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>76</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_95</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>95</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER060</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>77</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_113</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>113</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>78</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_136</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>136</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER061</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER062</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>79</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_161</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>161</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER063</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER064</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>80</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_184</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>184</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>81</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_204</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>204</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER013</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>82</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_224</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>224</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER031</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>83</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_244</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>244</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER032</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>84</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_262</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>262</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER039</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>85</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_298</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>298</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER023</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>86</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler.h_315</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler.h</sourcefile>
+      <sourceline>315</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER026</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>87</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/LINUX/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/LINUX/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>88</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/PA/dcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/PA/dcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>89</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/PA/htgcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/PA/htgcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>90</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/PA/multi/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/PA/multi/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>91</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/RH850/multi/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/RH850/multi/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>92</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/TRICORE/clang/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/TRICORE/clang/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>93</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/TRICORE/dcc/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/TRICORE/dcc/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>94</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/TRICORE/gnu/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/TRICORE/gnu/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>95</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/TRICORE/tasking/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/TRICORE/tasking/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>96</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_2</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>2</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER047_Conf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>97</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_5</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>5</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER003</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER004</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER053</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>98</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_32</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052_EB</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>99</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_76</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>76</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER057</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>100</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_95</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>95</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER060</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>101</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_113</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>113</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>102</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_136</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>136</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER061</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER062</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>103</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_161</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>161</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER063</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER064</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>104</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_184</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>184</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>105</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_204</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>204</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER013</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>106</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_224</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>224</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER031</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>107</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_244</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>244</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER032</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>108</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_262</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>262</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER039</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>109</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_298</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>298</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER023</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>110</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler.h_315</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler.h</sourcefile>
+      <sourceline>315</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER026</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>111</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/WINDOWS/Compiler_Specific.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/src/Autosar/include/WINDOWS/Compiler_Specific.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER010</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>112</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>SWS_Compiler_published_information</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Compiler)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/test/ts5/Compile/IN/Compiler_ComTest_1/source/application/appl.c.m4</sourcefile>
+      <sourceline>54</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: Compile test for
+Test Description: 
+Check if VENDOR_ID, MODULE_ID, AR_RELEASE_MAJOR_VERSION, AR_RELEASE_MINOR_VERSION, 
+AR_RELEASE_REVISION_VERSION, SW_MAJOR_VERSION, SW_MINOR_VERSION, SW_PATCH_VERSION 
+exists according to BSW00402 reqirement.
+defines for these macros shall exist
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+* compile and link test application
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER001_PI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>35</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>113</internalId></specobject>
+    <specobject>
+      <id>SWS_Compiler_header_file_structure</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Compiler)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/test/ts5/Compile/IN/Compiler_ComTest_1/source/application/appl.c.m4</sourcefile>
+      <sourceline>102</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: Compile test for
+Test Description: 
+Check if Std_Type.h include Compiler.h and Compiler_Cfg.h files. 
+Header defines for these files shall exist.
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+* compile and link test application
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER047_Conf</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>114</internalId></specobject>
+    <specobject>
+      <id>TS_Compiler_ComTest_1</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Compiler)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/test/ts5/Compile/IN/Compiler_ComTest_1/source/application/appl.c.m4</sourcefile>
+      <sourceline>148</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: Compile test for
+Test Description: 
+Check API specification of chapter 9 
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+* compile and link test application
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER046</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER059</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER051</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER057</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER060</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER061</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER063</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER013</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER031</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER032</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER039</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER023</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER026</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>115</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_Compiler_ComTest_2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Compiler)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/test/ts5/Compile/IN/Compiler_ComTest_2/source/application/appl.c.m4</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: Compile test for
+Test Description:  
+Verify that the MCAL vendor specific compiler macro's are generated correctly
+when COMPILERCFG_EXTENSION_MCAL_FILE is defined.
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+* compile and link test application
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>116</internalId></specobject>
+    <specobject>
+      <id>TS_Compiler_macro_file_inclusion</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Compiler)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Compiler/test/ts5/Compile/IN/Compiler_ComTest_2/source/application/appl.c.m4</sourcefile>
+      <sourceline>87</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: Compile test for
+Test Description: 
+Verify that the specific macro's are generated correctly
+when COMPILERCFG_EXTENSION_FILE is defined.
+
+Test Object: None.
+Test Precondition: 
+
+Test Execution: 
+* compile and link test application
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>CompilerAbstraction.ASR403.COMPILER052</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>117</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

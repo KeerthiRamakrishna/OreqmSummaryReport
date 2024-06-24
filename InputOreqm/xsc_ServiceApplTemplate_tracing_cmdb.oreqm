@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o xsc_ServiceApplTemplate_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_Native/xsc_ServiceApplTemplate_requirements_requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm</commandline>
+    <timestamp>Mon Jun 17 22:33:15 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>xsc_ServiceApplTemplate_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_Native/xsc_ServiceApplTemplate_requirements_requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+
+    <defaults>
+      <source>Elektrobit Automotive GmbH</source>
+    </defaults>
+
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0001</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The GUI shall have a configuration option to turn code generation on and off.</description>
+      <needscoverage>
+        <needscov><needsobj>req</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0028</srcid><srcstatus/><internalId>1</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0022</srcid><srcstatus/><internalId>15</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0028</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>Due to the implementation of ServiceApplTemplate as a module, code generation can be disabled and enabled on module basis independently from other modules.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations><ruleid>ERR.req.needscoverage.count</ruleid></violations><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0002</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The generated ARXML model code shall have an AssemblyConnector between every port pair of ServiceApplTemplate SWC (PPortPrototype) and the service SWC (RPortPrototype).</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_402</srcid><srcstatus/><internalId>30</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_439</srcid><srcstatus/><internalId>31</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_309</srcid><srcstatus/><internalId>42</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_346</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0027</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0004</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The module shall create a SWC description file in ARXML format.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linkerror</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror>source not covered.</linkerror><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0005</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The generated ARXML shall conform to AUTOSAR version 4.2.2.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java_51</srcid><srcstatus/><internalId>23</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0006</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The generated System shall have the same AUTOSAR path as the System in the system model.</description>
+      <rationale>This assures that it is merged with the existing System during import.</rationale>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_492</srcid><srcstatus/><internalId>32</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_73</srcid><srcstatus/><internalId>35</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_403</srcid><srcstatus/><internalId>44</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_43</srcid><srcstatus/><internalId>47</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0007</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The generated SwComponentPrototype shall be mapped to the EcuInstance used in the system model.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_517</srcid><srcstatus/><internalId>33</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_98</srcid><srcstatus/><internalId>36</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_428</srcid><srcstatus/><internalId>45</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_68</srcid><srcstatus/><internalId>48</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0010</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>3</version>
+      <description>The generated ARXML shall contain a CompositionSwComponentType for the parent CompositionSwComponentType which contains the SwComponentPrototype of the service SWC's ServiceSwComponentType.</description>
+      <rationale>This is necessary as the SwComponentPrototype of ServiceApplTemplate's CompositionSwComponentType shall be merged into the existing CompositionSwComponentType during import into tresos Studio. Moreover, if ServiceApplTemplate's SwComponentPrototype would not live in the same CompositionSwComponentType as the Prototype of the service SWC's ServiceSwComponentType, additional to AssemblyConnectors between the two SwComponentPrototypes, DelegationConnectors would be necessary on every CompositionSwComponentType level between the two prototypes, which would increase implementation effort and therefore probability for introduction of bugs.</rationale>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_386</srcid><srcstatus/><internalId>29</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_292</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0011</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The generated CompositionSwComponentType shall have the same AUTOSAR path as the one existing in the system model.</description>
+      <rationale>This is necessary as the CompositionSwComponentType shall be merged with the existing one during import into tresos Studio.</rationale>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_362</srcid><srcstatus/><internalId>27</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_270</srcid><srcstatus/><internalId>39</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0012</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The generated SwComponentType shall have a PPortPrototype for every RPortPrototype of the service SwComponentType for which no AssemblyConnector exists for the service SwComponentPrototype except the AssemblyConnectors connected to the generated SwComponenetPrototype.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linkerror</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror>source not covered.</linkerror><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0014</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The output file shall be generated using JET templates.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_158</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_53</srcid><srcstatus/><internalId>34</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_21</srcid><srcstatus/><internalId>37</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_19</srcid><srcstatus/><internalId>46</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0015</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The JET template for the output file shall be editable by the user.</description>
+      <needscoverage>
+        <needscov><needsobj>req</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0019</srcid><srcstatus/><internalId>14</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0025</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>There shall be a single configuration value which controls the ShortName of the generated SwComponentPrototype and SwComponentType as well as the file name of the output ARXML file.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java_146</srcid><srcstatus/><internalId>24</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/config/ServiceApplTemplate.xdm.m4_37</srcid><srcstatus/><internalId>50</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0018</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The ARXML shall be generated in generation mode generate_swcd.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml_15</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0026</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0019</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The code generator shall use the NG Generator API.</description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml_16</srcid><srcstatus/><internalId>54</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0015</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0022</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>ServiceApplTemplate shall be implemented as a tresos Studio module.</description>
+      <rationale>Every module can be disabled and enabled and code generation can be turned on and off independently from the others.</rationale>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0001</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations><ruleid>ERR.req.needscoverage.count</ruleid></violations><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0026</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The ARXML generator shall create a software component instance (SwComponentPrototype) that implements all the open (unconnected) services of the service SwComponentPrototype.</description>
+      <needscoverage>
+        <needscov><needsobj>req</needsobj><objcovstatus>partially</objcovstatus><coveredby><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0004</srcid><srcstatus>source not covered.</srcstatus><internalId>3</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0005</srcid><srcstatus/><internalId>4</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0006</srcid><srcstatus/><internalId>5</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0007</srcid><srcstatus/><internalId>6</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0010</srcid><srcstatus/><internalId>7</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0011</srcid><srcstatus/><internalId>8</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0012</srcid><srcstatus>source not covered.</srcstatus><internalId>9</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0014</srcid><srcstatus/><internalId>10</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0015</srcid><srcstatus/><internalId>11</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0025</srcid><srcstatus/><internalId>12</internalId></linkedfrom><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0018</srcid><srcstatus/><internalId>13</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>16</internalId></specobject>
+
+    <specobject>
+      <id>SERVICEAPPLTEMPLATE_0027</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>The generated software component instance (SwComponentPrototype) shall be connected to the service SwComponentPrototype's services that it implements.</description>
+      <needscoverage>
+        <needscov><needsobj>req</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>SERVICEAPPLTEMPLATE_0002</srcid><srcstatus/><internalId>2</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+   <specobject>
+      <id>SERVICEAPPLTEMPLATE_0030</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>2</version>
+      <description>There shall be no limitation for the location of the SwComponentPrototype belonging to the service's ServiceSwComponentType.</description>
+      <rationale>In practice, the SwComponentPrototype belonging to the service's ServiceSwComponentType can occur in any CompositionSwComponentType. The assumption that it alwalys occurs in the top level/root CompositionSwComponentType, does not hold.</rationale>
+      <needscoverage>
+         <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_365</srcid><srcstatus/><internalId>28</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_273</srcid><srcstatus/><internalId>40</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+   <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+
+   <specobject>
+      <id>SERVICEAPPLTEMPLATE_0031</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>Any service SwComponentPrototype shall be supported.</description>
+      <needscoverage>
+         <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/ServiceApplTemplate.xdm.m4_72</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+   <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+   <specobject>
+      <id>SERVICEAPPLTEMPLATE_0032</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The user shall be able to select the SwComponentPrototype for which the template SWC will be generated from a drop-down menu. The selection options shall be limited to SwComponentPrototypes whose type is a ServiceSwComponentType.</description>
+      <needscoverage>
+         <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/ServiceApplTemplate.xdm.m4_75</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+   <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+   <specobject>
+      <id>SERVICEAPPLTEMPLATE_0033</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The user shall be able to generate template SWCs for multiple service SWCs at the same time.</description>
+      <needscoverage>
+         <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/ServiceApplTemplate.xdm.m4_33</srcid><srcstatus/><internalId>49</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+   <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+   <specobject>
+      <id>SERVICEAPPLTEMPLATE_0034</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The ARXML software component description shall define a MemorySection 'CODE'.</description>
+      <rationale>When MemMap from ACG &gt;= 8.5.1-X0 is used together with Rte and no MemorySection defined, this will result in a compilation error.</rationale>
+      <needscoverage>
+         <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_349</srcid><srcstatus/><internalId>26</internalId></linkedfrom><linkedfrom><srcid>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_240</srcid><srcstatus/><internalId>38</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+   <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java_51</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java</sourcefile>
+      <sourceline>51</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0005</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java_146</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/IntermediateModel.java</sourcefile>
+      <sourceline>146</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0025</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_158</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>158</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0014</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_349</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>349</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0034</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_362</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>362</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0011</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_365</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>365</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0030</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_386</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>386</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0010</linksto>
+          <dstversion>3</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_402</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>402</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0002</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_439</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>439</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0002</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_492</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>492</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java_517</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateArxmlGenerator.java</sourcefile>
+      <sourceline>517</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0007</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_53</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0014</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_73</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java</sourcefile>
+      <sourceline>73</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java_98</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/Java/eb/tresos/serviceappltemplate/generated/ServiceApplTemplateMappingArxmlGenerator.java</sourcefile>
+      <sourceline>98</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0007</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_21</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>21</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0014</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_240</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>240</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0034</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_270</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>270</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0011</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_273</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>273</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0030</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_292</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>292</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0010</linksto>
+          <dstversion>3</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_309</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>309</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0002</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_346</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>346</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0002</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_403</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>403</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet_428</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplate.arxml.jet</sourcefile>
+      <sourceline>428</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0007</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_19</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet</sourcefile>
+      <sourceline>19</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0014</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_43</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet</sourcefile>
+      <sourceline>43</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0006</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet_68</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/jet_templates/ServiceApplTemplateMapping.arxml.jet</sourcefile>
+      <sourceline>68</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0007</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/config/ServiceApplTemplate.xdm.m4_33</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/Autosar/config/ServiceApplTemplate.xdm.m4</sourcefile>
+      <sourceline>33</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0033</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/ServiceApplTemplate.xdm.m4_37</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/Autosar/config/ServiceApplTemplate.xdm.m4</sourcefile>
+      <sourceline>37</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0025</linksto>
+          <dstversion>2</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/ServiceApplTemplate.xdm.m4_72</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/Autosar/config/ServiceApplTemplate.xdm.m4</sourcefile>
+      <sourceline>72</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0031</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/ServiceApplTemplate.xdm.m4_75</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/Autosar/config/ServiceApplTemplate.xdm.m4</sourcefile>
+      <sourceline>75</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0032</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml_15</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml</sourcefile>
+      <sourceline>15</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0018</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+    <specobject>
+      <id>src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml_16</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_ServiceApplTemplate/src/plugin.ServiceApplTemplateExt.Autosar/plugin.xml</sourcefile>
+      <sourceline>16</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>SERVICEAPPLTEMPLATE_0019</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

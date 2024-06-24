@@ -1,0 +1,1758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_BundleJ1939_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/build/reqm/ReqM2_Native/asc_BundleJ1939_requirements_J1939Stack_Requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 22:25:01 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_BundleJ1939_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/build/reqm/ReqM2_Native/asc_BundleJ1939_requirements_J1939Stack_Requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00001.RxRequest</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 stack shall support the reception of the Request PGN (0x0EA00).
+      </description>
+      <comment>
+        A J1939 Node has to respond to a Request PGN if it is addressed to.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_1</srcid><srcstatus/><internalId>15</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_11_FullDuplex</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_12</srcid><srcstatus/><internalId>18</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_2</srcid><srcstatus/><internalId>19</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_4_Dem_CombinedDtc</srcid><srcstatus/><internalId>22</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_5_BswM</srcid><srcstatus/><internalId>23</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00003.TxAck</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 stack shall support the transmission of the Acknowledgement PGN (0x0E800).
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_1</srcid><srcstatus/><internalId>15</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00004.ComRequest</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The AUTOSAR J1939 stack shall support the sending of COM data when receiving COM PGN requests via J1939Rm.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_6</srcid><srcstatus/><internalId>24</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00005.TP.BAM</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The AUTOSAR J1939 Transport Layer module shall support the transport protocol variant BAM
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_11_FullDuplex</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_4_Dem_CombinedDtc</srcid><srcstatus/><internalId>22</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The AUTOSAR J1939 Transport Layer module shall support the transport protocol variant CMDT
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_1</srcid><srcstatus/><internalId>15</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_11_FullDuplex</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_12</srcid><srcstatus/><internalId>18</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_2</srcid><srcstatus/><internalId>19</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_4_Dem_CombinedDtc</srcid><srcstatus/><internalId>22</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00007.J1939Nm.AllowCommunication</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 Network Management module shall only allow communication after a successful address claim.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_5_BswM</srcid><srcstatus/><internalId>23</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00008.CanIf.NotifyResult</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        When a CAN controller enters state CAN_CS_STOPPED, then CanIf shall inform corresponding upper layer modules about failed transmission by calling User_TxConfirmation(id, E_NOT_OK) for every outstanding TxConfirmation assigned to that CAN Controller.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_6</srcid><srcstatus/><internalId>24</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00009.FD.Multi-PG.TX</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 stack shall support the transmission of the Multi-PG according to SAE J1939-22.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_7_CanFd_BswM_Dem</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_8_CanFd_BswM_Dem_Non_Reliable_TxConfirmation</srcid><srcstatus/><internalId>26</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00010.FD.Multi-PG.RX</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 stack shall support the reception of the Multi-PG according to SAE J1939-22.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_7_CanFd_BswM_Dem</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_8_CanFd_BswM_Dem_Non_Reliable_TxConfirmation</srcid><srcstatus/><internalId>26</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00011.FD.TP</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 stack shall support the TP handling according to SAE J1939-22.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_7_CanFd_BswM_Dem</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_8_CanFd_BswM_Dem_Non_Reliable_TxConfirmation</srcid><srcstatus/><internalId>26</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00012.NM.DEM</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 Network Management module shall report Dem event whenever it can't claim address.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem_J1939Nm</srcid><srcstatus/><internalId>21</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00013.DCM.CM</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+        The J1939 Diagnostics Communication Manager module shall support DTC Conversion methods version from 0 to 3.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_11_FullDuplex</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>Int_ConTest_BundleJ1939_3_Dem_J1939Nm</srcid><srcstatus/><internalId>21</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00014.DynamicAddressClaiming</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+       The J1939 stack should support dynamic address claiming procedure.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_9_BswM_DynamicAddressClaiming</srcid><srcstatus/><internalId>27</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00015.ProcessCondition</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+       The J1939 stack should support Process Condition feature for Diagnostics Messages.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_10_BswM_ProcessCondition</srcid><srcstatus/><internalId>16</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>    
+
+
+    <specobject>
+      <id>BundleJ1939.EB.J1939Stack_00016.AutomaticBaudrateDetection</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>
+       The J1939 stack should support Automatic Baudrate detection.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Int_ConTest_BundleJ1939_12</srcid><srcstatus/><internalId>18</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>    
+
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_1</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_1/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>93</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers: 
+    - Transmission and reception form/to J1939 modules with CanIf including the checking on Metadata (CAN-ID) values
+    - BAM transmission of DM01 &amp; CMDT for DM02
+    - Transmission Address claim message
+    - Reception of unsupported PGN
+    - Reception of PGN of Com User (If-Path)
+    - Reception of PGN of NM User
+    - Reception of Multi-packet BAM message
+    - Simulate RTE user that send request of PGN
+    - Reception Address Claimed message with low priority Name (all ones)
+    - Reception Address Claimed message with high priority Name (all zeros)
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize the modules
+   2. set DEM stubs to new values
+   3. Set J1939RM &amp; J1939Dcm channels to online states
+   4. set Can Controller mode to started &amp; Pdu mode to Online
+   5. Call Mainfunctions of the modules to take the effects of the initialization
+
+   6. First Time Cyclic DM01 will be executed and CM BAM of DM01 will be sent
+   7. Check sending CM BAM of DM01
+   8. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+   9. Inside J1939Tp_MainFunction: two transmissions   =&gt;  RTS of DM02 &amp; data frame-1 of DM01
+   10. Check sending RTS for DM2
+   11. Check sending BAM data frame 1 for DM01.
+   12. Reception of CTS of DM02.
+   13. Inside J1939Tp_MainFunction: two data transmissions are available on one channel , only one data transmission that can be sent
+       Data frame-1 of DM02 has lower index so it will be sent first and data frame-2 of DM01 will be locked until data frame PDU to be available.
+   14. Check sending Data Frame No. 1 of DM02.
+   15. Inside J1939Tp_MainFunction: sending Data Frame No. 2 of DM02 while data frame-2 of DM01 will be locked as it has higher index
+       Check sending Data Frame No. 2 of DM02.
+   16. Check sending BAM data frame-2 of DM01.
+   17. Reception of End of Message Ack.
+   18. There is no way to check the completion of the transmission of J1939Dcm.
+
+   19. Call J1939Nm_NetworkRequest which will result of send Address claim message
+   20. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+   21. Check CanId that contains the right source address of the node due to sending the address claim message
+   22. ToBeDone: Check the contents of address claim message
+   23. Reception of unsupported PGN from CanIf and forward to J1939Rm via PduR 
+   24. ToBeDone: Check the contents of Negative ACK message due to receive the unsupported PG
+   25. Reception of PGN of Com User (If-Path) from CanIf and forward to J1939Rm via PduR 
+   26. Check sending Data Frame of COM User via CanIf
+   27. Check the completion of the transmission in Com by Com Notification flag
+   28. Reception with PGN of NM User from CanIf and forward to J1939Rm via PduR 
+   29. Check sending Address Claim message
+   30. Reception of CM-BAM from CanIf which forwards it to J1939Tp via J1939Tp_RxIndication
+   31. Reception of BAM data-1
+   32. Reception of BAM data-2
+   33. Inside J1939Dcm_MainFunction: cyclic DM01 will be failed due to Wrong Filter and Send Ack will be sent with wrong Node ID =&gt; Det will be reported 
+   34. Check the data of received data in com module within ComIPduCallout_Rx_J1939Tp
+   35: Simulate RTE user that send request of PGN=0xA0A1
+   36. Check sending request PGN with right values via CAN bus
+   37. Reception Address Claimed message with low priority Name (all ones) with same node address from CanIf and forward to J1939Nm directly
+   38. Check sending Address Claim as the current node has high priority Name
+   39. Reception Address Claimed message with high priority Name (all zeros) with same node address from CanIf and forward to J1939Nm directly
+   40. Check sending Can't Claim message 
+   41. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00003.TxAck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_10_BswM_ProcessCondition</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_10_BswM_ProcessCondition/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>134</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+    &lt;para&gt;
+      This test evaluates the functionality of DM Mode Rule in case it referenced in DM13 Reception,
+      This can be occured through calling mode switch interfaces and SR data element write access before and after 
+      calling CanIf_RxIndecation where in the first call the DM's Mode rule should evaluated to false and hence
+      Nigative Acknowledge (NACK) should be sent,
+      and in the second call the DM's Mode rule should evaluated to true and J1939Dcm Broadcast functionality will take a place. 
+    &lt;/para&gt;
+  
+Test Object: None.
+Test Precondition: 
+    - Mode decleration group is defined and connected
+    - SR data element is defined and connected
+    - Mode Rule 0 for DM13 is a combination of logical AND (BswModeRef + SwcModeRef + SR Data Element)
+    - Initial value of Bsw Mode Ref is RTE_MODE_BswM_TestMdg_A_TestMd_A1
+    - Initial value of Swc Mode Ref is RTE_MODE_ApplicationSwComponentType_J1939Dcm_TestModeDecGp_A_TestModeDec_A1
+    - Initial value of SR Mode Ref is 0
+  
+Test Execution: 
+    1.Initialize all modules
+    2.set Can Controller mode to started and PDU mode to Online
+    3.Call Main functions of the modules to take the effects of the initialization
+	4.Call J1939Nm_NetworkRequest with configured preferred address 0x0D and hence module will send Address claim message
+	5.CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+	6.Check CanId that contains the right source address of the node due to sending the address claim message
+	7.Call J1939Nm_MainFunction to change node channel state to normal operation state
+	8.Trigger a DM13 Stop Message via CanIf_RxIndication
+	9.Mode switch via SchM API is called to indicate mode user by BSW mode switching with updated value RTE_MODE_TestMdg_A_TestMd_A2
+  to match the Bsw Mode Ref Condition to be (equle to RTE_MODE_TestMdg_A_TestMd_A2)
+	10.Mode switch via RTE API is called to indicate mode user by SWC mode switching with updated value RTE_MODE_TestModeDecGp_A_TestModeDec_A1
+  to match the SWC mode ref condition to be (equle to RTE_MODE_TestModeDecGp_A_TestModeDec_A1)
+	11.SR Data element write API is called to modify the value of SR data element with updated value 30 to match the SR Condition to be (grater than 15)
+	12.Trigger a DM13 Stop Message via J1939Dcm_RxIndication after calling mode switching APIs
+	13.Check that the BswM called the J1939DcmBroadcast callout (action)
+    14.Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    - First Request : Mode Rule is evaluated to false as Bsw Mode Reference is not matched. 
+    - Second Request: Mode Rule is evaluated to true as all mode condition and SR is matched.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00015.ProcessCondition</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_11_FullDuplex</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_11_FullDuplex/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>103</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+    The test covers integration test of J1939 stack with real Dem module and check functionality: 
+      FullDuplex communication where concurrent Tx/Rx connection to same but exchanged Sa,Da.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Initialize test case
+  2. Set J1939RM &amp; J1939Dcm channels to online states
+  3. set Can Controller mode to started &amp; Pdu mode to Online
+  4. Call Mainfunctions of the modules to take the effects of the initialization
+  5. DM01 Cyclic will be requested in J1939Dcm_MainFunction and BAM frame of DM01 will be sent
+  6. check sending Cyclic BAM frame of DM01 as Direct frame for 1st time
+
+  7. Call J1939Nm_NetworkRequest which will result in sending Address claim message
+  8. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+  9. Check CanId that contains the right source address of the node due to sending the address claim message
+
+
+  10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+     * Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+     * Event_1_EGR_No_FF_MIL_FastFlash Failed in two operation cycles and confirmed , last status: Pass, OC=2
+     * Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+     * the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+
+  11. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  12. Check Sending Direct Frame for DM02
+  13. DM01 will be sent after J1939Dcm_DemTriggerOnDTCStatus (two data Frames will be sent- BAM)
+  14. Check sending CM of BAM for DM1  
+  15. Check sending BAM Data Frame No. 1 
+  16. Check sending BAM Data Frame No. 2 
+  17. Reception request with PGN of DM01  from CanIf and forward to J1939Rm via PduR then to J1939Dcm 
+  18. Check sending RTS for DM1  (two data Frames will be sent - CMDT)
+  19. Reception of RTS Frame in CMDT connection for the same Sa/Da in Rx Channel concurrently, will be forwarded to J1939Tp 
+  20. Check transmission of CTS Frame for the incoming Rx connection
+
+  21. Reception of CTS of DM01 for the transmission connection 
+  22. Check sending Data Frame No. 1 of DM01 in response to the request -&gt; Tx connection 
+  23. Confirm Data Frame No. 1 frame transmission
+  24. Check reception of Data frame No. 1 -&gt; Rx connection
+  25. Check sending Data Frame No. 2 of DM01 and the last frame, in response to the request -&gt; Tx connection 
+  26. Check reception of Data frame No. 2 and the last -&gt; Rx connection
+  27. Check transmission of End of Message Ack Frame to the originator -&gt; Rx connection
+  28. Reception of End of Message Ack from the responder of DM01 -&gt; Tx Connection
+  29. Confirm no development errors during transmission/ reception Det_ReportError
+  30. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00005.TP.BAM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00013.DCM.CM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_12</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_12_Baudrate/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>103</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test uses real ComM, CanSM and CanIf. Test changing for automatic baud-rate detection and covers:
+    - Transmission and reception form/to J1939 modules with CanIf including the checking on Meta-data (CAN-ID) values
+    - BAM transmission of DM01 &amp; CMDT for DM02
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize the modules
+   2. After CanSM_Init, CanSm notifies BswM  with  BswM_CanSM_CurrentState( CANSM_BSWM_NO_COMMUNICATION)
+   3. set DEM stubs to new values
+   4. Call ComM_CommunicationAllowed to allow the communications for that channel
+   5. Call ComM_MainFunction_0 that will result to call CanSM_RequestComMode(COMM_FULL_COMMUNICATION) and J1939Nm_NetworkRequest
+   6. Call CanSM_MainFunction many times to take effect the CanSm's state machine
+   7. Get the current mode of CanSm by calling CanSM_GetCurrentComMode and verify the mode is COMM_FULL_COMMUNICATION
+   8. Call CanSM_MainFunction &amp; J1939Nm_MainFunction a lot until CanSM_SetBaudrate is accepted. AS CanSM doesn't accept Set Baud-rate
+      as long as enters the state FullCom and reach sub-state S_NO_BUS_OFF, CanSm takes CANSM_BOR_TIME_TX_ENSURED till reaches to this sub-state.
+      J1939Nm retries by calling CanSm_SetBaudate until it's accepted by CanSm.
+   9.  Check BswM_CanSM_CurrentState is called with the state CANSM_BSWM_CHANGE_BAUDRATE
+   10. Check Can_SetBaudrate is called with the right BaudRateConfigID.
+   11. Check BswM_CanSM_CurrentState is called with the state CANSM_BSWM_FULL_COMMUNICATION
+   12. Wait Rx happened on CAN bus by monitoring the Rx Hook in CanIF by J1939Nm, or time elapsed in J1939nm and attempt with changing the baud-rate
+   13. CanSM_SetBaudrate returns E_OK from J1939Nm mainfunction, Check BswM_CanSM_CurrentState is called with the state CANSM_BSWM_CHANGE_BAUDRATE
+   14. Check Can_SetBaudrate is called for the second attempt with the right BaudRateConfigID
+   15. Check BswM_CanSM_CurrentState is called with the state CANSM_BSWM_FULL_COMMUNICATION
+   16. Wait Rx happened on CAN bus by monitoring the Rx Hook in CanIF by J1939Nm, or time elapsed in J1939nm and attempt with changing the baud-rate
+   17. Simulate Reception that will cause RxHook to be executed and moves J1939Nm state from Baud-rate detection to the claiming state
+   18. Check BswM_J1939Nm_StateChangeNotification is called with NmState NM_STATE_NORMAL_OPERATION
+   19. Check the address claim message is sent on the bus
+   20. Set J1939RM &amp; J1939Dcm channels to online states
+   21. First Time Cyclic DM01 will be executed  and CM BAM of DM01 will be sent
+   22. Check sending CM BAM of DM01
+   23. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+   24. Inside J1939Tp_MainFunction: two transmissions   =&gt;  RTS of DM02 &amp; data frame-1 of DM01
+   25. Check sending RTS for DM2
+   26. Check sending BAM data frame 1 for DM01
+   27. Reception of CTS of DM02
+   28. Inside J1939Tp_MainFunction: two data transmissions are available on one channel , only one data transmission that can be sent
+       Data frame-1 of DM02 has lower index so it will be sent first and data frame-2 of DM01 will be locked until data frame PDU to be available
+   29. Check sending Data Frame No. 1 of DM02
+   30. Inside J1939Tp_MainFunction: sending Data Frame No. 2 of DM02 while data frame-2 of DM01 will be locked as it has higher index
+        Check sending Data Frame No. 2 of DM02
+   31. Check sending BAM data frame-2 of DM01
+   32. Reception of End of Message Ack
+   33. There is no way to check the completion of the transmission of J1939Dcm
+   34. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00016.AutomaticBaudrateDetection</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_2/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>78</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The test covers: 
+    - Transmission and reception form/to J1939 modules with CanIf including the checking on Metadata (CAN-ID) values
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize the modules
+   3. set DEM stubs to new values
+   3. Set J1939RM &amp; J1939Dcm channels to online
+   4. Call Mainfunctions of the modules to take the effects of the initialization
+   5. set Can Controller mode to started &amp; Pdu mode to Online
+   6. Call J1939Nm_NetworkRequest which will result of send Address claim message 
+   7. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+   8. Check CanId that contains the right source address of the node due to sending the address claim message
+   9. ToBeDone: Check the contents of address claim message
+   10. Reception of unsupported PGN from CanIf and forward to J1939Rm via PduR
+   11. ToBeDone: Check the contents of Negative ACK message due to receive the unsupported PG 
+   12. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+   13. Check Sending RTS for DM2
+   14. Reception of CTS
+   15. Check sending Data Frame No. 1
+   16. Check sending Data Frame No. 2
+   17. Reception of  End of Message Ack 
+   18. There is no way to check the completion of the transmission in J1939Dcm
+   19. Reception of PGN of Com User (If-Path) from CanIf and forward to J1939Rm via PduR
+   20. Com module will handle the Ipdu_Send immediately and will not postpone the the sending in Com mainfunction
+   21. Check sending Data Frame of COM User via CanIf
+   22. Check the completion of the transmission in Com by Com Notification flag
+   23. Reception with PGN of NM User from CanIf and forward to J1939Rm via PduR 
+   24. Check sending Address Claim message
+   25. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_3_Dem</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_3_Dem/source/application/EbTest_Ctrl.c.m4</sourcefile>
+      <sourceline>102</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of J1939 stack with real Dem module and check functionality: 
+      read DTC (DM01 : Active DTCs &amp; DM02 : Previously Active DTCs) 
+      readiness 1 (DM05 IF-path from J1939Dcm) 
+      DM04 read Freeze Frame data (Tp-path from J1939Dcm, Multi-frames CMDT transmission) 
+      DM03 Clear Previous Active DTCs 
+      DM29 DTC counts
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Initialize test case
+  2. Set J1939RM &amp; J1939Dcm channels to online states
+  3. set Can Controller mode to started &amp; Pdu mode to Online
+  4. Call Mainfunctions of the modules to take the effects of the initialization
+  5. DM01 Cyclic will be requested in J1939Dcm_MainFunction and BAM frame of DM01 will be sent
+  6. check sending Cyclic BAM frame of DM01 as Direct frame for 1st time
+  
+  7. Call J1939Nm_NetworkRequest which will result in sending Address claim message
+  8. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+  9. Check CanId that contains the right source address of the node due to sending the address claim message
+  
+  
+  10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+     * Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+     * Event_1_EGR_No_FF_MIL_FastFlash Failed in two operation cycles and confirmed , last status: Pass, OC=2
+     * Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+     * the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+   
+  11. Reception request with PGN of DM02 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  12. Check Sending Direct Frame for DM02
+  13. DM01 will be sent after J1939Dcm_DemTriggerOnDTCStatus (two data Frames will be sent- BAM)
+  14. Check sending CM of BAM for DM1 
+  15. Check sending BAM Data Frame No. 1
+  16. Check sending BAM Data Frame No. 2 
+  
+  17. Reception request with PGN of DM01 from CanIf and forward to J1939Rm via PduR then to J1939Dcm 
+  18. Check sending RTS for DM1 (two data Frames will be sent - CMDT)
+  19. Reception of CTS of DM01
+  20. Check sending Data Frame No. 1
+  21. Check sending Data Frame No. 2
+  22. Reception of End of Message Ack
+  
+  23. Cyclical DM01 will be sent for 2nd time 
+  24. Check sending CM of BAM for DM1
+  25. Reception request with PGN of DM05 from CanIf and forward to J1939Rm via PduR then to J1939Dcm 
+  26. Check sending data Frame for DM05 via CanIF
+
+  27. Reception request with PGN of DM04 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  28. Check sending BAM Data Frame No. 1 of DM01
+  29. Check sending RTS for DM04  (four data Frames will be sent - CMDT)
+  30. Check sending BAM Data Frame No. 2 of DM01 
+  31. Reception of CTS of DM04 
+  32. Check sending Data Frame No. 1 of DM04
+  33. Check sending Data Frame No. 2 of DM04
+  34. Check sending Data Frame No. 3 of DM04
+  35. Check sending Data Frame No. 4 of DM04
+  36. Reception of End of message Ack. of DM04
+
+  37. Reception request with PGN of DM29 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  38. Check sending data frame of DM29 via CanIF
+  39. Reception request with PGN of DM03 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  40. Process to clear previous active DTCs
+  41. Check sending Positive Ack  of DM03
+  42. Reception request with PGN of DM02  to make sure that No previous active DTCs available after Clear DTCs by DM03
+  43. Check Sending Direct Frame for DM02, no previous active DTCs available after Clear DTCs by DM03
+  44. Reception request with PGN of DM29 to make sure that DTC counts were affected by DM03 Clear previous active DTCs  
+  45. Check sending data frame of DM29 via CanIF
+
+  36. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00005.TP.BAM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00013.DCM.CM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_3_Dem_J1939Nm</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_3_Dem/source/application/EbTest_Ctrl.c.m4</sourcefile>
+      <sourceline>886</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of J1939 stack with real Dem module and check functionality: 
+      check that J1939Nm supports the Dem reporting of Address Lost situation.
+      by reading the read DTC (DM01 : Active DTCs) 
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Initialize test case
+  2. Set J1939RM &amp; J1939Dcm channels to online states
+  3. set Can Controller mode to started &amp; Pdu mode to Online
+  4. Call Mainfunctions of the modules to take the effects of the initialization
+  5. DM01 Cyclic will be requested in J1939Dcm_MainFunction and BAM frame of DM01 will be sent
+  6. check sending Cyclic BAM frame of DM01 as Direct frame for 1st time
+
+  7. Call Simulate_Dem_events that trigger Dem Event using J1939Nm address lost scenario, by doing the following:
+     * Start Operation Cycles
+     * Call J1939Nm_NetworkRequest which will result in sending Address claim message
+     * CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+     * Check CanId that contains the right source address of the node due to sending the address claim message
+     * Reception Address Claimed message with high priority Name (all zeros) with same node address from CanIf and forward to J1939Nm directly
+     * Check sending Can't Claim message to report the Dem Event
+     * End the Operation cycles
+   
+  8. DM01 will be sent after J1939Dcm_DemTriggerOnDTCStatus (DM01 as Direct BAM frame)
+  9. Check sending Direct BAM frame for DM1
+  10. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00012.NM.DEM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00013.DCM.CM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_4_Dem_CombinedDtc</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_4_Dem_CombinedDtc/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>136</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of J1939 stack with real Dem module and check functionality: 
+      read DTC (DM01 : Active DTCs &amp; DM02 : Previously Active DTCs) 
+      readiness 1 (DM05 IF-path from J1939Dcm) 
+      DM04 read Freeze Frame data (Tp-path from J1939Dcm, Multi-frames CMDT transmission) 
+      DM03 Clear Previous Active DTCs 
+      DM29 DTC counts
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Initialize test case
+  2. Set J1939RM &amp; J1939Dcm channels to online states
+  3. set Can Controller mode to started &amp; Pdu mode to Online
+  4. Call Mainfunctions of the modules to take the effects of the initialization
+  5. DM01 Cyclic will be requested in J1939Dcm_MainFunction and BAM frame of DM01 will be sent
+  6. check sending Cyclic BAM frame of DM01 as Direct frame for 1st time
+  
+  7. Call J1939Nm_NetworkRequest which will result in sending Address claim message
+  8. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+  9. Check CanId that contains the right source address of the node due to sending the address claim message
+  
+  
+  10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+     * Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+     * Event_1_EGR_No_FF_MIL_FastFlash PASSED in two operation cycles and not failed, last status: Pass, OC=0
+     * Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+     * the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+   
+  11. Reception request with PGN of DM02 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  12. Check Sending Direct Frame for DM02
+  13. DM01 will be sent after J1939Dcm_DemTriggerOnDTCStatus (one data Frame will be sent- BAM)
+  14. Check sending direct frame for DM1
+
+  15. Reception request with PGN of DM05 from CanIf and forward to J1939Rm via PduR then to J1939Dcm 
+  16. Check sending data Frame for DM05 via CanIF
+
+  17. Reception request with PGN of DM04 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  18. Check sending RTS for DM04  (two data Frames will be sent - CMDT)
+  19. Reception of CTS of DM04 
+  20. Check sending Data Frame No. 1 of DM04
+  21. Check sending Data Frame No. 2 of DM04
+  22. Reception of End of message Ack. of DM04
+
+  23. Reception request with PGN of DM29 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  24. Check sending data frame of DM29 via CanIF
+  25. Reception request with PGN of DM03 from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+  26. Process to clear previous active DTCs
+  27. Check sending Positive Ack of DM03
+  28. Reception request with PGN of DM02  to make sure that No previous active DTCs available after Clear DTCs by DM03
+  29. Check Sending Direct Frame for DM02, no previous active DTCs available after Clear DTCs by DM03
+  30. Reception request with PGN of DM29 to make sure that DTC counts were affected by DM03 Clear previous active DTCs  
+  31. Check sending data frame of DM29 via CanIF
+
+  32. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00006.TP.CMDT</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00005.TP.BAM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_5_BswM</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_5_Dem_BswM/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>101</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of J1939 stack with real Dem &amp; BswM modules and check functionality: 
+      make sure that No processing happens in J1939Rm &amp; J1939Dcm until the node claims an address and J1939Nm enters normal operation state.  
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Initialize test case
+  2. BswM will set J1939RM &amp; J1939Dcm channels to online states when J1939Nm enters Normal operation state
+  3. set Can Controller mode to started &amp; Pdu mode to Online
+  4. Call Mainfunctions of the modules to take the effects of the initialization
+  5. Reception request with PGN of DM02 from CanIf and forward to J1939Rm via PduR which then not forward to J1939Dcm as J1939Rm &amp; J1939Dcm channels are offline =&gt; No processing happens
+  6. Call J1939Nm_NetworkRequest which will result in sending Address claim message
+  7. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+  8. Check CanId that contains the right source address of the node due to sending the address claim message.
+  9. BswM sets J1939RM &amp; J1939Dcm channels to online states as J1939Nm enters Normal operation state.
+  10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+    * Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+    * Event_1_EGR_No_FF_MIL_FastFlash Failed in two operation cycles and confirmed , last status: Pass, OC=2
+    * Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+    * the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+  11. Reception request with PGN of DM05 from CanIf and forward to J1939Rm via PduR then to J1939Dcm.
+  12. Check sending data Frame for DM05 via CanIF.
+  13. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00001.RxRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00007.J1939Nm.AllowCommunication</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_6</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_6_TxConfirmation/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>100</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers: 
+    - When a CAN controller enters state CAN_CS_STOPPED, then CanIf shall inform corresponding upper layer modules about failed transmission by calling &lt;User_TxConfirmation&gt;(id, E_NOT_OK) for every outstanding TxConfirmation assigned to that CAN Controller.
+    - Reception of unsupported PGN from CanIf and forward to J1939Rm via PduR.
+    - Reception of PGN of Com User (If-Path) from CanIf and forward to J1939Rm via PduR.
+    - Reception of PGN of Com User (Tp-Path,CMDT) from CanIf and forward to J1939Rm via PduR.
+    - Reception of PGN of Com User (Tp-Path,BAM) from CanIf and forward to J1939Rm via PduR.
+    - Reception with PGN of NM User from CanIf and forward to J1939Rm via PduR.
+    - Reception of CM-BAM from CanIf which forwards it to J1939Tp via J1939Tp_RxIndication.
+    - Simulate RTE user that send request of PGN=0xA0A1
+    - Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm.
+    - Reception Address Claimed message with low priority Name (all ones) with same node address from CanIf and forward to J1939Nm directly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize the modules
+   2. set DEM stubs to new values
+   3. Set J1939RM &amp; J1939Dcm channels to online states
+   4. set Can Controller mode to started &amp; Pdu mode to Online
+   5. Call Mainfunctions of the modules to take the effects of the initialization
+   6. First Time Cyclic DM01 will be executed and CM BAM of DM01 will be sent
+   7. Check sending CM BAM of DM01
+   8. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+   9. Inside J1939Tp_MainFunction: two transmissions   =&gt;  RTS of DM02 &amp; data frame-1 of DM01
+   10. Check sending RTS for DM2
+   11. Check sending BAM data frame 1 for DM01.
+   12. Call J1939Nm_NetworkRequest which will result of send Address claim message
+   13. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+   14. Check CanId that contains the right source address of the node due to sending the address claim message
+   15. Set Can Controller mode to STOP
+   16. Inside CanIf_ControllerModeIndication,
+       shall call J1939Tp_TxConfirmation with E_NOT_OK for RTS of DM02 &amp; data frame BAM DM01
+       shall call J1939Nm_TxConfirmation with E_NOT_OK for the address claim message
+   17. Set Can Controller mode back to started &amp; Pdu mode to Online
+   18. Reception of unsupported PGN from CanIf and forward to J1939Rm via PduR
+   19. ToBeDone: Check the contents of Negative ACK message due to receive the unsupported PG   
+   20. Inside J1939Nm_MainFunction : CanIf_transmit will be called for the retry the previous transmission that was failed
+   21. Check CanId that contains the right source address of the node due to sending the address claim message  
+   22. Reception of PGN of Com User (Tp-Path, CMDT) from CanIf and forward to J1939Rm via PduR
+   23. Check sending RTS for Com User
+   24. Reception of CTS of Com user
+   25. Inside J1939Tp_MainFunction: sending Data Frame No.1 of Com user
+   26. Check sending Data Frame No. 1 of Com user
+   27. Inside J1939Tp_MainFunction: sending Data Frame No. 2 of Com user
+   28. Check sending Data Frame No. 2 of Com user
+   29. Reception of End of Message Ack
+   30. Check the completion of the transmission in Com by Com Notification flag
+   31. Reception of PGN of Com User (If-Path) from CanIf and forward to J1939Rm via PduR
+   32. Check sending Data Frame of COM User via CanIf 
+   33. Check the completion of the transmission in Com by Com Notification flag
+   34. Reception of PGN of Com User (Tp-Path, Broadcast) from CanIf and forward to J1939Rm via PduR
+   35. Check sending BAM Frame of COM User via CanIf
+   36. Inside J1939Tp_MainFunction: sending Data Frame No.1 of Com user
+   37. Check sending Data Frame No. 1 of Com user
+   38. Inside J1939Tp_MainFunction: sending Data Frame No. 2 of Com user
+   39. Check sending Data Frame No. 2 of Com user
+   40. Reception with PGN of NM User from CanIf and forward to J1939Rm via PduR
+   41. Simulate Can_write returns CAN_BUSY , J1939Nm should continue and not be blocked state to wait confirmation from lower layer
+   42. Check sending Address Claim message
+   43. Reception of CM-BAM from CanIf which forwards it to J1939Tp via J1939Tp_RxIndication
+   44. Reception of BAM data-1
+   45. Reception of BAM data-2
+   46. Check the data of received data in com module within ComIPduCallout_Rx_J1939Tp
+   47: Simulate RTE user that send request of PGN=0xA0A1
+   48. Check sending request PGN with right values via CAN bus
+   49. Reception request with PGN of DM02  from CanIf and forward to J1939Rm via PduR then to J1939Dcm
+   50. Inside J1939Tp_MainFunction:  transmit RTS of DM02
+   51. Check sending RTS for DM2
+   52. Reception of CTS of DM02
+   53. Inside J1939Tp_MainFunction: sending Data Frame No.1
+   54. Check sending Data Frame No. 1 of DM02
+   55. Inside J1939Tp_MainFunction: sending Data Frame No. 2 of DM02
+   56. Reception of End of Message Ack
+   57. There is no way to check the completion of the transmission of J1939Dcm
+   58. Reception Address Claimed message with low priority Name (all ones) with same node address from CanIf and forward to J1939Nm directly
+   59. Simulate Can_write returns CAN_BUSY , J1939Nm should continue and not be blocked state to wait confirmation from lower layer
+   60. Check sending Address Claim as the current node has high priority Name
+   61. Reception Address Claimed message with high priority Name (all zeros) with same node address from CanIf and forward to J1939Nm directly
+   62. Check sending Can't Claim message
+   63. Deinit the modules
+
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00004.ComRequest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00008.CanIf.NotifyResult</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_7_CanFd_BswM_Dem</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_7_CanFd_Dem_BswM/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>115</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of CanFd J1939  features  with real Dem &amp; BswM modules and check functionality:
+   - Tx Multi-PG Frame according to SAE J1939-22
+   - Rx Multi-PG Frame according to SAE J1939-22
+   - Tx BAM message according to SAE J1939-22
+   - Rx BAM message according to SAE J1939-22
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize test case
+   2. set Can Controller mode to started &amp; Pdu mode to Online
+   3. Call Mainfunctions of the modules to take the effects of the initialization
+   4. DM01 configured  Cyclic will be requested in J1939Dcm_MainFunction
+   5. Call J1939Nm_NetworkRequest for Non-FD channel which will result in sending Address claim message 
+   6. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+   7. Check CanId that contains the right source address of the node due to sending the address claim message
+   8. Call J1939Nm_NetworkRequest for FD channel which will result in sending Address claim message
+   9. CanIf_transmit will be called directly after J1939Nm_NetworkReques
+   10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+       Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+       Event_1_EGR_No_FF_MIL_FastFlash Failed in two operation cycles and confirmed , last status: Pass, OC=2
+       Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+       the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+   11. Send Direct DM01 cyclic for Non-Fd Channel by calling J1939Tp_Transmit
+   12. CanIf_Transmit is called for sending Direct DM01 of Non Fd channel
+   13.a DM01 for FD channel should be sent which doesn't happen
+   13.b Send Direct DM01 cyclic for 2nd time of Non-Fd Channel
+   14. CanIf_Transmit is called for sending Direct DM01  2nd time  of Non Fd channel
+   15. Send Direct DM01 cyclic for  1st time of Fd Channel
+   16. IpduM_Transmit is called  , CanId=0x****FF0F, via PduR_J1939TpTransmit as variable siza as Tp but Direct as length &lt;=60 
+   
+   17. Call Com_SendSignal to simulate sending BAM multi-segment Frame with length = 61
+   18. Sending FD.TP.CM_BAM
+   19. Sending first frame BAM-Data 1
+   20. Sending second frame BAM-Data 2
+   21. Sending EOMS
+   
+   
+   22. Reception Multi-PG frame contains two C-PGs to CanIf and forward to IpduM via PduR 
+       two C-PGs Reqst DM05 &amp; direct data frame to Com
+   23. IpduM_Transmit is called ,CanId=0x****FA0F, as sending DM05 as IF for Fd Channel as response of reception Multi-PG frame 
+   24. Trigger the Current Container as receive request with different MetaData than the current Container instance
+   25. Sending Multi-PG frame that Contains one C-PG
+   26. Check the data of received data C_PG to com module
+   
+   
+   27. Call Com_SendSignal to simulate send direct frame (C-PG) to IpduM
+   28. IpduM_Transmit is called
+   29. Trigger the Current Container as the transmitted C-PG is triggered Always
+   30. Sending Multi-PG frame that Contains Two C-PGs with same SA/DA
+   
+   
+   31. Reception of CM-BAM of FD channel from CanIf which forwards it to J1939Tp via J1939Tp_RxIndication
+   32. Reception BAM data-1 of FD channel
+
+   32.B Can_Write is called for Non-FD Direct Frame DM01
+
+   33. Reception BAM data-2 of FD channel
+   34. Reception of CM EOMS
+   35. Check the data of received data in com module
+   36. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00011.FD.TP</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00010.FD.Multi-PG.RX</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00009.FD.Multi-PG.TX</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_8_CanFd_BswM_Dem_Non_Reliable_TxConfirmation</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_8_CanFd_Dem_BswM_Non_Reliable_TxConfirmation/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>115</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+  The test covers integration test of CanFd J1939  features  with real Dem &amp; BswM modules with reliable TxConfirmation is disabled in CanIf &amp; J1939Tp
+   and check functionality:
+   - Tx Multi-PG Frame according to SAE J1939-22
+   - Rx Multi-PG Frame according to SAE J1939-22
+   - Tx BAM message according to SAE J1939-22
+   - Rx BAM message according to SAE J1939-22
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. Initialize test case
+   2. set Can Controller mode to started &amp; Pdu mode to Online
+   3. Call Mainfunctions of the modules to take the effects of the initialization
+   4. DM01 configured  Cyclic will be requested in J1939Dcm_MainFunction
+   5. Call J1939Nm_NetworkRequest for Non-FD channel which will result in sending Address claim message 
+   6. CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+   7. Check CanId that contains the right source address of the node due to sending the address claim message
+   8. Call J1939Nm_NetworkRequest for FD channel which will result in sending Address claim message
+   9. CanIf_transmit will be called directly after J1939Nm_NetworkReques
+   10. Call Simulate_Dem_events and after executing  the function Simulate_Dem_events():
+       Event_0_MISF_FF_AllIndicator_Continous Failed in two operation cycles and confirmed , last status: Failed, OC=1
+       Event_1_EGR_No_FF_MIL_FastFlash Failed in two operation cycles and confirmed , last status: Pass, OC=2
+       Event_2_None_FF_WIL_SlowFalsh Failed in two operation cycles and confirmed , last status: Pass, OC=2
+       the DTC status change will trigger  DM01 as result of J1939Dcm_DemTrigger
+   11. Send Direct DM01 cyclic for Non-Fd Channel by calling J1939Tp_Transmit
+   12. CanIf_Transmit is called for sending Direct DM01 of Non Fd channel
+   13.a DM01 for FD channel should be sent which doesn't happen
+   13.b Send Direct DM01 cyclic for 2nd time of Non-Fd Channel
+   14. CanIf_Transmit is called for sending Direct DM01  2nd time  of Non Fd channel
+   15. Send Direct DM01 cyclic for  1st time of Fd Channel
+   16. IpduM_Transmit is called  , CanId=0x****FF0F, via PduR_J1939TpTransmit as variable siza as Tp but Direct as length &lt;=60 
+   
+   17. Call Com_SendSignal to simulate sending BAM multi-segment Frame with length = 61
+   18. Sending FD.TP.CM_BAM
+   19. Sending first frame BAM-Data 1
+   20. Sending second frame BAM-Data 2
+   21. Sending EOMS
+   
+   
+   22. Reception Multi-PG frame contains two C-PGs to CanIf and forward to IpduM via PduR 
+       two C-PGs Reqst DM05 &amp; direct data frame to Com
+   23. IpduM_Transmit is called ,CanId=0x****FA0F, as sending DM05 as IF for Fd Channel as response of reception Multi-PG frame 
+   24. Trigger the Current Container as receive request with different MetaData than the current Container instance
+   25. Sending Multi-PG frame that Contains one C-PG
+   26. Check the data of received data C_PG to com module
+   
+   
+   27. Call Com_SendSignal to simulate send direct frame (C-PG) to IpduM
+   28. IpduM_Transmit is called
+   29. Trigger the Current Container as the transmitted C-PG is triggered Always
+   30. Sending Multi-PG frame that Contains Two C-PGs with same SA/DA
+   
+   
+   31. Reception of CM-BAM of FD channel from CanIf which forwards it to J1939Tp via J1939Tp_RxIndication
+   32. Reception BAM data-1 of FD channel
+
+   32.B Can_Write is called for Non-FD Direct Frame DM01
+
+   33. Reception BAM data-2 of FD channel
+   34. Reception of CM EOMS
+   35. Check the data of received data in com module
+   36. Deinit the modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00011.FD.TP</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00010.FD.Multi-PG.RX</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00009.FD.Multi-PG.TX</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Int_ConTest_BundleJ1939_9_BswM_DynamicAddressClaiming</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_BundleJ1939)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_BundleJ1939/test/ts5/Conformance/IN/SwInt_ConTest_BundleJ1939_9_BswM_DynamicAddressClaiming/source/application/EbTest_Ctrl.c</sourcefile>
+      <sourceline>101</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: 
+   This test cover dynamic address claiming scenario when dedectaed node lost it's own address due to receving Address claim message with same address but with high priority name,
+   node which has lower numrical value of name should send can not address claim message and directlly call the App with configured Callout,
+   then the Application retry claiming on this node channel with new address and once the node successfully claimed the new address
+   it should goes to Normal Operation and able to transmit and receive messages,
+   this test also has real BswM and Dem. 
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+    1.Initialize all modules
+    2.set Can Controller mode to started and Pdu mode to Online
+    3.Call Mainfunctions of the modules to take the effects of the initialization
+    4.DM01 configured cyclic will be requested in J1939Dcm_MainFunction but not send
+    5.Call J1939Nm_NetworkRequest with configured preferred address 0x0D and hence module will send Address claim message
+    6.CanIf_transmit will be called directly after J1939Nm_NetworkRequest
+    7.Check CanId that contains the right source address of the node due to sending the address claim message
+    8.BswM will Set J1939RM &amp; J1939Dcm channels to online states when J1939Nm enters Normal operation state
+    9.Call Simulate_Dem_events and after executing the function Simulate_Dem_events()
+    10.DM01 cyclic will be requested in J1939Dcm_MainFunction and BAM frame of DM01 will be sent
+    11.check sending cyclic BAM frame of DM01 as Direct frame for 1st time
+    12.Call main function for Confirmation
+    13.Reception Address Claimed message with high priority Name (all zeros) with same node address from CanIf and forward to J1939Nm directly
+    14.Check sending Can't Claim message 
+    15.check that the J1939Nm Indicate SW Component by calling the configured Call-out
+    16.BswM will Set J1939RM &amp; J1939Dcm channels to Off-line states when J1939Nm enters ACLost operation state
+    17.Set Reclaiming flag to indicate that the retry claiming procedure has been done
+    18.Application call J1939Nm_RetryAddressClaiming to trigger J1939Nm to try claim on this node channel with new address
+    19.BswM should notified with Normal Operation state when the node channel claimed the address successfully 
+  and it exceute the action list which will be usercallout defined
+    20.check the address claim message send with the new address (0X0E)
+    21.Call J1939Nm_MainFunction to change node channel state to NormalOperation state
+    22.BswM will Set J1939RM &amp; J1939Dcm channels to online states when J1939Nm enters Normal operation state
+    23.Reception new request with new address (0X0E) and requested PGN of DM29 from CanIf and forward to J1939Rm via PduR then to J1939Dcm 
+    24.call main function and perform DM29 Request
+    25.Check sending data frame of DM29 via CanIF with New Address (0X0E)
+    26.Deint all initialized modules
+  
+Test Input: 
+  
+Test Output: 
+    Test correctly generates and compiles.
+  </description>
+      <providescoverage>
+        <provcov>
+          <linksto>BundleJ1939.EB.J1939Stack_00014.DynamicAddressClaiming</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

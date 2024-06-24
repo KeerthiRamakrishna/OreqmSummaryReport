@@ -1,0 +1,2589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o xsc_EventToTaskMappingAs_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/build/reqm/ReqM2_Native/xsc_EventToTaskMappingAs_requirements_requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</commandline>
+    <timestamp>Mon Jun 17 22:31:47 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>xsc_EventToTaskMappingAs_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/build/reqm/ReqM2_Native/xsc_EventToTaskMappingAs_requirements_requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+
+    <defaults>
+      <source>Elektrobit Automotive GmbH</source>
+    </defaults>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Input.Xml</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall read event dependencies from distributed XML format.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testGetMappings</srcid><srcstatus/><internalId>42</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testSchemaValidationDetectsMissingElement</srcid><srcstatus/><internalId>43</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testSchemaValidationDetectsUnexpectedElement</srcid><srcstatus/><internalId>44</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testGetName</srcid><srcstatus/><internalId>45</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Input.Csv</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall read event dependencies from a CSV file.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappings</srcid><srcstatus/><internalId>29</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.test_getMappings_calledMultipleTimes</srcid><srcstatus/><internalId>30</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsMissingContent</srcid><srcstatus/><internalId>31</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsTrailingOrLeadingWhiteSpace</srcid><srcstatus/><internalId>32</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsMissingColumnHeaders</srcid><srcstatus/><internalId>33</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsInvalidContentType</srcid><srcstatus/><internalId>34</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetName</srcid><srcstatus/><internalId>35</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.InternalModel</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall hold the mapping data in an internal model.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.test.ModelValidatorTest.testIsValidSuccessful</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.DependencyResolution</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall resolve depdenencies between events and calculate the event order inside an Os task.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testEmptySet</srcid><srcstatus/><internalId>140</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortSingleItem</srcid><srcstatus/><internalId>141</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortConnectedGraph</srcid><srcstatus/><internalId>142</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortUnconnectedGraphs</srcid><srcstatus/><internalId>143</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortConnectedGraphWithCycle</srcid><srcstatus/><internalId>144</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Generic</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall automate the calculation of event dependencies and apply the result to Rte configuration.</description>
+      <rationale>Generic top-level requirement for tracing into test cases of implementation-internal code that is not covered by other requirements.</rationale>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.EventImplTest.testEventImplArgumentCheck</srcid><srcstatus/><internalId>13</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksNoMappingProvider</srcid><srcstatus/><internalId>51</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksEmptyMappingProvider</srcid><srcstatus/><internalId>52</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksSingleMappingProvider</srcid><srcstatus/><internalId>53</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksMultipleMappingProviders</srcid><srcstatus/><internalId>54</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendMultiTest.testDoRun</srcid><srcstatus/><internalId>57</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendTest.testDoRun</srcid><srcstatus/><internalId>59</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.SystemModelAutosarPathBuilderTest.testGetAutosarPath_ArPackage</srcid><srcstatus/><internalId>115</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypes</srcid><srcstatus/><internalId>116</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetRTEEvents</srcid><srcstatus/><internalId>117</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetRunnableEntities</srcid><srcstatus/><internalId>118</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAdminDataContent</srcid><srcstatus/><internalId>119</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAdminDataContent_AutosarRoot</srcid><srcstatus/><internalId>120</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetEcuInstance</srcid><srcstatus/><internalId>121</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetSystem</srcid><srcstatus/><internalId>122</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testgetBswModuleDescriptionByPath</srcid><srcstatus/><internalId>123</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testgetBswModuleDescriptionByName</srcid><srcstatus/><internalId>124</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypeByPath</srcid><srcstatus/><internalId>125</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypeByName</srcid><srcstatus/><internalId>126</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetBswSchedulableEntitys</srcid><srcstatus/><internalId>127</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypes</srcid><srcstatus/><internalId>128</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetRTEEvents</srcid><srcstatus/><internalId>129</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetRunnableEntities</srcid><srcstatus/><internalId>130</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAdminDataContent</srcid><srcstatus/><internalId>131</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAdminDataContent_AutosarRoot</srcid><srcstatus/><internalId>132</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetEcuInstance</srcid><srcstatus/><internalId>133</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetSystem</srcid><srcstatus/><internalId>134</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testgetBswModuleDescriptionByPath</srcid><srcstatus/><internalId>135</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testgetBswModuleDescriptionByName</srcid><srcstatus/><internalId>136</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypeByPath</srcid><srcstatus/><internalId>137</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypeByName</srcid><srcstatus/><internalId>138</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetBswSchedulableEntitys</srcid><srcstatus/><internalId>139</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations><ruleid>WRN.tsc.needscoverage.count</ruleid></oreqmViolations><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Input.Framework</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall read the mapping information from multiple input sources and merge this data to a holistic model for calculation.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEmptyModel</srcid><srcstatus/><internalId>103</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsIntoEmptyModel</srcid><srcstatus/><internalId>104</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsIntoNonEmptyModel</srcid><srcstatus/><internalId>105</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsWithDependenciesIntoEmptyModel</srcid><srcstatus/><internalId>106</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsEventAlreadyExistsAsOtherOneWasDependingOnIt</srcid><srcstatus/><internalId>107</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsWithDependenciesIntoNonEmptyModel</srcid><srcstatus/><internalId>108</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeMappingsIntoEmptyModel</srcid><srcstatus/><internalId>109</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeMappingsIntoNonEmptyModel</srcid><srcstatus/><internalId>110</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeComplexModel</srcid><srcstatus/><internalId>111</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Output.ECUC</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall update the ECU configuration  based on its event order calculation.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskEmptyConfig</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskTaskAlreadyExisted</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithFullAutosarPath</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithAutosarShortName</srcid><srcstatus/><internalId>49</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingMappingAlreadyExisted</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Bsw_multipleInstances</srcid><srcstatus/><internalId>112</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Swc_ParameterSwComponentType</srcid><srcstatus/><internalId>113</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Swc_multipleInstances</srcid><srcstatus/><internalId>114</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Output.ECUC.CleanUp</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall clean up orphaned configuration parameters in the ECU configuration, i. e. parameters that were written during a previous wizard run but are not an output of the current wizard run's calculations any more.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.common.test.CalculatedDCtxtsLoggerTest.testLog</srcid><srcstatus/><internalId>14</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareListContainer</srcid><srcstatus/><internalId>15</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareReference</srcid><srcstatus/><internalId>16</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareVariable</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskEmptyConfig</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskTaskAlreadyExisted</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithFullAutosarPath</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithAutosarShortName</srcid><srcstatus/><internalId>49</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingMappingAlreadyExisted</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendMultiTest.testCleanUp</srcid><srcstatus/><internalId>56</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendTest.testCleanUp</srcid><srcstatus/><internalId>58</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations><ruleid>WRN.tsc.needscoverage.count</ruleid></oreqmViolations><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Generator.CSV</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>A helper module shall provide a code generator that outputs an overview of the tresos project's event mapping configuration in CSV format.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_emptyRteConfig</srcid><srcstatus/><internalId>24</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_swc</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java_164</srcid><srcstatus/><internalId>26</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_bsw</srcid><srcstatus/><internalId>27</internalId></linkedfrom><linkedfrom><srcid>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java_286</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Generator.XML</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>Manually configured mappings shall be exported to XML input format using a code generator.</description>
+      <rationale>Handling of manually configured mappings correctly in all use cases is complex and some cases may not solvable.  Exporting manual mappings to the XML format allows for maintaining them in those files and getting reliable calculation results.  Moreover, development resources can be focussed on other features.</rationale>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>EventToTaskMappingAs.Input.SchMMainFunctions</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The wizard shall consider main function dependencies from registered basic software SchM main functions.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderNotRegTest.java_19</srcid><srcstatus/><internalId>18</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_NoDependenciesDefined</srcid><srcstatus/><internalId>19</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_WithDependenciesDefined</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_DependencyNotMappedToATask</srcid><srcstatus/><internalId>21</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_DependencyNotPresentInSystemModel</srcid><srcstatus/><internalId>22</internalId></linkedfrom><linkedfrom><srcid>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/SchMMainFunctionReaderTest.java_27</srcid><srcstatus/><internalId>23</internalId></linkedfrom><linkedfrom><srcid>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java_434</srcid><srcstatus/><internalId>55</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+	
+	<specobject>
+      <id>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>Existing, manually configured mappings shall be considered for the calculations.
+        This is needed when not all mappings are cleared before recalculation and imported from
+        input files.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForNoManuallyConfiguredEvents</srcid><srcstatus/><internalId>36</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForAllManuallyConfiguredEvents</srcid><srcstatus/><internalId>37</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForManuallyAndNonManuallyConfiguredEvents</srcid><srcstatus/><internalId>38</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForMultipleSwcs</srcid><srcstatus/><internalId>39</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testAutosarPathUtilForInvalidPath</srcid><srcstatus/><internalId>40</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+	
+    <specobject>
+      <id>EventToTaskMappingAs.Input.GlobPatternSupport</id>
+      <status>approved</status><source>Elektrobit Automotive GmbH</source>
+      <version>1</version>
+      <description>The Wizard input files configuration field shall support glob patterns for input
+        file paths.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testParametersAreNull</srcid><srcstatus/><internalId>60</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testParametersAreEmptyString</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativeBaseFolderDoesNotExist</srcid><srcstatus/><internalId>62</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testFileDoesNotExist</srcid><srcstatus/><internalId>63</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_firstLevel_singleFile</srcid><srcstatus/><internalId>64</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_firstLevel_multipleFiles</srcid><srcstatus/><internalId>65</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_secondLevel_multipleFiles</srcid><srcstatus/><internalId>66</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_noMatch</srcid><srcstatus/><internalId>67</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_thirdLevel_multipleFiles</srcid><srcstatus/><internalId>68</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_doubleStar</srcid><srcstatus/><internalId>69</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_doubleStarPlusOthers</srcid><srcstatus/><internalId>70</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_nonCanonicalPath</srcid><srcstatus/><internalId>71</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject</srcid><srcstatus/><internalId>72</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_firstLevel_singleFile</srcid><srcstatus/><internalId>73</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_firstLevel_multipleFiles</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_secondLevel_multipleFiles</srcid><srcstatus/><internalId>75</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_noMatch</srcid><srcstatus/><internalId>76</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_thirdLevel_multipleFiles</srcid><srcstatus/><internalId>77</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_doubleStar</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_doubleStarPlusOthers</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_nonCanonicalPath</srcid><srcstatus/><internalId>80</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject</srcid><srcstatus/><internalId>81</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_firstLevel_singleFile</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_firstLevel_multipleFiles</srcid><srcstatus/><internalId>83</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_secondLevel_multipleFiles</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_noMatch</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_thirdLevel_multipleFiles</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_doubleStar</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_doubleStarPlusOthers</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePath_doubleStarPlusOthers</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePath_doubleStarForAllMatchingTxtAFiles</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_nonCanonicalPath</srcid><srcstatus/><internalId>91</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testGetInputFilesForGlobPatternMatchedRangeInBracket</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternFileName</srcid><srcstatus/><internalId>94</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtEndInDirectoryName</srcid><srcstatus/><internalId>95</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtMiddleInDirectoryName</srcid><srcstatus/><internalId>96</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtBeginingInDirectoryName</srcid><srcstatus/><internalId>97</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternFileName</srcid><srcstatus/><internalId>98</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtEndInDirectoryName</srcid><srcstatus/><internalId>99</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtMiddleInDirectoryName</srcid><srcstatus/><internalId>100</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtBeginingInDirectoryName</srcid><srcstatus/><internalId>101</internalId></linkedfrom><linkedfrom><srcid>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathDirectory</srcid><srcstatus/><internalId>102</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations><ruleid>WRN.tsc.needscoverage.count</ruleid></oreqmViolations><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.EventImplTest.testEventImplArgumentCheck</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/EventImplTest.java</sourcefile>
+      <sourceline>34</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Checks for proper argument checks of constructor.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.common.test.CalculatedDCtxtsLoggerTest.testLog</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/common/test/CalculatedDCtxtsLoggerTest.java</sourcefile>
+      <sourceline>8</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareListContainer</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/common/test/DCtxtByShortNameAndValueComparatorTest.java</sourcefile>
+      <sourceline>86</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareReference</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/common/test/DCtxtByShortNameAndValueComparatorTest.java</sourcefile>
+      <sourceline>117</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.common.test.DCtxtByShortNameAndValueComparatorTest.testCompareVariable</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/common/test/DCtxtByShortNameAndValueComparatorTest.java</sourcefile>
+      <sourceline>149</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderNotRegTest.java_19</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderNotRegTest.java</sourcefile>
+      <sourceline>19</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_NoDependenciesDefined</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderTest.java</sourcefile>
+      <sourceline>100</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_WithDependenciesDefined</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderTest.java</sourcefile>
+      <sourceline>132</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_DependencyNotMappedToATask</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderTest.java</sourcefile>
+      <sourceline>217</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.bsw.test.BswSchMMainFunctionDataProviderTest.testGetMappingModel_DependencyNotPresentInSystemModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/BswSchMMainFunctionDataProviderTest.java</sourcefile>
+      <sourceline>268</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/SchMMainFunctionReaderTest.java_27</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/bsw/test/SchMMainFunctionReaderTest.java</sourcefile>
+      <sourceline>27</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_emptyRteConfig</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java</sourcefile>
+      <sourceline>67</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generator.CSV</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_swc</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java</sourcefile>
+      <sourceline>84</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generator.CSV</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+    <specobject>
+      <id>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java_164</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java</sourcefile>
+      <sourceline>164</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generator.CSV</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.generator.test.MappingEntriesReaderTest.testGetEntries_bsw</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java</sourcefile>
+      <sourceline>208</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generator.CSV</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+    <specobject>
+      <id>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java_286</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/generator/test/MappingEntriesReaderTest.java</sourcefile>
+      <sourceline>286</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generator.CSV</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappings</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>28</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Checks correct behaviour for a valid CSV input example.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.test_getMappings_calledMultipleTimes</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>95</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Checks whether the mapping provider's getMappings() method&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsMissingContent</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>136</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Missing content shall be detected and reported by an exception.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsTrailingOrLeadingWhiteSpace</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>161</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Trailing or leading whitespace shall be detected, the error shall result in an exception.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsMissingColumnHeaders</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>188</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;A missing column header line shall be detected.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetMappingsInvalidContentType</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>215</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Invalid content type, e. g. a Bash script, shall get detected.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.csv.test.CsvTableE2TMappingProviderTest.testGetName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/csv/test/CsvTableE2TMappingProviderTest.java</sourcefile>
+      <sourceline>239</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Checks whether the assigned mapping provider name is non-null even if an empty string was given.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Csv</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForNoManuallyConfiguredEvents</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/manuallyconfigured/test/ManuallyConfiguredE2TMappingProviderTest.java</sourcefile>
+      <sourceline>79</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForAllManuallyConfiguredEvents</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/manuallyconfigured/test/ManuallyConfiguredE2TMappingProviderTest.java</sourcefile>
+      <sourceline>97</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForManuallyAndNonManuallyConfiguredEvents</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/manuallyconfigured/test/ManuallyConfiguredE2TMappingProviderTest.java</sourcefile>
+      <sourceline>118</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testGetMappingModelForMultipleSwcs</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/manuallyconfigured/test/ManuallyConfiguredE2TMappingProviderTest.java</sourcefile>
+      <sourceline>139</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.manuallyconfigured.test.ManuallyConfiguredE2TMappingProviderTest.testAutosarPathUtilForInvalidPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/manuallyconfigured/test/ManuallyConfiguredE2TMappingProviderTest.java</sourcefile>
+      <sourceline>201</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.ManuallyConfiguredMappings</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.test.ModelValidatorTest.testIsValidSuccessful</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/test/ModelValidatorTest.java</sourcefile>
+      <sourceline>74</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.InternalModel</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testGetMappings</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/xml/test/XmlE2TMappingProviderTest.java</sourcefile>
+      <sourceline>20</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Xml</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testSchemaValidationDetectsMissingElement</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/xml/test/XmlE2TMappingProviderTest.java</sourcefile>
+      <sourceline>65</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Xml</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testSchemaValidationDetectsUnexpectedElement</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/xml/test/XmlE2TMappingProviderTest.java</sourcefile>
+      <sourceline>80</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Xml</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.dataprovider.xml.test.XmlE2TMappingProviderTest.testGetName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/dataprovider/xml/test/XmlE2TMappingProviderTest.java</sourcefile>
+      <sourceline>112</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Xml</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskEmptyConfig</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/ecuc/test/DCtxtEcucWriterTest.java</sourcefile>
+      <sourceline>207</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes the DCtxtEcucWriter write two tasks into Os ECU configuration. Checks the
+resulting Os configuration and logged written DCtxts.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteTaskTaskAlreadyExisted</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/ecuc/test/DCtxtEcucWriterTest.java</sourcefile>
+      <sourceline>238</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes the DCtxtEcucWriter write two tasks into an Os ECU configuration which
+already contains one of those tasks. Checks the resulting Os configuration
+and logged written DCtxts.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithFullAutosarPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/ecuc/test/DCtxtEcucWriterTest.java</sourcefile>
+      <sourceline>274</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import system model into Rte configuration. Then
+uses DCtxtEcucWriter to write two event-to-task mappings, for one RteEvent
+and one BswEvent. Uses full short name paths in SWC/BSW section of event description.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingEmptyConfigWithAutosarShortName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/ecuc/test/DCtxtEcucWriterTest.java</sourcefile>
+      <sourceline>328</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import system model into Rte configuration. Then
+uses DCtxtEcucWriter to write two event-to-task mappings, for one RteEvent
+and one BswEvent. Uses short names only in SWC/BSW section of event description.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.ecuc.test.DCtxtEcucWriterTest.testWriteMappingMappingAlreadyExisted</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/ecuc/test/DCtxtEcucWriterTest.java</sourcefile>
+      <sourceline>431</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import system model into Rte configuration. Then
+uses DCtxtEcucWriter to write two event-to-task mappings, for one RteEvent
+and one BswEvent. Then writes those mappings again. Checks that there are no
+changes introduced by the second write.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksNoMappingProvider</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java</sourcefile>
+      <sourceline>228</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksEmptyMappingProvider</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java</sourcefile>
+      <sourceline>244</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksSingleMappingProvider</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java</sourcefile>
+      <sourceline>274</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.eventmapping.test.EventToTaskMapperTest.testMapEventsToTasksMultipleMappingProviders</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java</sourcefile>
+      <sourceline>338</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+    <specobject>
+      <id>test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java_434</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/eventmapping/test/EventToTaskMapperTest.java</sourcefile>
+      <sourceline>434</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.SchMMainFunctions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendMultiTest.testCleanUp</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/EventToTaskMappingBackendMultiTest.java</sourcefile>
+      <sourceline>38</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendMultiTest.testDoRun</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/EventToTaskMappingBackendMultiTest.java</sourcefile>
+      <sourceline>54</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendTest.testCleanUp</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/EventToTaskMappingBackendTest.java</sourcefile>
+      <sourceline>38</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC.CleanUp</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.EventToTaskMappingBackendTest.testDoRun</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/EventToTaskMappingBackendTest.java</sourcefile>
+      <sourceline>54</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testParametersAreNull</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>29</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testParametersAreEmptyString</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>47</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativeBaseFolderDoesNotExist</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>65</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testFileDoesNotExist</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>82</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_firstLevel_singleFile</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>100</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_firstLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>111</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_secondLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>122</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_noMatch</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>133</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_thirdLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>150</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>68</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_doubleStar</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>161</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>69</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_doubleStarPlusOthers</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>172</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>70</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject_nonCanonicalPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>183</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>71</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathInsideProject</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>200</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>72</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_firstLevel_singleFile</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>216</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>73</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_firstLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>227</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>74</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_secondLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>238</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>75</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_noMatch</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>248</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>76</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_thirdLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>265</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>77</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_doubleStar</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>281</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>78</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_doubleStarPlusOthers</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>292</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>79</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject_nonCanonicalPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>303</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>80</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathOutsideProject</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>320</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>81</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_firstLevel_singleFile</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>337</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>82</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_firstLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>348</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>83</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_secondLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>359</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>84</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_noMatch</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>370</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>85</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_thirdLevel_multipleFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>387</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>86</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_doubleStar</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>398</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>87</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_doubleStarPlusOthers</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>409</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>88</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePath_doubleStarPlusOthers</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>420</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>89</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePath_doubleStarForAllMatchingTxtAFiles</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>431</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>90</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath_nonCanonicalPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>442</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>91</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>459</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>92</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testGetInputFilesForGlobPatternMatchedRangeInBracket</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>476</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>93</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternFileName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>486</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>94</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtEndInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>496</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>95</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtMiddleInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>506</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>96</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathGlobPatternAtBeginingInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>516</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>97</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternFileName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>526</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>98</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtEndInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>536</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>99</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtMiddleInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>546</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>100</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testRelativePathGlobPatternAtBeginingInDirectoryName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>556</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>101</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.guidedconfig.test.FileReaderTest.testAbsolutePathDirectory</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/guidedconfig/test/FileReaderTest.java</sourcefile>
+      <sourceline>566</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.GlobPatternSupport</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>102</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>42</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>103</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsIntoEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>104</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsIntoNonEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>81</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>105</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsWithDependenciesIntoEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>119</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>106</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsEventAlreadyExistsAsOtherOneWasDependingOnIt</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>173</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>107</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeEventsWithDependenciesIntoNonEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>214</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>108</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeMappingsIntoEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>288</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>109</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeMappingsIntoNonEmptyModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>354</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>110</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.model.test.ModelMergerTest.testMergeComplexModel</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/model/test/ModelMergerTest.java</sourcefile>
+      <sourceline>423</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Input.Framework</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>111</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Bsw_multipleInstances</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/sysmodtorteconfig/test/BswTest.java</sourcefile>
+      <sourceline>62</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import a system model that has two instances of a&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>112</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Swc_ParameterSwComponentType</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/sysmodtorteconfig/test/SwcTest.java</sourcefile>
+      <sourceline>137</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import a system model that has a&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>113</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.sysmodtorteconfig.test.SystemModelToRteConfigWriterTest.testWriteConfig_Swc_multipleInstances</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/sysmodtorteconfig/test/SwcTest.java</sourcefile>
+      <sourceline>162</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Makes an RteSwcConfigWriter import a system model that has two instances of a&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Output.ECUC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>114</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.SystemModelAutosarPathBuilderTest.testGetAutosarPath_ArPackage</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/SystemModelAutosarPathBuilderTest.java</sourcefile>
+      <sourceline>44</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>115</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypes</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>52</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>116</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetRTEEvents</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>67</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>117</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetRunnableEntities</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>82</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>118</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAdminDataContent</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>97</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>119</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAdminDataContent_AutosarRoot</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>114</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>120</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetEcuInstance</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>137</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>121</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetSystem</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>147</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>122</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testgetBswModuleDescriptionByPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>157</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>123</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testgetBswModuleDescriptionByName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>170</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>124</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypeByPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>192</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>125</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetAtomicSwComponentTypeByName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>213</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>126</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderMultiTest.testGetBswSchedulableEntitys</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderMultiTest.java</sourcefile>
+      <sourceline>248</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>127</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypes</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>66</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>128</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetRTEEvents</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>82</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>129</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetRunnableEntities</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>98</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>130</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAdminDataContent</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>114</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>131</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAdminDataContent_AutosarRoot</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>131</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>132</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetEcuInstance</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>153</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>133</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetSystem</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>163</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>134</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testgetBswModuleDescriptionByPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>173</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>135</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testgetBswModuleDescriptionByName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>186</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>136</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypeByPath</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>208</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>137</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetAtomicSwComponentTypeByName</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>230</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>138</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.systemmodel.test.TresosSystemModelReaderTest.testGetBswSchedulableEntitys</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/systemmodel/test/TresosSystemModelReaderTest.java</sourcefile>
+      <sourceline>252</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.Generic</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>139</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testEmptySet</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/topsort/test/TopologicalSorterTest.java</sourcefile>
+      <sourceline>38</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.DependencyResolution</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>140</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortSingleItem</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/topsort/test/TopologicalSorterTest.java</sourcefile>
+      <sourceline>54</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.DependencyResolution</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>141</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortConnectedGraph</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/topsort/test/TopologicalSorterTest.java</sourcefile>
+      <sourceline>70</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.DependencyResolution</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>142</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortUnconnectedGraphs</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/topsort/test/TopologicalSorterTest.java</sourcefile>
+      <sourceline>90</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.DependencyResolution</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>143</internalId></specobject>
+    <specobject>
+      <id>eb.tresos.eventtotaskas.topsort.test.TopologicalSorterTest.testSortConnectedGraphWithCycle</id>
+      <status>approved</status>
+      <source>EB test case specification (xsc_EventToTaskMappingAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/xsc_EventToTaskMappingAs/test/junit/plugin.Test_EventToTaskMappingAs/Java/eb/tresos/eventtotaskas/topsort/test/TopologicalSorterTest.java</sourcefile>
+      <sourceline>112</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>EventToTaskMappingAs.DependencyResolution</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>144</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

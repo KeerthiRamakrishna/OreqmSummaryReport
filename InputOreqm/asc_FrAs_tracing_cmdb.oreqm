@@ -1,0 +1,2436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_FrAs_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/build/reqm/ReqM2_Native/asc_FrAs_requirements_Requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</commandline>
+    <timestamp>Mon Jun 17 21:10:34 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_FrAs_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/build/reqm/ReqM2_Native/asc_FrAs_requirements_Requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/build/reqm/ReqM2_GenericImporter/reqm_TCS.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.IndependenceOfTresosDelivery</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIf Wizard shall be independent of the Hardware-Platform and the
+                            HW-Derivate the AutoCore is shipped for, i.e. there shall be one single
+                            implementation for the FrIfWizard which is operable on every
+                            tresosStudio delivery. </description>
+      <comment> Avoid reimplementation of the FrIfWizard for different HW
+                            Platforms. There is no need for a platform specific implementation.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1001</srcid><srcstatus/><internalId>56</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIf Wizard shall support the configuration of FrIf Modules that are
+                            compliant with AUTOSAR 4.0. and that are integrated with Fr Modules that are 
+                            compliant with AUTOSAR 4.0</description>
+      <comment>Support integration of EB FrIf Module together with ASR 4.0.3 MCALs</comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.ASRSpecVersionAdapterTest.testASR4</srcid><srcstatus/><internalId>37</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortFTs</srcid><srcstatus/><internalId>52</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortCOs</srcid><srcstatus/><internalId>53</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testBaseCycleAndCycleRepetition</srcid><srcstatus/><internalId>54</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortJobs</srcid><srcstatus/><internalId>55</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1107</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.HelperTest.testHelper</srcid><srcstatus/><internalId>105</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases.4.2</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIf Wizard shall support the configuration of FrIf Modules that are
+                            compliant with AUTOSAR 4.0. and that are integrated with Fr Modules that are 
+                            compliant with AUTOSAR 4.2.1 or 4.2.2</description>
+      <comment>Support integration of EB FrIf Module together with ASR 4.2.x MCALs</comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1035</srcid><srcstatus/><internalId>68</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall derive the parameters necessary for FrIfJobList
+                            calculation from the tresosStudio FrIf cluster for which it is setting
+                            up the FrIfJobList. </description>
+      <comment> Global: ClusterList Cluster: gdCycle, gdMacrotick, gdStaticSlot,
+                            gNumberOfStaticSlots, List[FrameTrgs], FrameTrg: Rx/Tx, Slot, BC, CR,
+                            Ref to Virtual Buffer </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1001</srcid><srcstatus/><internalId>56</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1003</srcid><srcstatus/><internalId>57</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1105</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testMultipleConfigurations</srcid><srcstatus/><internalId>95</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testDeletedFT</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The FrIfWizard shall check the parameters necessary for FrIfJobList
+        calculation upfront for consistency.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidDCtxt</srcid><srcstatus/><internalId>44</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testUnsupportedASRVersion</srcid><srcstatus/><internalId>45</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdCycle</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdMacrotick</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidStaticSlots</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdStaticSlotMT</srcid><srcstatus/><internalId>49</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testStaticPartPlusNITLargerGdCycle</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testAutoJTInvalidNumberOfJobLists</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to automatically generate a
+                            FrIfJobList of a provided FrIf cluster. Any previously existing
+                            FrIfJoblist shall be removed. </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1003</srcid><srcstatus/><internalId>57</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1004</srcid><srcstatus/><internalId>58</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1005</srcid><srcstatus/><internalId>59</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1006</srcid><srcstatus/><internalId>60</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1007</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1010</srcid><srcstatus/><internalId>63</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1105</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1106</srcid><srcstatus/><internalId>85</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> During the creation of the FrIfJobList, the Communication Operations
+                            within a Job which have assigned the same Prioritiy parameter shall be
+                            sorted according to the slot number the Communication Operation operates
+                            on: Earlier transmitted slots come first. </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1085</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1090</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1095</srcid><srcstatus/><internalId>80</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1096</srcid><srcstatus/><internalId>81</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1097</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1098</srcid><srcstatus/><internalId>83</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ConfigureNumberOfJobTriggers</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall support the creation a user-defined number of
+                            JobTriggers during automatic FrIfJobList creation. The number of
+                            admissible JobTriggers lies in the interval [2..9]. </description>
+      <comment> In order to achieve a low latency between
+                            receiving/sending/processing of FlexRay frames, it shall be possible to
+                            define more than two JobTriggers. </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1015</srcid><srcstatus/><internalId>64</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ConfigureFTsForAssignment</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall support the manual activation/deactivation of
+                            FrameTriggerings for automatic Communication Operation assignment during
+                            FrIfJobList creation. The default value of the switch is "active", i.e.
+                            Communication Operations shall be generated for the FrameTriggering. The
+                            activation or deactivation state of a Frame triggering shall be stored
+                            in the tresosStudio configuration. </description>
+      <comment> AutoJobTrigger assignment for only a subset of available
+                            FrameTriggerings is a use-case for the BMW SC7 project. </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1020</srcid><srcstatus/><internalId>65</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ManuallyConfigureJobs</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> Within the Auto JT assignment process the user shall be given the
+                            opportunity to adapt the automatically calculated set of Job Triggers
+                            before Communication Operations are assigned. The user may also
+                            remove/add an arbitrary number of Jobs to which Communication Operations
+                            shall be assigned. </description>
+      <comment> Customers demand that the FlexRay Frame Triggerings are
+                            processed by the FrIf at specified points in time. </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1055</srcid><srcstatus/><internalId>72</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SupportSpecialCommOps</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> Aside the CommunicationOperations which are defined in the 
+                            FrIf SWS, the special communication operation PREP_LPDU_DEC_TX shall be
+                            supported by the FrIfWizard. This communication operation shall be
+                            written into the FrIf configuration as PREPARE_LPDU immediately
+                            followed by DECOUPLED_TX. If a written-out configuration contains such a
+                            communication operation pair, the FrIf Wizard shall merge the pairs
+                            again into a PREP_LPDU_DEC_TX operation.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1025</srcid><srcstatus/><internalId>66</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.EnableBufferSharing</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall support the manual activation/deactivation of
+                            potential buffer sharing for FrameTriggerings. FrameTriggerings are
+                            deactivated for potential buffer sharing per default. During automatic
+                            or manual Communication Operation assignment, the communication
+                            operation PREP_LPDU_DEC_TX shall be used instead of the communication
+                            operation DECOUPLED_TX. For receiving, an additional Communication
+                            Operation of action type PREPARE_LPDU shall be added before the
+                            receiving slot. The buffer sharing state for each FrameTriggering shall
+                            be stored in the tresosStudio configuration. </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1030</srcid><srcstatus/><internalId>67</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.JobPlacement</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> If two JobTriggers have been chosen, the following placement
+                            algorithm shall be used. If the static part is larger than the dynamic
+                            part (including NIT), the offset of the first job shall have the value
+                            (cycleLength / 4), the offset of the second job shall have the value
+                            ((cycleLength * 3) / 4). If the dynamic part (including NIT) is larger
+                            than the static part, the offset of the first job shall have the value
+                            (staticPartLength / 2), the offset of the second job shall have the
+                            value staticPartLength + (dynamicPartLength (including NIT) ) / 2.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1035</srcid><srcstatus/><internalId>68</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1040</srcid><srcstatus/><internalId>69</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1045</srcid><srcstatus/><internalId>70</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1050</srcid><srcstatus/><internalId>71</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.CommOpAssignment</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The assignment of communication operations using two Job Triggers
+                            shall be chosen in such a way that the time period between slot end and
+                            Job invocation time (RECEIVE_AND_INDICATE, RX_AND_IND_PREP_LPDU,
+                            TX_CONFIRMATION) shall be at least the length of one static slot.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1040</srcid><srcstatus/><internalId>69</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1045</srcid><srcstatus/><internalId>70</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1050</srcid><srcstatus/><internalId>71</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> If three or more JobTriggers have been chosen, the following
+                            assignment algorithm shall be used. The Jobs Triggers shall be spread
+                            equidistantly over the communication cycle so that one Job Trigger lies
+                            on the position (staticPartLength + gdStaticSlot). The time period
+                            between two successive jobs, Job Trigger Delta, is (cycleLength /
+                            numberOfJobTriggers). If no Job Trigger can be placed onto the static
+                            part (after the end of the first slot and before (Start of Dynamic Part
+                            - MinimumJobSlotInterval)) using this algorithm, a warning shall be
+                            issued to the user and the assignment algorithm using two Job Triggers
+                            shall be executed. </description>
+      <comment> The Job Trigger at position staticPartLength + gdStaticSlot is
+                            used to receive 2.5ms static slots for the BMW schedule. The Job Trigger
+                            in the static part is used to transmit dynamic slots. For the Job
+                            Trigger in the static part it must be guaranteed that it has a minimum
+                            distance of one static slot to the previous dynamic part and a minimum
+                            interval of MinimumJobSlotInterval to the next dynamic part.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1055</srcid><srcstatus/><internalId>72</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1060</srcid><srcstatus/><internalId>73</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1065</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1070</srcid><srcstatus/><internalId>75</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1080</srcid><srcstatus/><internalId>77</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.CommOpAssignment</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The virtual buffers for Dynamic Slots shall be configured (DECOUPLED_TX,
+                            PREP_LPDU_DEC_TX, PREPARE_LPDU) in the last Job Trigger which has its offset within
+                            the static part. The job trigger that prepares the virtual buffer of
+                            a static slot is determined as follows: JT1 is the Job
+                            Trigger lying immediately before the start of the slot. If the start of
+                            of the slot lies in the right red zone of JT1 or JT1 has no right red
+                            zone defined, the actual communication operation is scheduled to the 
+                            Job Trigger which precedes JT1. If JT1 has a right red zone defined and
+                            the slot start does not lie in the right red zone of JT1, the communication
+                            operation is scheduled to JT1 instead. The TX_CONFIRMATION and RECEIVE_AND_INDICATE
+                            communication operations are assigned to the job which is executed at
+                            position (SlotEndTime + staticSlotLength) or later, where the slot end
+                            time of a dynamic slot is assumed as the end of the communication cycle
+                            (dynamic part + NIT). </description>
+      <comment> Dynamic Slots are prepared at the latest Job executed
+                            during the static part in order to avoid a latency jitter
+                            of one comm cycle incurring when a dynamic slot is transmitted sometimes
+                            before and sometimes after the Job Trigger execution (depending on the
+                            bus load in the dynamic part). The period between DECOUPLED_TX,
+                            PREP_LPDU_DEC_TX, PREPARE_LPDU communication operations for static slots shall be
+                            either the time period between two successing Job Triggers, or the red right zone
+                            as defined in
+                            "Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerRightRedZoneForAutoAssignment".
+                            if both values are avaiable, the smaller one is taken.</comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1060</srcid><srcstatus/><internalId>73</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1065</srcid><srcstatus/><internalId>74</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1070</srcid><srcstatus/><internalId>75</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.HandleImmediatePduFTs</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> For Frame Triggerings assigned to Frames which contain a Pdu having
+                            the FrIfImmediate flag turned on, no DECOUPLED_TX/PREP_LPDU_DEC_TX
+                            operations shall be assigned during automatic communication operation
+                            assignment. If the Pdu has the FrIfConfirm bit turned on, however, a
+                            TX_CONFIRMATION CommOp shall be created during automatic communication
+                            operation assignment. </description>
+      <comment> Immediate Tx Pdus are not transmitted autonomously from the
+                            FrIf, but from a module "above" the FrIf in the ASR CommStack.
+                            Therefore, no DECOUPLED_TX CommOp shall be inserted. </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1050</srcid><srcstatus/><internalId>71</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1070</srcid><srcstatus/><internalId>75</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerCreation</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to create a Job Trigger. The
+                            initial offset of the job trigger shall lie within the allowed range of
+                            the FrIfMacrotick parameter for the supported FrIf Spec versions.
+                            However the FrIfWizard shall allow entering a value out of the allowed
+                            range. The initial direction for auto assignment shall be "RX/TX".</description>
+      <comment> The allowed minimum value of FrIfMacrotick is one and the
+                             maximum value is not restricted. Since the actual EB implementations support any value, including
+                            zero, only the the initial value should lie within the allowed range,
+                            and no check shall be made if the allowed value range is exceeded.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1108</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1110</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1111</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1112</srcid><srcstatus/><internalId>94</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>17</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerDirForAutoAssignment</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> During automatic Job Trigger Assignment the FrIfWizard shall only assign frame triggerings to job triggers with a 
+                            matching direction for auto assignment.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testDirForAutoJT</srcid><srcstatus/><internalId>96</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testDirForAutoJTErrors</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerRightRedZoneForAutoAssignment</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+                          The FrIfWizard shall provide a mechanism to define the minimum amount of
+                          macroticks that have to pass between the start of a Job Trigger and the
+                          start of a static slot in order to allow an assignment of a 
+                          Communication Operation to the Job Trigger if the Communication Operation
+                          needs to be executed before the static slot.
+      </description>
+      <comment>
+                          This allows to execute Communication Operations that must be executed 
+                          before the slot as late as possible, but still early enough so that
+                          the related Virtual Buffer is configured before the FlexRay controller 
+                          is accessing it.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testRedZoneAutoAssignNoWrapAround</srcid><srcstatus/><internalId>99</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testRedZoneAutoAssignWrapAround</srcid><srcstatus/><internalId>100</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>19</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobListDeletion</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to completely remove a
+                            FrIfJobList of a provided FrIf cluster. </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1108</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1110</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1111</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1112</srcid><srcstatus/><internalId>94</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>20</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpCreation</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to add FrIfCommOps for a
+                            given FrameTriggering contained in one of the clusters communication
+                            controllers and a given Job Trigger. </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1007</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testAssignNewJobs</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testCommOpActionStrings</srcid><srcstatus/><internalId>89</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpRemoval</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to remove FrIfCommOps for a
+                            given FrameTriggering contained in one of the clusters communication
+                            controllers. </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1075</srcid><srcstatus/><internalId>76</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>22</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall provide a function to edit FrIfCommOps for a
+                            given FrameTriggering contained in one of the clusters communication
+                            controllers. The fields that shall be edited are
+                            "FrIfCommunicationAction" which shall provide the
+                            FrIfCommunicationActions outlined in the FrIf SWS and the special
+                            FrIfCommunicationActions outlined in
+                            "FrIfWizard.Functional.FrIfAutoJobListGeneration.SupportSpecialCommOps",
+                            "FrIfBaseCycle" and "FrIfCycleRepetition" of the CommunicationOperation
+                            (indicating the communication cycles in which the operations take
+                            place), "Job Trigger" indicating at which point in time within the
+                            communication cycle the operation shall take place, and "Priority"
+                            defining the order in which CommunicationOperations having the same
+                            Macrotick Offset (i.e. Job Trigger) assigned shall be executed . </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1006</srcid><srcstatus/><internalId>60</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1007</srcid><srcstatus/><internalId>61</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1025</srcid><srcstatus/><internalId>66</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1106</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.testAssignNewJobs</srcid><srcstatus/><internalId>87</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.AutomaticFrIfVirtualBufferSetup</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrIfWizard shall set up a controllers Virtual Buffer list so that
+                            for Frame Triggerings containing an immediate Pdu and for Frame
+                            Triggerings which have at least one FrIfCommOp assigned a virtual buffer
+                            is provided. For all other FrameTriggerings, no virtual buffer shall be
+                            created. </description>
+      <comment> The Fr MCG currently allocates one FlexRay CC buffer for every
+                            VirtualBuffer which exists in the FrIf configuration of the FlexRay CC.
+                            Avoid unnecessary allocation of FlexRay CC buffers. </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1075</srcid><srcstatus/><internalId>76</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.Logging</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> Errors and warning messages shall be logged using the OperationStatus
+                            and NLS mechanisms of tresosStudio. </description>
+      <comment> </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1009</srcid><srcstatus/><internalId>62</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>partially</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>partially</covstatus><internalId>25</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>There shall be a Public API which the plugin exports and which provides access
+                        to the following functions: Load a FrIfCluster configuration, automatically create
+                        Job Triggers and Communication Operations, retrieve all available absolute timers,
+                        read the currently set absolute timer, set an absolute timer.</description>
+      <comment>Public API is used in the BusTools workflow</comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidDCtxt</srcid><srcstatus/><internalId>44</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testUnsupportedASRVersion</srcid><srcstatus/><internalId>45</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdCycle</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdMacrotick</srcid><srcstatus/><internalId>47</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidStaticSlots</srcid><srcstatus/><internalId>48</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdStaticSlotMT</srcid><srcstatus/><internalId>49</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testStaticPartPlusNITLargerGdCycle</srcid><srcstatus/><internalId>50</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testAutoJTInvalidNumberOfJobLists</srcid><srcstatus/><internalId>51</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1109</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1109_2</srcid><srcstatus/><internalId>91</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.FrIfReconfigurable</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>The FrIfWizard shall store the value of FrIfLPdu/FrIfReconfigurable if the FrIfLPdu
+                        is associated with one FrIfFrameTriggering. If the FrIfWizard writes a new Job list, the FrIfLPdu 
+                        that has been newly created for the FrIfFrameTriggering shall obtain the previously stored FrIfReconfigurable 
+                        parameter value.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsTest.test1070</srcid><srcstatus/><internalId>75</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>There shall be an Unattended Wizard for auto configuration of job lists.</description>
+      <comment>The Unattended Wizard allows an execution via command line.</comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJT</srcid><srcstatus/><internalId>101</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTInvalidJTNumber</srcid><srcstatus/><internalId>102</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTNoCluster</srcid><srcstatus/><internalId>103</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTUnsupportedRelease</srcid><srcstatus/><internalId>104</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>The maximum number of JTS for Unattended Wizard shall be configurable via 
+                        command line parameter.</description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSShallBeNull</srcid><srcstatus/><internalId>38</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSTooHigh</srcid><srcstatus/><internalId>39</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSTooLow</srcid><srcstatus/><internalId>40</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSContainsInvalidValue</srcid><srcstatus/><internalId>41</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSContainsValidValue</srcid><srcstatus/><internalId>42</internalId></linkedfrom><linkedfrom><srcid>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testFallbackToDefaultValue</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.LaunchFrIfWizard</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> There shall be an activity "Edit FrIf Joblist" in the Wizard sidebar,
+                            below the group "ECU" if a "FrIf" module configuration is present in the
+                            currently active ECU configuration project. Clicking the "Edit FrIf
+                            Joblist" activity shall open a dialog which enables a user to (1) select
+                            one of the FrIfCluster elements present in any FrIf configuration (showing
+                            the name of the multiple configuration container and the cluster name), (2)
+                            proceed to the original FrIfWizard main dialog after one of the clusters
+                            has been selected. The dialog shall be able to read FrIf configurations
+                            (namely the FrIfCluster elements it displays to the user) of all Autosar
+                            standards which the EB FrIf module is supporting. </description>
+      <comment> The FrIfWizard reads/writes configuration data contained within
+                            one single FrIfCluster. If no FrIf configuration or no FrIfCluster is
+                            present, no FrIfJobList calculation can be performed. </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>30</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.FrIfWizardMainWindow</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> After launch, the FrIfWizard MainWindow opens. It shall display a
+                            list of all FrameTriggerings contained in the FrIf cluster, a list of
+                            CommunicationOperations contained in the FrIf clusters JobList, and a
+                            list of all distinct FrIfMacrotick offsets in which
+                            CommunicationOperations actually take place. Buttons shall be available
+                            to enable all required FrIfWizard functions. </description>
+      <comment> The user performs all automatic and manual operations in the
+                            FrIfWizard MainWindow. </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>31</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.FrIfWizardMainWindowFrameTriggeringList</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The FrameTriggering list shall display the following properties:
+                            FrameTriggering Short-Name, FrameStruct, Frame Triggering Direction
+                            (Rx/Tx), Channel (A/B/AB), Slot Number, Static/Dynamic (indicates
+                            whether the slot is a static or dynamic one), FrIfBaseCycle,
+                            FrIfRepetitionCycle, Slot Start and Slot End (both in units of MT),
+                            operating FrIf CommunicationController (all read-only), Tx Mode
+                            (decoupled or immediate for Tx Frame Triggerings, n/a for Rx Frame
+                            Triggerings), CommOps (number of assigned communication operations),
+                            Confirm (yes/no for Tx Frame Triggerings, n/a for Rx Frame Triggerings,
+                            read-only), Active (for automatic Job Trigger Assignment) (yes/no,
+                            read-write), and "Buffer Reconfig" (allowed/forbidden, read-write). </description>
+      <comment> All necessary FrameTriggering information shall be displayed to
+                            guide the user during manual FrIfCommunicationOperation assignment.
+                            Frame Triggerings shall be configurable for Auto job trigger assignment
+                            and for potential buffer reconfiguration (necessary for buffer sharing).
+                        </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>32</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.FrIfWizardMainWindowCommunicationOperationList</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The CommunicationOperationList list shall display the following
+                            properties: Name/Reference to the assigned Job Trigger
+                            (read/write), Name/Reference to the assigned Frame Triggering
+                            (read-only), the Slot number of the Frame Triggering (read-only), the
+                            FrIfCommunicationAction (read/write), FrIfBaseCycle and
+                            FrIfRepetitionCycle of the Communication Operation (read/write),
+                            Priority (read/write). </description>
+      <comment> The FrIfMacrotick object is used to group multiple
+                            CommunicationOperations by the point in time when they are executed
+                            during one FlexRay communication cycle. By FrIfBaseCycle and
+                            FrIfRepetitionCycle, a set of similar CommunicationOperations are
+                            subsumed to one "virtual" CommunicationOperation. The other parameters
+                            are actual FrIfCommunicationOperation parameters. </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>33</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.FrIfWizardMainWindowMacrotickOffsetList</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> The MacrotickOffsetList list shall display the following properties:
+                            Name of the FrIfMacrotick offset (read only), "FrIfMacrotick" parameter
+                            (read/write) and the direction for auto assignment (read/write). </description>
+      <comment> By introducing an MacrotickOffset object, the FrIfMacrotick
+                            parameter of all associated FrIfCommunicationOperations can be changed
+                            by simply changing the "FrIfMacrotick" parameter of the FrIfMacrotick
+                            object. </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>34</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.GenericCommOps</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> Aside the CommunicationOperations which are defined in
+                            FrIfAutoJobListGeneration.SupportSpecialCommOps, all additional FrIfCommunicationAction 
+                            values as defined in a module's xdm shall be available for selection. If CONSUME_RXFIFO is
+                            available in the xdm, it shall only be available for Rx FTs.</description>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>35</internalId></specobject>
+    <specobject>
+      <id>Studio.AssistanceDialogs.FrAs.GUI.UnattendedWizardGUI</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description> There shall be a GUI for the Unattended Wizard for automatic configuration of maximum number of JobTriggers.</description>
+      <comment> The Unattended Wizard GUI allows the execution of the wizard. </comment>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>uncovered</objcovstatus><coveredby/></needscov>
+      <containerCovstatus>uncovered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>uncovered</covstatus><internalId>36</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.ASRSpecVersionAdapterTest.testASR4</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/ASRSpecVersionAdapterTest.java</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that ASR 4.0 specific config parameters are supported&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSShallBeNull</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>17</sourceline>
+      <version>1</version>
+      <description>Tests that the getMaximumNumberOfJobTriggers method returns an error when the FrAsMaxJTNumber command line parameter is not set.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSTooHigh</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>30</sourceline>
+      <version>1</version>
+      <description>Tests that the getMaximumNumberOfJobTriggers method returns an error when the FrAsMaxJTNumber command line parameter is set to a higher value than allowed.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSTooLow</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>45</sourceline>
+      <version>1</version>
+      <description>Tests that the getMaximumNumberOfJobTriggers method returns an error when the FrAsMaxJTNumber command line parameter is set to a lower value than allowed.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSContainsInvalidValue</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>60</sourceline>
+      <version>1</version>
+      <description>Tests that the getMaximumNumberOfJobTriggers method returns an error when the FrAsMaxJTNumber command line parameter is set an invalid value.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testMaximumNumberOfJTSContainsValidValue</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>75</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that the getMaximumNumberOfJobTriggers method returns an actual value which was set.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsAutoConfigureHelperTest.testFallbackToDefaultValue</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsAutoConfigureHelperTest.java</sourcefile>
+      <sourceline>90</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that if the number of JTs is not provided in the system variable, the passed default
+parameter value is taken. Test that if both values exist, the system variable is taken.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard.SetMaximumNumberOfJTS</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidDCtxt</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that an invalid FrIf cluster context results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testUnsupportedASRVersion</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>58</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that an invalid spec version results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdCycle</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>91</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that a gdCycle value of zero results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdMacrotick</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>124</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that a gdCycle value of zero results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidStaticSlots</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>157</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that zero static slots results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testInvalidGdStaticSlotMT</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>190</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that a static slot length of zero macroticks results in an appropriate exception&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testStaticPartPlusNITLargerGdCycle</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>223</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that if the static part plus NIT is larger than gdCycle an
+appropriate exception is thrown&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsConsistencyCheckerTest.testAutoJTInvalidNumberOfJobLists</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsConsistencyCheckerTest.java</sourcefile>
+      <sourceline>256</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Ensures that an unsupported number of job triggers results in an appropriate error OpStatus&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM.ConsistencyCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortFTs</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsSortingTest.java</sourcefile>
+      <sourceline>79</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the sorting of FrameTriggerings&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortCOs</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsSortingTest.java</sourcefile>
+      <sourceline>360</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the sorting of CommunicationOperations&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testBaseCycleAndCycleRepetition</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsSortingTest.java</sourcefile>
+      <sourceline>458</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests manual set and read-out of BaseCycle and Cycle Repetition for valid CommunicationOperation in FrAs config&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsSortingTest.testSortJobs</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsSortingTest.java</sourcefile>
+      <sourceline>518</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the sorting of Jobs&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1001</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>56</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests independence of Tresos Studio Platform Delivery&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.IndependenceOfTresosDelivery</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1003</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>73</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests automatic creation of two Job triggers and assignment of related frame triggerings of a cluster according
+to the parameters of the cluster (frame triggerings, abs timer, gdCycle, gdMacroTick, gdStaticSlot,
+gdNumberOfStaticSlots)&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1004</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>98</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the BC setting of a Communication Operation is derived from the frame triggering and the communication
+action.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1005</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>115</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that the FrIfWizard creates the FrIf Joblist (Jobs/Communication Operations) according to the Job Trigger
+and the abstract communication operations.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1006</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>140</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that the FrIfWizard ensures that for every frame triggering which is handled by a communication operation a
+virtual buffer exists which refers to the frame triggering.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1007</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>166</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests that the FrIfWizard ensures that the required communication operations are created, that comop Index is
+zero-based and dense within each job and that the order of the communication operation reflects the priority
+parameter (higher values = higher priority)&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1009</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>200</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Errors and warnings of the FrIfWizard shall be logged to the Error Log/Problems View.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.Logging</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1010</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>224</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests handling of a huge configuration&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1015</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>239</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests User-defined number of JobTriggers.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ConfigureNumberOfJobTriggers</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1020</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>252</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests Activation and deactivation of Frame Triggerings.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ConfigureFTsForAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1025</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>307</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests Modification of FrIfCommunicationAction.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SupportSpecialCommOps</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1030</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>341</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests Enable Buffer Reconfig (Sharing).&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.EnableBufferSharing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1035</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>373</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests simple Automatic Job Placement&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases.4.2</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>68</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1040</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>386</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Simple Automatic CommOp Assignment 1&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>69</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1045</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>403</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Simple Automatic CommOp Assignment 2&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>70</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1050</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>420</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Simple Automatic CommOp Assignment 3&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.SimpleAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.HandleImmediatePduFTs</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>71</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1055</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>439</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Automatic Job generation and Job Assignment&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.ManuallyConfigureJobs</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>72</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1060</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>482</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Advanced Automatic CommOp Assignment 1&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>73</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1065</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>500</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Advanced Automatic CommOp Assignment 2&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>74</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1070</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>517</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Advanced Automatic CommOp Assignment 3 and FrIfReconfigurable&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.CommOpAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.HandleImmediatePduFTs</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfReconfigurable</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>75</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1075</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>543</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Virtual Buffer Allocation, CommOp Unassignment&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.AutomaticFrIfVirtualBufferSetup</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpRemoval</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>76</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1080</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>583</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Advanced Automatic Job Placement&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.AdvancedAssignment.JobPlacement</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>77</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1085</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>611</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>78</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1090</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>653</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>79</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1095</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>666</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>80</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1096</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>682</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>81</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1097</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>697</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>82</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1098</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>712</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Communication Operation order, Priority and Slot number&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration.CommOpOrder</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>83</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1105</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>729</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;The FrIfWizard has to create the FrIf Joblist (Jobs/Communication Operations) according to the Job Trigger and
+the abstract communication operations. Also tests ASR 3.0 compatibility&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>84</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1106</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>760</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;The FrIfWizard has to ensure that for every frame triggering which is handled by a communication operation a
+virtual buffer exists which refers to the frame triggering.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfAutoJobListGeneration</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>85</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1107</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>786</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the compatibility with ASR 4.0 configurations&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>86</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testAssignNewJobs</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>798</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the assignment of newly created Jobs to different FTs and re-assignment of the job of a CommOp&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpEditing</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>87</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1108</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>852</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the deleteAll JTs and create JT functionality&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobListDeletion</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>88</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testCommOpActionStrings</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>874</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the sorting of CommunicationOperations&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfCommOpCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>89</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1109</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>919</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Does the same as test 1004, however using the public API - testing whether FrIfWizard is properly initialized and
+interface methods are correctly forwarded.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>90</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1109_2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>957</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Does the same as test 1004, however using the public API - testing whether FrIfWizard is properly initialized and
+interface methods are correctly forwarded.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.PublicAPI</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>91</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1110</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>998</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the deleteAll JTs and create JT functionality for empty FrameTriggerings list&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobListDeletion</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>92</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1111</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1022</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the deleteAll JTs and create JT functionality FT on non existing job&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobListDeletion</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>93</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.test1112</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1044</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the deleteAll JTs and create JT functionality of empty FT list on non existing job&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobListDeletion</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerCreation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>94</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testMultipleConfigurations</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1071</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the support of multiple configuration containers&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>95</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testDirForAutoJT</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1107</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the correct handling of the direction for auto assignment property&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerDirForAutoAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>96</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testDirForAutoJTErrors</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1136</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests error reporting if not enough JTs with matching direction for auto assignment are created for the avail FTs&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerDirForAutoAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>97</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testDeletedFT</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1170</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests handling of deleted FTs when VBs already exist&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.InputParamsFromFrIfXDM</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>98</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testRedZoneAutoAssignNoWrapAround</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1189</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the correct handling of the automatic job trigger assignment in case a red zone
+is defined to the right of a job trigger. In the test scenario the job trigger starts
+before the slot in the same communication cycle.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerRightRedZoneForAutoAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>99</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrAsTest.testRedZoneAutoAssignWrapAround</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrAsTest.java</sourcefile>
+      <sourceline>1232</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the correct handling of the automatic job trigger assignment in case a red zone
+is defined to the right of a job trigger. In the test scenario the job trigger starts
+in the communication cycle that precedes the communication cycle of the slot.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.FrIfJobTriggerRightRedZoneForAutoAssignment</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>100</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJT</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrIfAutoConfigureTest.java</sourcefile>
+      <sourceline>29</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>101</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTInvalidJTNumber</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrIfAutoConfigureTest.java</sourcefile>
+      <sourceline>43</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>102</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTNoCluster</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrIfAutoConfigureTest.java</sourcefile>
+      <sourceline>56</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>103</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.FrIfAutoConfigureTest.testUnattendedAutoJTUnsupportedRelease</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/FrIfAutoConfigureTest.java</sourcefile>
+      <sourceline>69</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.UnattendedWizard</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>104</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>dreisoft.tresos.frifwizard.test.HelperTest.testHelper</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FrAs)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FrAs/test/junit/plugin.Test_FrAsExt.Autosar/Java/dreisoft/tresos/frifwizard/test/HelperTest.java</sourcefile>
+      <sourceline>31</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Tests the Helper class methods&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Studio.AssistanceDialogs.FrAs.Functional.SupportedAUTOSARReleases</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>105</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

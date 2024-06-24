@@ -1,0 +1,3256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_FOCrypto_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules_RMP4_0.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_FOCrypto.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_FOCrypto_SipHash.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_manConfTests.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/common_req/FOCrypto_VerifyStub_EB_Extension.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_GenericImporter/reqm_IMPL.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_GenericImporter/reqm_IMPLXML.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_DocBookImporter/reqm_SWDD.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_OldCImporter/reqm_SWUTS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 22:04:52 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules_RMP4_0.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_FOCrypto_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_FOCrypto.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_FOCrypto_SipHash.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_Native/asc_FOCrypto_requirements_manConfTests.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/common_req/FOCrypto_VerifyStub_EB_Extension.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_GenericImporter/reqm_IMPL.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_GenericImporter/reqm_IMPLXML.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_DocBookImporter/reqm_SWDD.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/ReqM2_OldCImporter/reqm_SWUTS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/1018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>swpad</regex>      <!-- since 10/1018: introduced for updated tracing model-->
+      <regex>swts</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/1018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/1010: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+
+      <!-- legacy items -->
+      <regex>dev</regex>
+      <regex>man</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+    <!-- The Ruleset for RMP4.0 is currently identical to the previous rule set. This rule is
+        intoduce to show that the right file is uses. It will be removed when the RMP4.0 rule set is
+    reworked -->
+    <rule>
+      <name>INFO.Rule set RMP4.0</name>
+      <description>This rules indicates that RMP4.0 rule set is used.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.general.doctypes</name>
+      <description>The used doctype is not part of the tracing model</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobjects/@doctype</applyto>
+          <condition>((. != 'creq') or (. != 'fea') or (. != 'swpad') or (. != 'swts') or (. != 'swrs') or (. !='swad') or (. != 'swintts') or (.!= 'swdd') or (. != 'swurs') or (. != 'swmts') or (. != 'swuts') or (. != 'impl') or (. != 'dev') or (. != 'man') or (. != 'lim'))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected.coverage</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.count</name>
+      <description>Unit requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='swurs') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='swrs') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs') and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs') and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swdd.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd') and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swurs.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by swurs, swad, dev, lim, swdd, impl, swuts, swmts, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swurs')]</applyto>
+          <condition>(./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swurs, swad, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swuts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swmts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swmts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swintts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swts.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.impl.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='impl')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+          </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swmts.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+  </rules>
+    <oreqmRules>
+
+        <rule>
+            <name>WRN.swts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.man.needscoverage.count</name>
+            <description>Violated if there are more than 10 man specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='man']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='man']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>man.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.swintts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swintts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swintts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swintts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swintts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+        <rule>
+            <name>WRN.swmts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swmts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swmts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swmts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swmts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swuts.needscoverage.count</name>
+            <description>Violated if there are more than 10 swuts specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swuts']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swuts']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swuts.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swpad.needscoverage.count</name>
+            <description>Violated if there are more than 10 swpad specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swpad']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swpad']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swpad.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swrs.needscoverage.count</name>
+            <description>Violated if there are more than 10 swrs specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swrs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swrs']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swrs.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swad.needscoverage.count</name>
+            <description>Violated if there are more than 10 swad specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swad']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swad']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swad.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swurs.needscoverage.count</name>
+            <description>Violated if there are more than 10 swurs specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swurs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swurs']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swurs.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swdd.needscoverage.count</name>
+            <description>Violated if there are more than 10 swdd specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swdd']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='swdd']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swdd.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.impl.needscoverage.count</name>
+            <description>Violated if there are more than 10 impl specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='impl']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./needscoverage/needscov[needsobj='impl']/coveredby/linkedfrom)) &gt; 10]/furtherinfo</applyto>
+                                        <regex>impl.needscoverage.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swrs.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swrs specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swrs'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swrs'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swrs.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swad.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swad specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swad'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swad'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swad.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swurs.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swurs specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swurs'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swurs'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swurs.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.swdd.fulfilledby.count</name>
+            <description>Violated if there are more than 10 swdd specobjects as fulfilledby link to one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swdd'])) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+                        <regexchecks>
+                                <regexcheck>
+                                        <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='swdd'])) &gt; 10]/furtherinfo</applyto>
+                                        <regex>swdd.fulfilledby.count</regex>
+                                </regexcheck>
+                        </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="swurs">
+
+    <specobject>
+      <id>FOCrypto.EB.ServiceDefinition.VersionInfo</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name:       FOCrypto_GetVersionInfo
+        Syntax:             void FOCrypto_GetVersionInfo(Std_VersionInfoType* VersionInfoPtr)
+        Service ID [hex]:   0x01
+        Sync/Async:         Synchronous
+        Reentrancy:         Non Reentrant
+        Parameters (in):    None
+        Parameters (inout): None
+        Parameters (out):   VersionInfoPtr : Pointer to version information of this module.
+        Return value:       None
+        Description:        This service shall return the version information of this module.
+        Available via:      FOCrypto.h
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo</srcid><srcstatus/><internalId>81</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.ServiceDefinition.CalculateMAC</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Service name:       FOCrypto_CalcMAC
+        Syntax:             void FOCrypto_CalcMAC
+                              (
+                                uint8 algorithm,
+                                uint8 *dataPtr,
+                                uint32 dataSize,
+                                uint8 *keyPtr,
+                                uint32 keySize,
+                                uint8  *signaturePtr,
+                                uint32 signatureSize
+                              )
+        Service ID [hex]:   0x02
+        Sync/Async:         Synchronous
+        Reentrancy:         Reentrant.
+        Parameters (in):    algorithm :     Algorithm ID used to generate the MAC.
+                            dataPtr :       Pointer to the buffer containing data for MAC generation.
+                            dataSize :      Size of the data provided by the dataPtr.
+                            keyPtr :        Pointer to the buffer containing the key used to generate the MAC.
+                            keySize :       Size of the key provided by the keyPtr.
+                            signatureSize : Size of the buffer where the MAC is stored.
+        Parameters (inout): None
+        Parameters (out):   signaturePtr :  Pointer to where to store the generated MAC.
+        Description:        This service shall generate MAC for the provided data using the provided key and algorithm.
+        Available via:      FOCrypto.h
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector_Truncated</srcid><srcstatus/><internalId>80</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.ModuleNameCfg</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Module Name: FOCrypto
+        Module Description: This container includes all necessary configuration sub-containers
+        according the Fail-Operational Crypto configuration structure.
+        Supported Config Variants: VARIANT-PRE-COMPILE
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_16</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Container Name: FOCryptoGeneral
+        Parent Container: FOCrypto
+        Description: This container holds the general parameters of the Fail-Operation Crypto.
+        Multiplicity: 1
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_40</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral.CommunicationType</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: FOCryptoCommsType
+        Parent Container: FOCryptoGeneral
+        Description: Sets the FOCrypto module to work for one of the chosen communication types:
+        - CanFD
+        - FlexRay (currently not supported)
+        - Ethernet (currently not supported)
+        Multiplicity: 1
+        Type: EcucEnumerationParamDef
+        Default Value: CanFD
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_45</srcid><srcstatus/><internalId>54</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_dataSize</srcid><srcstatus/><internalId>89</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral.DevErrorDetect</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: FOCryptoDevErrorDetect
+        Parent Container: FOCryptoGeneral
+        Description: Switches the development error detection and notification on or off.
+        - true: detection and notification is enabled.
+        - false: detection and notification is disabled.
+        Multiplicity: 1
+        Type: EcucBooleanParamDef
+        Default Value: false
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo_Det_NULLPTR</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_VersionInfo_DetCddError_NULLPTR</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_78</srcid><srcstatus/><internalId>55</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral.VersionInfoApi</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: FOCryptoVersionInfoApi
+        Parent Container: FOCryptoGeneral
+        Description: Enables / Disables version info API.
+        Multiplicity: 1
+        Type: EcucBooleanParamDef
+        Default value: FALSE
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_95</srcid><srcstatus/><internalId>56</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: FOCryptoCddErrorReportingApiName
+        Parent Container: FOCryptoGeneral
+        Description: This parameter defines the CDD API name
+        used (besides the Det handling) to report errors.
+        Multiplicity: 0..1
+        Type: EcucFunctionNameDef
+        maxLength: 32
+        minLength: 1
+      </description>
+      <furtherinfo>
+          WRN.swuts.needscoverage.count - Linking test requirements to top-level
+          requirement is beneficial, splitting them up would only increase complexity without any
+          real advantages.
+        </furtherinfo>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo_CddError_NULLPTR</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_DataNULLPTR</srcid><srcstatus/><internalId>91</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_keyNULLPTR</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_signatureNULLPTR</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_algorithm</srcid><srcstatus/><internalId>94</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_keySize</srcid><srcstatus/><internalId>95</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_signatureSize</srcid><srcstatus/><internalId>96</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_dataSize</srcid><srcstatus/><internalId>97</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_VersionInfo_DetCddError_NULLPTR</srcid><srcstatus/><internalId>98</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_DataNULLPTR</srcid><srcstatus/><internalId>99</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_keyNULLPTR</srcid><srcstatus/><internalId>100</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_signatureNULLPTR</srcid><srcstatus/><internalId>101</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_algorithm</srcid><srcstatus/><internalId>102</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_keySize</srcid><srcstatus/><internalId>103</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_signatureSize</srcid><srcstatus/><internalId>104</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_dataSize</srcid><srcstatus/><internalId>105</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_112</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.FOCryptoGeneral.CddHeaderFile</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Name: FOCryptoCddHeaderFile
+        Parent Container: FOCryptoGeneral
+        Description: Defines header files for callback functions
+        which shall be included in case of CDDs usage.
+        Multiplicity: 0..1
+        Type: EcucStringParamDef
+        maxLength: 32
+        minLength: 1
+        Scope/Dependency:
+          Scope: local
+          Dependency: This parameter shall only be configurable if
+          FOCryptoCddErrorReportingApiName is enabled.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo_CddError_NULLPTR</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_VersionInfo_DetCddError_NULLPTR</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/FOCrypto.xdm.m4_128</srcid><srcstatus/><internalId>58</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="swurs">
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.1</id>
+      <status>rejected</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        SipHash is a family of PRFs SipHash-c-d where the integer parameters c and d
+        are the number of compression rounds and the number of finalization rounds. A
+        compression round is identical to a finalization round and this round function is
+        called SipRound. Given a 128-bit key k and a (possibly empty) byte string m,
+        SipHash-c-d returns a 64-bit value SipHash-c-d(k, m).
+      </description>
+      <comment>
+        This requirement is informational only.
+      </comment>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.2</id>
+      <status>rejected</status>
+      <source>SipHash a fast short-input PRF, Section 3 Expected strength</source>
+      <version>1</version>
+      <description>
+        SipHash-c-d with c ≥ 2 and d ≥ 4 is expected to provide the maximum PRF
+        security possible (and therefore also the maximum MAC security possible) for
+        any function with the same key size and output size.
+      </description>
+      <comment>
+        This requirement is informational only.
+      </comment>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.3</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Since only SipHash-2-4 shall be supported, c shall be set to 2.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_27</srcid><srcstatus/><internalId>38</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.4</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Since only SipHash-2-4 shall be supported, d shall be set to 4.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_34</srcid><srcstatus/><internalId>39</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.5</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The return value of the SipHash primitive shall have a length of 64 bits (8 bytes).
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector_Truncated</srcid><srcstatus/><internalId>80</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.6</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The SipHash primitive shall use a key of length 128 bits (16 bytes).
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_keySize</srcid><srcstatus/><internalId>87</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.7</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The first 8 bytes (64 bits) of the configured key shall be stored
+        in a variable Key0 (64 bits) in little endian format.
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_274</srcid><srcstatus/><internalId>40</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.8</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The upper 8 bytes (64 bits) of the configured key shall be stored
+        in a variable Key1 (64 bits) in little endian format.
+      </description>
+      <comment>
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_276</srcid><srcstatus/><internalId>41</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.9</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The internal state variable V0 (64 bits) shall be initialized as follows:
+          V0 = Key0 xor 0x736f6d6570736575
+      </description>
+      <comment>Note: Key0 is defined in FOCrypto.EB.SipHash.7</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_280</srcid><srcstatus/><internalId>42</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.10</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The internal state variable V1 (64 bits) shall be initialized as follows:
+          V1 = Key1 xor 0x646f72616e646f6d
+      </description>
+      <comment>Note: Key1 is defined in FOCrypto.EB.SipHash.8</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_282</srcid><srcstatus/><internalId>43</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.11</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The internal state variable V2 (64 bits) shall be initialized as follows:
+          V2 = Key0 xor 0x6c7967656e657261
+      </description>
+      <comment>Note: Key0 is defined in FOCrypto.EB.SipHash.7</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_284</srcid><srcstatus/><internalId>44</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.12</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The internal state variable V3 (64 bits) shall be initialized as follows:
+          V3 = Key1 xor 0x7465646279746573
+      </description>
+      <comment>Note: Key1 is defined in FOCrypto.EB.SipHash.8</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_286</srcid><srcstatus/><internalId>45</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.13</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The input message for the SipHash primitive shall be processed in blocks
+        of size 8 bytes (64 bits). Thus, iteratively 8 bytes at maximum have to
+        be copied from the input message to a 64 bits message buffer in little
+        endian format. If a 64 bits block cannot be filled anymore from the
+        input message, the buffer shall be filled by 0 bytes.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_309</srcid><srcstatus/><internalId>46</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_343</srcid><srcstatus/><internalId>48</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.14</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The last block shall be finished by writing a byte encoding the total
+        length of the input message mod 256 to the last byte position of the
+        buffer which needs to be empty. If the block is already full a new
+        block needs to be created.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_373</srcid><srcstatus/><internalId>49</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.15</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The compression of the 64 bits message buffer 'MessageBlock' shall be done as follows:
+          V3 = V3 xor MessageBlock
+          perform c iterations of SipRound
+          V0 = V0 xor MessageBlock
+      </description>
+      <comment>Note: SipRound is defined in FOCrypto.EB.SipHash.17</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_314</srcid><srcstatus/><internalId>47</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.16</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        Finalization shall be done as follows:
+          V2 = V2 xor 0xff
+          perform d iterations of SipRound
+          Result = V0 xor V1 xor V2 xor V3
+      </description>
+      <comment>Note: SipRound is defined in FOCrypto.EB.SipHash.17</comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_378</srcid><srcstatus/><internalId>50</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.17</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section 2 Specification of SipHash</source>
+      <version>1</version>
+      <description>
+        The SipRound function transforms the internal state variable and
+        consists of four additions, four xors and six rotations:
+          V0 = V0 + V1
+          Rotate V1 left by 13 bits
+          V1 = V1 xor V0
+          Rotate V0 left by 32 bits
+          V2 = V2 + V3
+          Rotate V3 left by 16 bits
+          V3 = V3 xor V2
+          V0 = V0 + V3
+          Rotate V3 left by 21 bits
+          V3 = V3 xor V0
+          V2 = V2 + V1
+          Rotate V1 left by 17 bits
+          V1 = V1 xor V2
+          Rotate V2 left by 32 bits
+      </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto_SipHash.c_412</srcid><srcstatus/><internalId>51</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.18</id>
+      <status>approved</status>
+      <source>SipHash a fast short-input PRF, Section A Test values</source>
+      <version>1</version>
+      <description>
+        For the specified inputs:
+        Key        - 0001020304050607 08090A0B0C0D0E0F
+        Input      - 0001020304050607 08090A0B0C0D0E
+
+        The SipHash 2 4 shall generate the following Output:
+          Output - a129ca6149be45e5
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector</srcid><srcstatus/><internalId>79</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+
+    <specobject>
+      <id>FOCrypto.EB.SipHash.TestVectors</id>
+      <status>approved</status>
+      <source>SipHash TestVectors verification</source>
+      <version>1</version>
+      <description>
+        There shall be a set of inputs (Data, DataLength, Key, KeyLength) that is used with
+        Linux Kernel SipHash implementation to generate a set of outputs (MAC).
+        That data, both inputs and outputs, shall be used for verification of generated MACs.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector_Truncated</srcid><srcstatus/><internalId>80</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.dsn.Func0100.CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>59</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="man">
+    <specobject>
+      <id>FOCrypto.EB.Manual.RAM_ROM_ConsumptionMonitoring</id>
+      <status>approved</status>
+      <source>EB manual test</source>
+      <version>1</version>
+      <description>
+        Test Description:
+        Check RAM and ROM consumption of a reference configuration and compare it against the
+        limits.
+
+        Test Precondition:
+
+        Test Execution:
+        All test steps are required to fulfil FOCrypto.swdd.ROMMonitoring and
+        FOCrypto.swdd.RAMMonitoring.
+
+        01: Execute conformance test FOCrypto_ConTest02_ResourceConsumption on a lead platform.
+        02: Execute script GetMemoryUsage.sh in tools/ according to the instructions at the top of the script.
+        03: VP(): Check the output of the script. If the resource consumption is within limits, the script will return 0
+            and 1 if it is not ok. If any of limit is not fulfilled the cause  need to be analyzed and justified.           
+        04: Commit the changes to the *.map file and ResourceConsumption.txt in 
+            ..\asc_FOCrypto\test\ts5\Manual\IN\FOCrypto_ManTest01_ResourceConsumption\.
+      </description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.swdd.RAMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>72</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.swdd.RAMMonitoring</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>73</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.swdd.ROMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>70</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.swdd.ROMMonitoring</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>71</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swurs">
+
+    <specobject>
+      <id>FOCrypto.EB.Interface.Consistency</id>
+       <status>approved</status>
+       <source>EB</source>
+       <version>1</version>
+       <description>
+        The module shall provide a mechanism to guarantee consistency of interfaces and
+        types between its implementation and its code stub.
+       </description>
+       <comment>
+        The code stub of a module shall provide the same external view than the module itself.
+        This is mandatory because unit test of modules test against the code stubs of
+        adjacent modules. Inconsistent stubs may result in the situation that incompatible
+        interfaces are not detected as unit test stage.
+       </comment>
+       <verifycrit>
+        Create a compile test with two permutations that call all interfaces of a module
+        (in both permutations).
+        p0: Behave like a regular compile test; call the module generator and compile against
+        the implementation of the module.
+        p1: Do not generate module code and do not compile the implementation of the module.
+        Instead the module shall be replaced with its own code stub.
+       </verifycrit>
+       <needscoverage>
+          <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VerifyCodeStub</srcid><srcstatus/><internalId>78</internalId></linkedfrom></coveredby></needscov>
+       <containerCovstatus>covered</containerCovstatus></needscoverage>
+       
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_48</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>48</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>62</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_77</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>77</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>66</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_82</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>82</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>63</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_87</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>87</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>64</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_92</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>92</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>67</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_97</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>97</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>65</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_102</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>102</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>68</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto.c_107</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto.c</sourcefile>
+      <sourceline>107</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>69</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_27</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>27</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.3</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_34</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>34</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.4</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_274</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>274</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.7</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_276</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>276</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.8</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_280</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>280</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.9</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_282</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>282</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.10</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_284</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>284</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.11</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_286</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>286</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.12</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_309</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>309</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.13</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_314</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>314</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.15</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_343</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>343</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.13</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_373</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>373</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.14</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_378</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>378</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.16</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/FOCrypto_SipHash.c_412</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/src/FOCrypto_SipHash.c</sourcefile>
+      <sourceline>412</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.17</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="impl">
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_16</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>16</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.ModuleNameCfg</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_40</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>40</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_45</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>45</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CommunicationType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_78</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>78</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.DevErrorDetect</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_95</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>95</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.VersionInfoApi</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_112</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>112</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/FOCrypto.xdm.m4_128</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/src/Autosar/config/FOCrypto.xdm.m4</sourcefile>
+      <sourceline>128</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddHeaderFile</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swurs" title="MAC calculation">
+    <specobject>
+      <id>FOCrypto.dsn.Func0100.CalcMAC</id>
+      <status>approved</status>
+      <source>DESIGN</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>560</sourceline>
+      <version>1</version>
+      <description>
+          FOCrypto module shall provide support for MAC calculation to calculate MAC for
+          the provided data with the provided key and selected algorithm.
+        </description>
+      <furtherinfo>
+          WRN.swurs.needscoverage.count - Linking calculation requirements to top-level
+          requirement is beneficial, splitting them up would only increase complexity without any
+          real advantages.
+        </furtherinfo>
+      <needscoverage>
+        <needscov><needsobj>swurs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto.EB.SipHash.3</srcid><srcstatus/><internalId>11</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.4</srcid><srcstatus/><internalId>12</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.5</srcid><srcstatus/><internalId>13</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.6</srcid><srcstatus/><internalId>14</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.8</srcid><srcstatus/><internalId>16</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.9</srcid><srcstatus/><internalId>17</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.10</srcid><srcstatus/><internalId>18</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.11</srcid><srcstatus/><internalId>19</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.12</srcid><srcstatus/><internalId>20</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.13</srcid><srcstatus/><internalId>21</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.14</srcid><srcstatus/><internalId>22</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.15</srcid><srcstatus/><internalId>23</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.16</srcid><srcstatus/><internalId>24</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.17</srcid><srcstatus/><internalId>25</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.18</srcid><srcstatus/><internalId>26</internalId></linkedfrom><linkedfrom><srcid>FOCrypto.EB.SipHash.TestVectors</srcid><srcstatus/><internalId>27</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd" title="FOCrypto FOCrypto_CalcMAC function requirement">
+    <specobject>
+      <id>FOCrypto.InterAct.FOCrypto_CalcMAC</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1227</sourceline>
+      <version>1</version>
+      <description>
+            Execution of FOCrypto_CalcMAC shall be performed synchronously.
+          </description>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMac_TestVector</srcid><srcstatus/><internalId>79</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd" title="FOCrypto FOCrypto_GetVersionInfo function requirement">
+    <specobject>
+      <id>FOCrypto.InterAct.FOCrypto_GetVersionInfo</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1249</sourceline>
+      <version>1</version>
+      <description>
+            Execution of FOCrypto_GetVersionInfo shall be performed synchronously.
+          </description>
+      <verifycrit>
+            Verify that the given output is correct.
+          </verifycrit>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo</srcid><srcstatus/><internalId>81</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swurs" title="DET reporting requirements">
+    <specobject>
+      <id>FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1816</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_GetVersionInfo() shall
+          raise the error FOCRYPTO_E_PARAM_POINTER if the parameter versionInfo is a null pointer.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_48</srcid><srcstatus/><internalId>30</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_VersionInfo_Det_NULLPTR</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_VersionInfo_CddError_NULLPTR</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_VersionInfo_DetCddError_NULLPTR</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1832</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_PARAM_POINTER if the dataPtr is a null pointer and dataSize != 0.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_82</srcid><srcstatus/><internalId>32</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_DataNULLPTR</srcid><srcstatus/><internalId>83</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_DataNULLPTR</srcid><srcstatus/><internalId>91</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_DataNULLPTR</srcid><srcstatus/><internalId>99</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1847</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_PARAM_POINTER if the keyPtr is a null pointer.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_87</srcid><srcstatus/><internalId>33</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_keyNULLPTR</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_keyNULLPTR</srcid><srcstatus/><internalId>92</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_keyNULLPTR</srcid><srcstatus/><internalId>100</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1862</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_PARAM_POINTER if the signaturePtr is a null pointer.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_97</srcid><srcstatus/><internalId>35</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_signatureNULLPTR</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_signatureNULLPTR</srcid><srcstatus/><internalId>93</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_signatureNULLPTR</srcid><srcstatus/><internalId>101</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1877</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_INVALID_PARAMETER if invoked with an invalid value for algorithm.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_77</srcid><srcstatus/><internalId>31</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_algorithm</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_algorithm</srcid><srcstatus/><internalId>94</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_algorithm</srcid><srcstatus/><internalId>102</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1892</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_INVALID_PARAMETER if invoked with an invalid value for keySize.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_92</srcid><srcstatus/><internalId>34</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_keySize</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_keySize</srcid><srcstatus/><internalId>95</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_keySize</srcid><srcstatus/><internalId>103</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1907</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_INVALID_PARAMETER if invoked with signatureSize == 0.
+        </description>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_102</srcid><srcstatus/><internalId>36</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_signatureSize</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_signatureSize</srcid><srcstatus/><internalId>96</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_signatureSize</srcid><srcstatus/><internalId>104</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>68</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1922</sourceline>
+      <version>1</version>
+      <description>
+          If development error detection is enabled, the function FOCrypto_CalcMAC() shall
+          raise the error FOCRYPTO_E_INVALID_PARAMETER if dataSize has too big value, depending on the
+          set FOCryptoCommsType.
+        </description>
+      <comment>
+          At the moment, only supported communication type is CAN-FD, thus maximum allowed value is 64.
+        </comment>
+      <needscoverage>
+        <needscov><needsobj>impl</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/FOCrypto.c_107</srcid><srcstatus/><internalId>37</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_FOCrypto_CalcMAC_Det_dataSize</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_CddError_dataSize</srcid><srcstatus/><internalId>97</internalId></linkedfrom><linkedfrom><srcid>TS_FOCrypto_CalcMAC_DetCddError_dataSize</srcid><srcstatus/><internalId>105</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>69</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd">
+    <specobject>
+      <id>FOCrypto.swdd.ROMConsumption</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>1994</sourceline>
+      <version>1</version>
+      <description>
+                  The ROM consumption for the reference configuration for code and configuration
+                  must not exceed 1284 bytes.
+                </description>
+      <rationale>
+                  The defined ROM consumption is the result of all analyzed configuration
+                  parameters of the reference configuration.
+                  The number is based on the assumption of amount and size of analyzed configuration
+                  parameters.
+                </rationale>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto.EB.Manual.RAM_ROM_ConsumptionMonitoring</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_ConTest0200_ResourceConsumption</srcid><srcstatus/><internalId>106</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>70</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.swdd.ROMMonitoring</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2015</sourceline>
+      <version>1</version>
+      <description>
+                  The ROM consumption of FOCrypto shall be monitored for each FOCrypto external
+                  release.
+                </description>
+      <verifycrit>
+                  Analysis results and deviations from the calculated consumption shall be
+                  analyzed and stored in
+                  &lt;code&gt;asc_FOCrypto\test\ts5\Manual\IN\FOCrypto_ManTest01_ResourceConsumption\ResourceConsumption.txt&lt;/code&gt;.
+                  These numbers are calculated using the &lt;code&gt;asc_FOCrypto\tools\GetMemoryUsage.sh&lt;/code&gt; script. Instructions 
+                  on how to use this script can be found in the script itself and 
+                  &lt;code&gt;asc_FOCrypto\test\ts5\Manual\IN\FOCrypto_ManTest01_ResourceConsumption\readme.txt&lt;/code&gt;.
+                </verifycrit>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto.EB.Manual.RAM_ROM_ConsumptionMonitoring</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>71</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swdd">
+    <specobject>
+      <id>FOCrypto.swdd.RAMConsumption</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2049</sourceline>
+      <version>1</version>
+      <description>
+                  The RAM consumption for the reference configuration must not exceed 100 bytes.
+                </description>
+      <rationale>
+                  The defined RAM consumption is the result of all analyzed configuration
+                  parameters of the reference configuration.
+                  The number is based on the assumption of amount and size of analyzed
+                  configuration parameters.
+                </rationale>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto.EB.Manual.RAM_ROM_ConsumptionMonitoring</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_ConTest0200_ResourceConsumption</srcid><srcstatus/><internalId>106</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>72</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.swdd.RAMMonitoring</id>
+      <status>approved</status>
+      <source>Elektrobit Automotive GmbH</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2069</sourceline>
+      <version>1</version>
+      <description>
+                  The RAM consumption of FOCrypto shall be monitored for each FOCrypto external
+                  release.
+                </description>
+      <verifycrit>
+                  Analysis results and deviations from the calculated consumption shall be
+                  analyzed and stored in
+                  &lt;code&gt;asc_FOCrypto\test\ts5\Manual\IN\FOCrypto_ManTest01_ResourceConsumption\ResourceConsumption.txt&lt;/code&gt;.
+                  These numbers are calculated using the &lt;code&gt;asc_FOCrypto\tools\GetMemoryUsage.sh&lt;/code&gt; script. Instructions 
+                  on how to use this script can be found in the script itself and 
+                  &lt;code&gt;asc_FOCrypto\test\ts5\Manual\IN\FOCrypto_ManTest01_ResourceConsumption\readme.txt&lt;/code&gt;.
+                </verifycrit>
+      <needscoverage>
+        <needscov><needsobj>man</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto.EB.Manual.RAM_ROM_ConsumptionMonitoring</srcid><srcstatus/><internalId>28</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>73</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swurs" title="XDM checks requirements">
+    <specobject>
+      <id>FOCrypto.XDM.InvalidParameter.FOCryptoCddErrorReportingApiName</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2314</sourceline>
+      <version>1</version>
+      <description>
+            The generator shall raise an error message if FOCryptoCddErrorReportingApiName has invalid
+            function name. For instance, it has symbols in it's name (*," and similar).
+          </description>
+      <comment>
+            Rationale:
+            This check is necessary to protect the post build configuration structure to be filled with
+            wrong values.
+          </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_GenTest_01001_Invalid_FOCrypto_FOCryptoCddErrorReportingApiName</srcid><srcstatus/><internalId>107</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>74</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2333</sourceline>
+      <version>1</version>
+      <description>
+            The generator shall raise an error message if FOCryptoCddErrorReportingApiName is enabled, but
+            FOCryptoCddHeaderFile is not configured.
+          </description>
+      <comment>
+            Rationale:
+            This check is necessary to protect the post build configuration structure to be filled with
+            wrong values.
+          </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_GenTest_01002_Invalid_FOCrypto_FOCryptoCddHeaderFile</srcid><srcstatus/><internalId>108</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>75</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name1</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2352</sourceline>
+      <version>1</version>
+      <description>
+            The generator shall raise an error message if FOCryptoCddHeaderFile has invalid
+            header file name. For instance, it has space or symbols in it's name (,'+ and similar).
+          </description>
+      <comment>
+            Rationale:
+            This check is necessary to protect the post build configuration structure to be filled with
+            wrong values.
+          </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_GenTest_01003_Invalid_FOCrypto_FOCryptoCddHeaderFile_Name1</srcid><srcstatus/><internalId>109</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>76</internalId></specobject>
+    <specobject>
+      <id>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name2</id>
+      <status>approved</status>
+      <source>EB</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/doc/project/design/pdf/FOCrypto_Design-profiled.xml</sourcefile>
+      <sourceline>2371</sourceline>
+      <version>1</version>
+      <description>
+            The generator shall raise an error message if FOCryptoCddHeaderFile has a symbol ':'
+            in the header file name.
+          </description>
+      <comment>
+            Rationale:
+            This check is necessary to protect the post build configuration structure to be filled with
+            wrong values.
+          </comment>
+      <needscoverage>
+        <needscov><needsobj>swuts</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>FOCrypto_GenTest_01004_Invalid_FOCrypto_FOCryptoCddHeaderFile_Name2</srcid><srcstatus/><internalId>110</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>77</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_FOCrypto_VerifyCodeStub</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/build/reqm/common_req/FOCrypto_VerifyStub_testspec.h</sourcefile>
+      <sourceline>7</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+    This test verifies that the code stub of the module is consistent with the
+    implementation.
+  
+Test Object: 
+    Relocatable post-build configuration macros generation.
+  
+Test Precondition: 
+    Permutation [VerifyStub == true]:
+      - Unit test contains its own code stub
+      - Module is excluded from generation and compilation
+    Permutation [VerifyStub == false]:
+      - unit test excludes its own code stub
+  
+Test Execution: 
+    01: Invoke all module APIs
+    02: VP(FOCrypto.EB.Interface.Consistency):
+        Unit test compiles (implicitly tested)
+  
+Test Input: 
+  
+Test Output: 
+    Test is correctly generated and compiled.
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.Interface.Consistency</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>78</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>TS_FOCrypto_CalcMac_TestVector</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>9</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that FOCrypto_CalcMAC generates correct output with test vector inputs.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Loop through all TestVectors gathered from Linux Kernel and verify if FOCrypto correctly generates MACs.
+    02: Call FOCrypto_CalcMAC with test vector input values.
+    03: VP(FOCrypto.EB.ServiceDefinition.CalculateMAC,1)
+        VP(FOCrypto.EB.SipHash.18,1)
+        VP(FOCrypto.EB.SipHash.TestVectors,1)
+        VP(FOCrypto.EB.SipHash.6,1)
+        VP(FOCrypto.InterAct.FOCrypto_CalcMAC,1) Verify that the correct MAC was generated with the key length of 128 bits. Requirement FOCrypto.EB.SipHash.18 is verified when NumTestVectors == 14.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.ServiceDefinition.CalculateMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.18</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.TestVectors</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.6</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.InterAct.FOCrypto_CalcMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>60</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>79</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMac_TestVector_Truncated</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>49</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that FOCrypto_CalcMAC generates correct output (truncated MAC, 4 bytes) with test vector inputs.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Loop through all TestVectors gathered from Linux Kernel and verify if FOCrypto correctly generates MACs.
+    02: Call FOCrypto_CalcMAC with test vector input values.
+    03: VP(FOCrypto.EB.ServiceDefinition.CalculateMAC,1)
+        VP(FOCrypto.EB.SipHash.TestVectors,1)
+        VP(FOCrypto.EB.SipHash.5,1) Verify that the correct short MAC (4 bytes) has been generated.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.ServiceDefinition.CalculateMAC</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.TestVectors</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.5</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>80</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_VersionInfo</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>79</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that FOCrypto_GetVersionInfo returns expected value when called with expected input parameters.
+Test Object: FOCrypto_GetVersionInfo.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_GetVersionInfo() with NULL_PTR.
+    02: VP(FOCrypto.EB.ServiceDefinition.VersionInfo,1)
+        VP(FOCrypto.InterAct.FOCrypto_GetVersionInfo,1) Verify that FOCrypto_GetVersionInfo returned correct values.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.ServiceDefinition.VersionInfo</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.InterAct.FOCrypto_GetVersionInfo</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>61</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>81</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_VersionInfo_Det_NULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>103</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_GetVersionInfo is called with NULL_PTR and Det reporting is enabled.
+Test Object: FOCrypto_GetVersionInfo.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_GetVersionInfo() with NULL_PTR.
+    02: VP(FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.DevErrorDetect,1) Check that FOCRYPTO_REPORT_ERROR was called successfully Check that Det_ReportError is called when DevErrorDetect is enabled.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>62</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.DevErrorDetect</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>82</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_DataNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>127</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with dataPtr == NULL_PTR, dataSize != 0 data and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataPtr == NULL_PTR and dataSize != 0.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>63</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>83</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_keyNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>146</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with keyPtr == NULL_PTR and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keyPtr == NULL_PTR.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>64</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>84</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_signatureNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>165</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with signaturePtr == NULL_PTR and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signaturePtr == NULL_PTR.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>65</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>85</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_algorithm</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>184</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with algorithm != sipHash and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with algorithm != sipHash.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>66</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>86</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_keySize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>203</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with keySize != 16 and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keySize != 16.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize,1)
+        VP(FOCrypto.EB.SipHash.6,1) Check that FOCRYPTO_REPORT_ERROR was called successfully because the key length is not 128 bits.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>67</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.SipHash.6</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>87</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_signatureSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>227</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with signatureSize == 0 and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signatureSize == 0.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>68</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>88</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_Det_dataSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>246</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det is called if FOCrypto_CalcMAC is called with dataSize &amp;gt; 64 and Det reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataSize &amp;gt; 64.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CommunicationType,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>69</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CommunicationType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>89</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_VersionInfo_CddError_NULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>270</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_GetVersionInfo is called with NULL_PTR and Cdd error reporting is enabled.
+Test Object: FOCrypto_GetVersionInfo.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_GetVersionInfo() with NULL_PTR.
+    02: VP(FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddHeaderFile,1) Check that FOCRYPTO_REPORT_ERROR was called successfully. Verify that CddHeaderFile was imported successfully, indicated by successful Cdd API call.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>62</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddHeaderFile</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>90</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_DataNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>299</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with dataPtr == NULL_PTR, dataSize != 0 data and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataPtr == NULL_PTR and dataSize != 0.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>63</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>91</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_keyNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>323</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with keyPtr == NULL_PTR and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keyPtr == NULL_PTR.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>64</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>92</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_signatureNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>347</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with signaturePtr == NULL_PTR and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signaturePtr == NULL_PTR.
+    02: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>65</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>93</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_algorithm</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>371</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with algorithm != sipHash and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with algorithm != sipHash.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>66</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>94</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_keySize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>395</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with keySize != 16 and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keySize != 16.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>67</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>95</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_signatureSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>419</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with signatureSize == 0 and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signatureSize == 0.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>68</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>96</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_CddError_dataSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>443</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Cdd error reporting function is called if FOCrypto_CalcMAC is called with dataSize &amp;gt; 64 and Cdd error reporting is enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataSize &amp;gt; 64.
+    02: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>69</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>97</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_VersionInfo_DetCddError_NULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>467</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_GetVersionInfo is called with NULL_PTR and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_GetVersionInfo.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_GetVersionInfo() with NULL_PTR.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.CddHeaderFile,1) Check that FOCRYPTO_REPORT_ERROR was called successfully. Verify that CddHeaderFile was imported successfully, indicated by successful Cdd API call.
+    03: VP(FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting,1)
+        VP(FOCrypto.EB.FOCryptoGeneral.DevErrorDetect,1) Check that FOCRYPTO_REPORT_ERROR was called successfully Check that Det_ReportError is called when DevErrorDetect is enabled.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddHeaderFile</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.GetVersionInfo.NullPtr.ErrorReporting</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>62</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.DevErrorDetect</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>98</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_DataNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>501</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with dataPtr == NULL_PTR, dataSize != 0 data and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataPtr == NULL_PTR and dataSize != 0.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.dataPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>63</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>99</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_keyNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>525</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with keyPtr == NULL_PTR and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keyPtr == NULL_PTR.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.keyPtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>64</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>100</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_signatureNULLPTR</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>549</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with signaturePtr == NULL_PTR and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signaturePtr == NULL_PTR.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.NullPtr.ErrorReporting.signaturePtr</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>65</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>101</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_algorithm</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>573</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with algorithm != sipHash and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with algorithm != sipHash.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.algorithm</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>66</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>102</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_keySize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>597</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with keySize != 16 and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with keySize != 16.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.keySize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>67</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>103</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_signatureSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>621</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with signatureSize == 0 and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with signatureSize == 0.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.signatureSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>68</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>104</internalId></specobject>
+    <specobject>
+      <id>TS_FOCrypto_CalcMAC_DetCddError_dataSize</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest01/TestSpec_Generated.h</sourcefile>
+      <sourceline>645</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: Test case verifies that Det and Cdd error reporting functions are called if FOCrypto_CalcMAC is called with dataSize &amp;gt; 65 and both Cdd and Det error reporting are enabled.
+Test Object: FOCrypto_CalcMAC.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call FOCrypto_CalcMAC() with dataSize &amp;gt; 65.
+    02: VP(FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    03: VP(FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize,1) Check that FOCRYPTO_REPORT_ERROR was called successfully.
+    04: Sanity check - Sanity.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.EB.FOCryptoGeneral.CddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.EB.CalcMAC.InvalidParameter.ErrorReporting.dataSize</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>69</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>105</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>FOCrypto_ConTest0200_ResourceConsumption</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Conformance/IN/FOCrypto_ConTest02_ResourceConsumption/TestSpec_Generated.h</sourcefile>
+      <sourceline>9</sourceline>
+      <version>1</version>
+      <description>Test Synopsis: None.
+Test Description: This is not a functional test - it is used to estimate and verify RAM/ROM consumption of the reference configuration. It is implemented as a conformance test since compile tests do not produce required format of linker .map file.
+Test Object: FOCrypto RAM and ROM consumption.
+Test Precondition: 
+  
+Test Execution: 
+    01: Call all mandatory DoIP external APIs in order to link them into library.
+    02: Call FOCrypto_GetVersionInfo() with NULL_PTR.
+    03: VP(FOCrypto.swdd.ROMConsumption,1)
+        VP(FOCrypto.swdd.RAMConsumption,1) Verify FOCrpyo resource consumption.
+  
+Test Input: None.
+Test Output: None.</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.swdd.ROMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>70</internalId></provcov>
+        <provcov>
+          <linksto>FOCrypto.swdd.RAMConsumption</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swdd</linkdestdoctype><linkerror/><internalId>72</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>106</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="swuts">
+    <specobject>
+      <id>FOCrypto_GenTest_01001_Invalid_FOCrypto_FOCryptoCddErrorReportingApiName</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Generic/IN/FOCrypto_GenTest_01_InvalidConfiguration/source/application/testspec.h</sourcefile>
+      <sourceline>27</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  This test verifies that an error is generated if FOCryptoCddErrorReportingApiName has invalid
+  function name.
+&lt;/para&gt;
+
+Test Object: XDM check
+Test Precondition: 
+
+Test Execution: 
+  VP(FOCrypto.XDM.InvalidParameter.FOCryptoCddErrorReportingApiName):
+  The following error must be issued:
+  FOCryptoCddErrorReportingApiName must be a valid C function name.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.XDM.InvalidParameter.FOCryptoCddErrorReportingApiName</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>74</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>107</internalId></specobject>
+    <specobject>
+      <id>FOCrypto_GenTest_01002_Invalid_FOCrypto_FOCryptoCddHeaderFile</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Generic/IN/FOCrypto_GenTest_01_InvalidConfiguration/source/application/testspec.h</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  This test verifies that an error is generated if FOCryptoCddErrorReportingApiName is enabled, but
+  FOCryptoCddHeaderFile is not configured.
+&lt;/para&gt;
+
+Test Object: XDM check
+Test Precondition: 
+
+Test Execution: 
+  VP(FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile):
+  The following error must be issued:
+  FOCryptoCddHeaderFile must be defined if a user specific FOCryptoCddErrorReportingApiName is configured.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>75</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>108</internalId></specobject>
+    <specobject>
+      <id>FOCrypto_GenTest_01003_Invalid_FOCrypto_FOCryptoCddHeaderFile_Name1</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Generic/IN/FOCrypto_GenTest_01_InvalidConfiguration/source/application/testspec.h</sourcefile>
+      <sourceline>79</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  This test verifies that an error is generated if FOCryptoCddHeaderFile has invalid
+  header file name. For instance, it has space or symbols in it's name (,'+ and similar).
+&lt;/para&gt;
+
+Test Object: XDM check
+Test Precondition: 
+
+Test Execution: 
+  VP(FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name1):
+  The following error must be issued:
+  FOCryptoCddHeaderFile must be a valid header file name without spaces and end with '.h'.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name1</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>76</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>109</internalId></specobject>
+    <specobject>
+      <id>FOCrypto_GenTest_01004_Invalid_FOCrypto_FOCryptoCddHeaderFile_Name2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_FOCrypto)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_FOCrypto/test/ts5/Generic/IN/FOCrypto_GenTest_01_InvalidConfiguration/source/application/testspec.h</sourcefile>
+      <sourceline>105</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+&lt;para&gt;
+  This test verifies that an error is generated if FOCryptoCddHeaderFile has a symbol ':'
+  in the header file name
+&lt;/para&gt;
+
+Test Object: XDM check
+Test Precondition: 
+
+Test Execution: 
+  VP(FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name2):
+  The following error must be issued:
+  FOCryptoCddHeaderFile may not contain a ':' character.
+
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>FOCrypto.XDM.InvalidParameter.FOCryptoCddHeaderFile_Name2</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>swurs</linkdestdoctype><linkerror/><internalId>77</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>110</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>

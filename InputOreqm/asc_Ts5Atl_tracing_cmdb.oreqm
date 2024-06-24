@@ -1,0 +1,2769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracingresults>
+  <environment>
+    <toolname>ReqM2</toolname>
+    <toolversion>1.30.0 (stable)</toolversion>
+    <toolcopyright>Copyright 2010 - 2018 Elektrobit Automotive GmbH</toolcopyright>
+    <libxmlversion>2.0207</libxmlversion>
+    <libxml2compileversion>2.9.10</libxml2compileversion>
+    <libxml2runtimeversion>20912</libxml2runtimeversion>
+    <perlversion>v5.32.1</perlversion>
+    <perlptrsize>64</perlptrsize>
+    <commandline>-t -q -o asc_Ts5Atl_tracing_cmdb.oreqm -O /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements -c /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml -s approved,rejected --wfatal WDUPLICATEID,WDUPLICATEIDANDVER /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_Native/asc_Ts5Atl_requirements_EB_Requirements.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm /cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</commandline>
+    <timestamp>Mon Jun 17 19:26:14 2024</timestamp>
+  </environment>
+  <cmdline>
+    <cmdparam>
+      <name>I</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>O</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/TestProtocols/LogBase/requirements</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>c</name>
+      <values>
+        <value>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_PluginBuildEnv/common/config/AutoCoreReqM2Rules.xml</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>o</name>
+      <values>
+        <value>asc_Ts5Atl_tracing_cmdb.oreqm</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>q</name>
+    </cmdparam>
+    <cmdparam>
+      <name>s</name>
+      <values>
+        <value>approved</value>
+        <value>rejected</value>
+      </values>
+    </cmdparam>
+    <cmdparam>
+      <name>t</name>
+    </cmdparam>
+    <cmdparam>
+      <name>wfatal</name>
+      <values>
+        <value>WDUPLICATEID</value>
+        <value>WDUPLICATEIDANDVER</value>
+      </values>
+    </cmdparam>
+  </cmdline>
+  <inputfiles>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_Native/asc_Ts5Atl_requirements_EB_Requirements.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_GenericImporter/reqm_SRC.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_GenericImporter/reqm_SRCXML.reqm</inputfile>
+    <inputfile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/build/reqm/ReqM2_OldCImporter/reqm_TCS_LEGACY.reqm</inputfile>
+  </inputfiles>
+  <configuration>
+    <doctypes>
+    <regexs>
+      <!-- external level -->
+      <regex>creq</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+
+      <!-- product line level -->
+      <regex>fea</regex>
+      <regex>feavc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swpad</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swts</regex>
+      <regex>pdoc</regex>       <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>dev</regex>
+
+      <!-- bundle level -->
+      <regex>swrs</regex>
+      <regex>swad</regex>
+      <regex>swadvc</regex>     <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swintts</regex>
+
+      <!-- module level -->
+      <regex>swdd</regex>
+      <regex>swurs</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swuvc</regex>      <!-- since 10/2018: introduced for updated tracing model-->
+      <regex>swmts</regex>      <!-- since 01/2020: introduced for updated tracing model RMP4.0-->
+      <regex>swuts</regex>
+      <regex>impl</regex>
+      <regex>doc</regex>
+
+      <!-- legacy items -->
+      <regex>req</regex>        <!-- deprecated 10/2017: old swrs type -->
+      <regex>dsn</regex>        <!-- deprecated 10/2017: old swdd -->
+      <regex>src</regex>        <!-- deprecated 10/2017: old impl type -->
+      <regex>tcs</regex>        <!-- deprecated 10/2017: replaced by swintts and swuts -->
+      <regex>dsn_arch</regex>   <!-- deprecated 10/2017: old swad type -->
+      <regex>man</regex>
+      <regex>tso</regex>
+      <regex>lim</regex>
+    </regexs>
+  </doctypes>
+    <rules>
+
+    <rule>
+      <name>ERR.general.status</name>
+      <description>All specification objects must be either in status=approved or in status=rejected. Other
+        statuses are not allowed. How to fix: Set status to rejected or approved.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status!='approved') and (./status!='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.rejected</name>
+      <description>Status status=rejected is only allowed for requirements. How to fix: set to approved for specification object that are not requirements.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype!='req') and (../@doctype!='swrs')  and (../@doctype!='swmrs') and (../@doctype!='swurs') and (./status='rejected')]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.general.comment</name>
+      <description>Specification objects with status=rejected shall have a comment or rationale that
+        starts with on of the following texts: "This requirement is informational only", "This requirement is not applicable".
+        How to fix: Add some text starting with "This requirement is informational only"
+        or "This requirement is not applicable" to either the comment or to the rationale.
+        Comment: Implementation of check checks for contains instead of starts-with since there is
+        no trim function in the used XPATH engine.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>contains(./comment,"This requirement is informational only") or contains(./rationale,"This requirement is informational only") or contains(./comment,"This requirement is not applicable") or contains(./rationale,"This requirement is not applicable")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.rejected</name>
+      <description>Specification objects with status=rejected shall not need coverage. How to fix: remove need for coverage.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(./status='rejected')]</applyto>
+          <condition>count(./needscoverage)=0</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.count</name>
+      <description>Requirements with status=approved need to be covered, exceptions from
+      this rule: configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") and requirements with
+      a comment starting with "The adherence to this requirement is ensured by the following
+      release check (URL to the checklist template plus ID of the check):".
+      How to fix: Provide a needsobj element for those specobjects or comment according to the rule.
+      </description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and count(./fulfilledby/ffbObj)=0]</applyto>
+          <!--This condition is false if the id of a specification object does not end with '_Conf' or '_CONF' or does not start with ECUC_ -->
+          <condition>substring-after(./id,"ECUC_")!="" or substring-before(./id,"_Conf")!="" or substring-before(./id,"_CONF")!="" or contains(./comment,"The adherence to this requirement is ensured by the following release check (URL to the checklist template plus ID of the check):")</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.rationale</name>
+      <description>Requirements with status=approved and without coverage needs that are
+        configuration requirements (postfix "_CONF" or "_Conf" or prefix "ECUC_") shall have a comment or rationale
+        with the following text: "This is a configuration parameter requirement without functional
+        specification.". How to fix: Add some text starting with "This is a configuration parameter
+        requirements without functional specification" to either the comment or to the rationale.</description>
+      <regexchecks>
+        <regexcheck>
+          <applyto>//specobject[(../@doctype='req') and (./status='approved') and count(./needscoverage/needsobj)=0 and (substring-after(./id,"ECUC_")!="" or substring-before(./id,"_CONF")!="" or substring-before(./id,"_Conf")!="")]</applyto>
+          <regex>This is a configuration parameter requirement without functional specification.</regex>
+        </regexcheck>
+      </regexchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.releases</name>
+      <description>Requirements which originates from AUTOSAR (source tag contains term 'AUTOSAR_SWS', 'AUTOSAR_TPS',
+        'AUTOSAR_ASWS' or 'AUTOSAR_TR') shall have their release tag set to 'AUTOSAR {major}.{minor}.{patch}' (e.g. 'AUTOSAR 4.3.0').
+        Other requirements (including refinements of AUTOSAR requirements) must not contain any of the listed prefixes as
+        part of the source tag.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='req') or (../@doctype='swrs')) and (contains(./source,'AUTOSAR_SWS') or contains(./source,'AUTOSAR_TPS') or contains(./source,'AUTOSAR_ASWS') or contains(./source,'AUTOSAR_TR'))]</applyto>
+          <condition>contains(./releases/release,'AUTOSAR')</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.count</name>
+      <description>Design elements with status=approved need to be covered.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[((../@doctype='swdd') or (../@doctype='dsn')) and (./status='approved') and count(./needscoverage/needsobj)=0]</applyto>
+          <condition>false()</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.req.needscoverage.doctypes</name>
+      <description>Requirements can be covered only by req, dsn_arch, dev, lim, dsn, src, tcs, or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='req')]</applyto>
+          <condition>(./needscoverage/needsobj="req" or ./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.swrs.needscoverage.doctypes</name>
+      <description>Requirements of type swrs can be covered only by swrs, swad, dev, lim, swurs, swdd, src, swuts, swintts or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swrs')]</applyto>
+          <condition>(./needscoverage/needsobj="swrs" or ./needscoverage/needsobj="swad" or ./needscoverage/needsobj="dev" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swintts" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dsn.needscoverage.doctypes</name>
+      <description>Design elements can only be covered by dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+    <rule>
+      <name>ERR.swdd.needscoverage.doctypes</name>
+      <description>Design elements of type swdd can only be covered by swdd, swurs, impl, swuts, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swdd')]</applyto>
+          <condition>(./needscoverage/needsobj="swdd" or ./needscoverage/needsobj="swurs" or ./needscoverage/needsobj="impl" or ./needscoverage/needsobj="swuts" or ./needscoverage/needsobj="swmts" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.dev.needscoverage.count</name>
+      <description>Deviations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dev')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.needscoverage.count</name>
+      <description>Test case sepecifications shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.needscoverage.count</name>
+      <description>Manual test cases shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.src.needscoverage.count</name>
+      <description>Source code shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='src')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.lim.needscoverage.count</name>
+      <description>Limitations shall not need/receive coverage</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='lim')]</applyto>
+          <condition>(count(./needscoverage/needsobj)=0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.fea.needscoverage.test</name>
+      <description>Features shall be tested by software test ('swts') or manuel test ('man'). If no test is planned a justification shall be given.
+                   A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>(
+               ./needscoverage/needsobj="swts" or ./needscoverage/needsobj="man" or ./fulfilledby/ffbObj/ffbType="swts" or ./fulfilledby/ffbObj/ffbType="tsc" or ./fulfilledby/ffbObj/ffbType="man" or contains(./furtherinfo,"fea.needscoverage.test") or contains(./furtherinfo,"fea.needscoverage.doctypes") )</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>WRN.fea.needscoverage.impl</name>
+      <description>Features shall be covered by implementation fea, swrs, swad, swpad, swurs, man and swts. For lagacy features a justification is acceppted. A justification can be given in the futherinfo tag. The justification shall start with this rule name.</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='fea')]</applyto>
+          <condition>( ./needscoverage/needsobj="swrs" or ./fulfilledby/ffbObj/ffbType="swrs" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swpad" or ./fulfilledby/ffbObj/ffbType="swpad" or ./needscoverage/needsobj="dsn_arch" or ./fulfilledby/ffbObj/ffbType="dsn_arch" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="fea" or ./fulfilledby/ffbObj/ffbType="fea" or contains(./furtherinfo,"fea.needscoverage.impl"))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+
+    <rule>
+      <name>ERR.dsn_arch.needscoverage.doctypes</name>
+      <description>Architectural design objects can only be covered by dsn_arch, dsn, src, tcs, lim or man</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='dsn_arch')]</applyto>
+          <condition>(./needscoverage/needsobj="dsn_arch" or ./needscoverage/needsobj="dsn" or ./needscoverage/needsobj="src" or ./needscoverage/needsobj="tcs" or ./needscoverage/needsobj="lim" or ./needscoverage/needsobj="man" or (count(./needscoverage/needsobj)=0))</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+
+    <rule>
+      <name>ERR.swad.fulfilledby.doctypes</name>
+      <description>Architectural design objects of type swad can only be covered by swurs, swad, swdd, swintts, man, req, otherwise they should be refined with swrs</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swad')]</applyto>
+          <condition>(./fulfilledby/ffbObj/ffbType="swurs" or ./needscoverage/needsobj="swurs" or ./fulfilledby/ffbObj/ffbType="req" or ./needscoverage/needsobj="req" or ./fulfilledby/ffbObj/ffbType="swad" or ./needscoverage/needsobj="swad" or ./fulfilledby/ffbObj/ffbType="swdd" or ./fulfilledby/ffbObj/ffbType="swintts" or ./needscoverage/needsobj="swintts" or ./fulfilledby/ffbObj/ffbType="man" or ./needscoverage/needsobj="man") </condition>
+         </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.tcs.providescoverage.doctypes</name>
+      <description>Test case specifications (tcs) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='tcs')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+    <rule>
+      <name>ERR.man.providescoverage.doctypes</name>
+      <description>Manual test case specification (man) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='man')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swuts.providescoverage.doctypes</name>
+      <description>Software unit test case specification (swuts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swuts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swintts.providescoverage.doctypes</name>
+      <description>Software integration test case specification (swintts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swintts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+
+   <rule>
+      <name>ERR.swts.providescoverage.doctypes</name>
+      <description>Software test case specification (swts) shall cover at least one other spec object</description>
+      <conditionchecks>
+        <conditioncheck>
+          <applyto>//specobject[(../@doctype='swts')]</applyto>
+          <condition>(count(./providescoverage/provcov)&gt;0)</condition>
+        </conditioncheck>
+      </conditionchecks>
+    </rule>
+  </rules>
+    <oreqmRules>
+          <rule>
+            <name>WRN.tsc.needscoverage.count</name>
+            <description>Violated if there are more than 10 tsc specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='tcs']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='tsc'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>tsc.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.req.needscoverage.count</name>
+            <description>Violated if there are more than 10 req specobjects covering one specobject and no appropriate information is provided in furtherinfo, refinement on req to req are excluded. Refinements of requirements Req to Req and Req to Fea are excluded from this rule since this is tracing on the same level. The justification in furtherinfo must contain the rule name.</description>
+           <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(../@doctype != 'req') and (../@doctype != 'fea') and ((count(./needscoverage/needscov[needsobj='req']/coveredby/linkedfrom)) &gt; 10)]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='req'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>req.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+     </rule>
+
+        <rule>
+            <name>WRN.src.needscoverage.count</name>
+            <description>Violated if there are more than 10 src specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='src']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+
+        <rule>
+            <name>WRN.dsn_arch.needscoverage.count</name>
+            <description>Violated if there are more than 10 dsn_arch specobjects covering one specobject and no appropriate information is provided in furtherinfo. The justification in furtherinfo must contain the rule name.</description>
+            <conditionchecks>
+                <conditioncheck>
+                    <applyto>//specobject[(count(./needscoverage/needscov[needsobj='dsn_arch']/coveredby/linkedfrom)) &gt; 10]</applyto>
+                    <condition>false() or (count(./furtherinfo) &gt; 0)</condition>
+                </conditioncheck>
+            </conditionchecks>
+            <regexchecks>
+                <regexcheck>
+                    <applyto>//specobject[(count(./fulfilledby/ffbObj[ffbType='dsn_arch'])) &gt; 10]/furtherinfo</applyto>
+                    <regex>dsn_arch.needscoverage.count</regex>
+                </regexcheck>
+            </regexchecks>
+        </rule>
+  </oreqmRules>
+  </configuration>
+  <specdocument>
+    <specobjects doctype="req">
+
+    <!-- Chapter: Constraints and assumptions -->
+    <!-- Chapter: Dependencies to/from other modules -->
+    <!-- Section: File structure -->
+    <specobject>
+      <id>Ts5Atl.ModuleHeader</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a file Ts5Atl.h containing the
+        function prototypes.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl.h_3</srcid><srcstatus/><internalId>53</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>0</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.TypesHeader</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a file Ts5Atl_Types.h containing the type
+        definitions.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Types.h_3</srcid><srcstatus/><internalId>56</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>1</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.ConfigurationHeader</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a file Ts5Atl_Cfg.h containing the
+        generated configuration.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/generate/include/Ts5Atl_Cfg.h_33</srcid><srcstatus/><internalId>52</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>2</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.VersionHeader</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a file Ts5Atl_Version.h containing
+        version information of the module Ts5Atl.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Version.h.m4_1</srcid><srcstatus/><internalId>61</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>3</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.HeaderInclusions</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The file Ts5Atl.h SHALL include Ts5Atl_Types.h, Ts5Atl_Cfg.h
+        and Ts5Atl_Version.h
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl.h_12</srcid><srcstatus/><internalId>54</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>4</internalId></specobject>
+
+    <!-- Chapter: Functional specification -->
+
+    <!-- Feature 1: critical section checking -->
+    <specobject>
+      <id>Ts5Atl.CritSectCheck</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL check if the number of critical sections opened
+        equals the number of closed critical sections during the
+        execution of a complete test sequence.
+      </description>
+      <comment>
+        This is hard to impossible to test with the Ts5Atl itself as
+        an successful test has to result in the test result failed.
+        Therefore this feature must be verified by review.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_984</srcid><srcstatus/><internalId>71</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>5</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CritSectCheck.PositiveResult</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        In case the numbers of opened and closed critical sections
+        match, there SHALL be no change in the test result for the
+        specific test case.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_645</srcid><srcstatus/><internalId>67</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>6</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CritSectCheck.NegativeResult</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        In case the check shows that the numbers of opened and
+        closed critical sections don't match, the result of the
+        currently executed test case SHALL be set to
+        TS5ATL_RESULT_FAILURE.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_649</srcid><srcstatus/><internalId>68</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>7</internalId></specobject>
+
+      <!-- Feature 2: CRC check -->
+    <specobject>
+      <id>Ts5Atl.Crc</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide the functionality to secure the
+        test results with a 16-bit CRC implementation.
+      </description>
+      <comment>
+        The implementation should be based on the AUTOSAR
+        specification for the Crc module.
+        See: AUTOSAR_SWS_CRCLibrary, v4.1.0.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_CrcInit</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good1</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good2</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good3</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good4</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good5</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_DataChange</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_CrcChange</srcid><srcstatus/><internalId>91</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>8</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Crc.initialization</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The CRC checksum SHALL be initially calculated over the
+        freshly initialized test result data in Ts5Atl_Init().
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_CrcInit</srcid><srcstatus/><internalId>84</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Init</srcid><srcstatus/><internalId>95</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>9</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Crc.validation</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The CRC checksum SHALL be validated before a new test case
+        result value is written.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Crc_Good1</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good2</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good3</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good4</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good5</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_DataChange</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_CrcChange</srcid><srcstatus/><internalId>91</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>10</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Crc.recalculation</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The CRC checksum SHALL be recalculated immediately after a new
+        test case value has been written.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Crc_Good1</srcid><srcstatus/><internalId>85</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good2</srcid><srcstatus/><internalId>86</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good3</srcid><srcstatus/><internalId>87</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good4</srcid><srcstatus/><internalId>88</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_Good5</srcid><srcstatus/><internalId>89</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_DataChange</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_CrcChange</srcid><srcstatus/><internalId>91</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>11</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Crc.NegativeCase</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        If the CRC checksum validation failed there SHALL be no
+        further write operations performed on the test case results
+        and no recalculation of the CRC checksum.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Crc_DataChange</srcid><srcstatus/><internalId>90</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Crc_CrcChange</srcid><srcstatus/><internalId>91</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>12</internalId></specobject>
+
+      <!-- Feature 3: check macros -->
+    <specobject>
+      <id>Ts5Atl.CheckMacros</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide macros for common cases of comparisons
+        that set the test case result and return from the test case
+        using TS5ATL_RESULT_FAILURE as return value.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>13</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CheckMacros.CHECK_IS_FALSE</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide a macro TS5ATL_CHECK_IS_FALSE that
+        compares if an expression is not true.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>14</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CheckMacros.CHECK_IS_TRUE</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide a macro TS5ATL_CHECK_IS_TRUE that
+        compares if an expression is true.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>15</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CheckMacros.CHECK_IS_EQUAL</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide a macro TS5ATL_CHECK_IS_EQUAL that
+        compares if two expressions are evaluated to equal values.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>16</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CheckMacros.CHECK_IS_EQUAL_RESET</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide a macro TS5ATL_CHECK_IS_EQUAL_RESET that
+        compares if two expressions are evaluated to equal values.
+        Afterwards the first value SHALL be reset with an additional
+        value.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>17</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.CheckMacros.RETURN_FAILURE</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide a macro TS5ATL_RETURN_FAILURE that
+        returns the test case with TS5ATL_RETURN_FAILURE().
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Macros</srcid><srcstatus/><internalId>97</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>18</internalId></specobject>
+
+      <!-- Feature 4: printing on windows -->
+    <specobject>
+      <id>Ts5Atl.Windows</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide direct console output on the Windows
+        platform, including the test case results and failures in the
+        critical section checking or Crc validation.
+        This feature SHALL be disabled when not testing on Windows and
+        all code parts SHALL be removed using preprocessor defines.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/WINLIN/Ts5Atl_PrintResult.h_59</srcid><srcstatus/><internalId>62</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_1004</srcid><srcstatus/><internalId>72</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>19</internalId></specobject>
+
+
+    <!-- Chapter: API specification -->
+    <!-- Section: Type definitions -->
+
+    <specobject>
+      <id>Ts5Atl.API.ResultType</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a type Ts5Atl_ResultType mapped to uint8,
+        and preprocessor macros for the following constants and values:
+        * TS5ATL_RESULT_NOTRUN: 0 (no test execution)
+        * TS5ATL_RESULT_USER1: 1 (reserved)
+        * TS5ATL_RESULT_FAILURE: 2 (failed test execution)
+        * TS5ATL_RESULT_SUCCESS: 3 (successful test execution)
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Types.h_23</srcid><srcstatus/><internalId>57</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>20</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.ReturnType</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a type Ts5Atl_ReturnType as an enumeration
+        containing the values:
+        * TS5ATL_E_OK (0)
+        * TS5ATL_E_NOT_OK (1)
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Types.h_32</srcid><srcstatus/><internalId>58</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>21</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.TestFunctionType</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a type Ts5Atl_TestFunctionType
+        as a pointer to a test function with signature
+        Ts5Atl_ResultType TestFunction (void).
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Types.h_50</srcid><srcstatus/><internalId>60</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>22</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.StatusType</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a type Ts5Atl_StatusType reflecting
+        the internal state as an enumeration containing the values:
+        * TS5ATL_STATUS_UNINITIALIZED
+        * TS5ATL_STATUS_INITIALIZING
+        * TS5ATL_STATUS_INITIALIZED
+        * TS5ATL_STATUS_SHUTDOWN
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl_Types.h_40</srcid><srcstatus/><internalId>59</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>23</internalId></specobject>
+
+    <!-- Section: Variable definitions -->
+
+    <specobject>
+      <id>Ts5Atl.ResultStorage</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Each test result SHALL be stored as two-bit value containing
+        one of the values of the enumeration type Ts5Atl_ResultType
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_916</srcid><srcstatus/><internalId>69</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_927</srcid><srcstatus/><internalId>70</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>24</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.ResultArray</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a variable Ts5Atl_Results which is an
+        array of uint8 of size
+        ((((TS5ATL_NUM_OF_TESTS - 1U) / 4U) + 1U) + 2U)
+        and stores the result of each test and additionally 2 bytes
+        for the CRC value.
+      </description>
+      <comment>
+        Each test result is stored as two-bit value containing one of
+        the values of the enumeration type Ts5Atl_ResultType.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/include/Ts5Atl.h_365</srcid><srcstatus/><internalId>55</internalId></linkedfrom><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_205</srcid><srcstatus/><internalId>63</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>25</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.ResultInitialization</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The test result array Ts5Atl_Results SHALL be initialized
+        with value TS5ATL_RESULT_NOTRUN for each test in Ts5Atl_Init().
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_Init</srcid><srcstatus/><internalId>95</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>26</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.FixedResultArray</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a variable Ts5Atl_FixedResults which
+        is an array of uint8 of size
+        ((TS5ATL_NUM_OF_TESTS - 1U) / 8U) + 1U
+        and stores a flag for each test which can only be set and signals
+        if the test result is fixed for the current test.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_241</srcid><srcstatus/><internalId>64</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>27</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.StatusVariable</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a variable Ts5Atl_Status which
+        stores the current state of the Ts5Atl.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_State</srcid><srcstatus/><internalId>100</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>28</internalId></specobject>
+
+    <!-- Section: Routine definitions -->
+
+    <specobject>
+      <id>Ts5Atl.API.Init</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          Ts5Atl_ReturnType Ts5Atl_Init (void)
+        that initializes all internal variables and returns
+        TS5ATL_E_OK if the initialization was successful and
+        TS5ATL_E_NOT_OK in all other cases.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Init</srcid><srcstatus/><internalId>95</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>29</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.RunTest</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          Ts5Atl_ResultType Ts5Atl_RunTest (Ts5Atl_TestFunctionType TestFunction)
+        that executes 'TestFunction' and returns the test result which
+        has been return by 'TestFuntion'.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>Ts5Atl_Compile_GenerateTestFunc</srcid><srcstatus/><internalId>81</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>30</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.RunTest.ParameterCheck</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The API function Ts5Atl_RunTest() shall check its input
+        parameters for validity and set the current test result to
+        TS5ATL_RESULT_NOTRUN if the parameter values are out of range.
+        In case the target hardware allows display messages, a diagnostic
+        message shall be printed for this case.
+      </description>
+      <!-- no coverage in tcs as RunTest() cannot be called from within a test -->
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_614</srcid><srcstatus/><internalId>66</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>31</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.ResultSet</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          void Ts5Atl_ResultSet (Ts5Atl_ResultType Result)
+        that sets the result of the current test.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Types</srcid><srcstatus/><internalId>96</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>32</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.ResultSet.ParameterCheck</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The API function Ts5Atl_ResultSet() shall check its
+        input parameters and set the current test result to
+        TS5ATL_RESULT_NOTRUN if the parameter values are out of
+        range.
+        In case the target hardware allows display messages, a diagnostic
+        message shall be printed for this case.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_ResultSet_Param</srcid><srcstatus/><internalId>98</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>33</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.ResultEnforce</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          void Ts5Atl_ResultEnforce (Ts5Atl_ResultType Result)
+        that enforces the unchangeable result of the current
+        test so that no subsequent call of Ts5Atl_ResultSet
+        or Ts5Atl_ResultEnforce changes this result any more.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_ResultEnforce</srcid><srcstatus/><internalId>99</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>34</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.ResultGet</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          Ts5Atl_ResultType Ts5Atl_ResultGet (void)
+        that returns the test result of the current test.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom><linkedfrom><srcid>TS_Ts5Atl_Types</srcid><srcstatus/><internalId>96</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>35</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.SetTestcase</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          Std_ReturnType Ts5Atl_SetTestcase (uint16 testId);
+        that allows the setting of the next test case index
+        to the value passed in testId.
+      </description>
+      <rationale>
+        Access to the test index is usually not required, but special
+        test cases, e.g. when performing a reset need to save the
+        current test index to a place where it is not overridden.
+      </rationale>
+      <usecase>
+        Complex tests, e.g. in the MicroOs require the execution of
+        tests 'outside' of Ts5Atl, e.g. initializing the .bss segment,
+        thereby destroying the internal TestIndex variable.
+      </usecase>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_SetTestcase</srcid><srcstatus/><internalId>94</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>36</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.SetTestcase.ParameterRangeCheck</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The parameter uint16 testId SHALL be checked for being smaller
+        than the maximal allowed number of tests.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_SetTestcase</srcid><srcstatus/><internalId>94</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>37</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.SetTestcase.ReturnValues</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The function Ts5Atl_SetTestcase() SHALL return E_OK if all
+        pre- and postcondition checks passed AND the test index could
+        be set correctly.
+        Otherwise the function SHALL return E_NOT_OK.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_SetTestcase</srcid><srcstatus/><internalId>94</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>38</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.GetTestcase</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          uint16 Ts5Atl_GetTestcase (void)
+        that returns the test index value.
+      </description>
+      <rationale>
+        Access to the test index is usually not required and nearly
+        all test cases don't need to know it.
+        This enables more portable test cases that do not depend on
+        the order of individual test case execution.
+      </rationale>
+      <usecase>
+        Access may be required e.g. for the MicroOs where complex test
+        sequences are used that can change e.g the RAM content or that
+        check the startup of an ECU.
+      </usecase>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_GetTestcase_WithinTest</srcid><srcstatus/><internalId>92</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>39</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.GetTestcase.ReturnWithinTest</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The current test index value SHALL be returned if the function
+        Ts5Atl_GetTestcase is called within the execution of a test
+        case.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_GetTestcase_WithinTest</srcid><srcstatus/><internalId>92</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>40</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.GetTestcase.ReturnOutsideTest</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The next test index value SHALL be returned if the function
+        Ts5Atl_GetTestcase is called outside of the execution of a
+        test case.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>TS_Ts5Atl_GetTestcase_OutsideTest</srcid><srcstatus/><internalId>93</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>41</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.Shutdown</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          void Ts5Atl_Shutdown (void)
+        that ends test execution and calls Ts5Atl_TheEnd().
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>42</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.TheEnd</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl SHALL provide a function
+          void Ts5Atl_TheEnd (void)
+        that contains an endless loop and is intended to be used as
+        breakpoint for debugging tools.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_Basic</srcid><srcstatus/><internalId>78</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>43</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.TheEnd.Custom</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The function Ts5Atl_TheEnd (void) can be replaced by a
+        custom function with the same signature by providing
+        the option EndFunctionName which specifies the name
+        of the function and the option IncludeFileName which
+        specifies the name of the header file that declares
+        this function.
+      </description>
+      <comment>
+        The function does not need to be re-entrant.
+      </comment>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Compile_CustomTheEndFunc</srcid><srcstatus/><internalId>80</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>44</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.API.TheEnd.CallOut</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        The Ts5Atl function
+          void Ts5Atl_TheEnd (void)
+        SHALL call a custom call-out function as first action
+        that is defined by the macro TS5ATL_THE_END_CALLOUT
+        if this macro is defined.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/src/Ts5Atl.c.m4_371</srcid><srcstatus/><internalId>65</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>45</internalId></specobject>
+
+    <!-- Chapter: Configuration specification -->
+    <specobject>
+      <id>Ts5Atl.Configuration.TestCaseId</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option TestCaseId which contains the
+        list of test cases of a test sequence.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/Ts5Atl.xdm.m4_22</srcid><srcstatus/><internalId>73</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>46</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Configuration.TestCaseSkipped</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option to skip a defined test case
+        by specifying the TestCaseId as skipped together with a reason.
+        The test function of a skipped test cases is not executed,
+        the state of the test case shall be successful.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>tcs</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>Ts5Atl_Skipped3</srcid><srcstatus/><internalId>79</internalId></linkedfrom><linkedfrom><srcid>Ts5Atl_Skipped1</srcid><srcstatus/><internalId>82</internalId></linkedfrom><linkedfrom><srcid>Ts5Atl_Skipped2</srcid><srcstatus/><internalId>83</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>47</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Configuration.TestPrepare</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option TestPrepare to enable/disable
+        the TestPrepare() function.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/Ts5Atl.xdm.m4_53</srcid><srcstatus/><internalId>74</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>48</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Configuration.TestMain</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option TestMain to enable/disable
+        the TestMain() function.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/Ts5Atl.xdm.m4_60</srcid><srcstatus/><internalId>75</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>49</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Configuration.TestCleanup</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option TestCleanup to enable/disable
+        the TestCleanup() function.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/Ts5Atl.xdm.m4_67</srcid><srcstatus/><internalId>76</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>50</internalId></specobject>
+
+    <specobject>
+      <id>Ts5Atl.Configuration.SimpleSectionChecking</id>
+      <status>approved</status>
+      <source>EB</source>
+      <version>1</version>
+      <description>
+        Ts5Atl SHALL provide the option SimpleSectionChecking to
+        enable/disable checking critical section imbalances.
+      </description>
+      <needscoverage>
+        <needscov><needsobj>src</needsobj><objcovstatus>covered</objcovstatus><coveredby><linkedfrom><srcid>src/Autosar/config/Ts5Atl.xdm.m4_80</srcid><srcstatus/><internalId>77</internalId></linkedfrom></coveredby></needscov>
+      <containerCovstatus>covered</containerCovstatus></needscoverage>
+      
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>51</internalId></specobject>
+
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/generate/include/Ts5Atl_Cfg.h_33</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/generate/include/Ts5Atl_Cfg.h</sourcefile>
+      <sourceline>33</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ConfigurationHeader</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>2</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>52</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl.h_3</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl.h</sourcefile>
+      <sourceline>3</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ModuleHeader</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>0</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>53</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl.h_12</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl.h</sourcefile>
+      <sourceline>12</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.HeaderInclusions</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>4</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>54</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl.h_365</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl.h</sourcefile>
+      <sourceline>365</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ResultArray</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>55</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Types.h_3</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Types.h</sourcefile>
+      <sourceline>3</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.TypesHeader</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>1</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>56</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Types.h_23</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Types.h</sourcefile>
+      <sourceline>23</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>20</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>57</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Types.h_32</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Types.h</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.ReturnType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>21</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>58</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Types.h_40</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Types.h</sourcefile>
+      <sourceline>40</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.StatusType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>23</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>59</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Types.h_50</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Types.h</sourcefile>
+      <sourceline>50</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.TestFunctionType</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>22</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>60</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/Ts5Atl_Version.h.m4_1</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/Ts5Atl_Version.h.m4</sourcefile>
+      <sourceline>1</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.VersionHeader</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>3</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>61</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/include/WINLIN/Ts5Atl_PrintResult.h_59</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/include/WINLIN/Ts5Atl_PrintResult.h</sourcefile>
+      <sourceline>59</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Windows</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>62</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_205</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>205</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ResultArray</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>25</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>63</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_241</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>241</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.FixedResultArray</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>27</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>64</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_371</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>371</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.TheEnd.CallOut</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>45</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>65</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_614</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>614</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.RunTest.ParameterCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>31</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>66</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_645</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>645</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.CritSectCheck.PositiveResult</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>6</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>67</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_649</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>649</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.CritSectCheck.NegativeResult</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>7</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>68</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_916</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>916</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ResultStorage</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>69</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_927</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>927</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.ResultStorage</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>24</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>70</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_984</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>984</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.CritSectCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>5</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>71</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/src/Ts5Atl.c.m4_1004</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/src/Ts5Atl.c.m4</sourcefile>
+      <sourceline>1004</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Windows</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>19</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>72</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="src">
+    <specobject>
+      <id>src/Autosar/config/Ts5Atl.xdm.m4_22</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/config/Ts5Atl.xdm.m4</sourcefile>
+      <sourceline>22</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestCaseId</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>46</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>73</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/Ts5Atl.xdm.m4_53</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/config/Ts5Atl.xdm.m4</sourcefile>
+      <sourceline>53</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestPrepare</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>48</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>74</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/Ts5Atl.xdm.m4_60</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/config/Ts5Atl.xdm.m4</sourcefile>
+      <sourceline>60</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestMain</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>49</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>75</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/Ts5Atl.xdm.m4_67</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/config/Ts5Atl.xdm.m4</sourcefile>
+      <sourceline>67</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestCleanup</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>50</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>76</internalId></specobject>
+    <specobject>
+      <id>src/Autosar/config/Ts5Atl.xdm.m4_80</id>
+      <status>approved</status>
+      <source>EB source code</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/src/Autosar/config/Ts5Atl.xdm.m4</sourcefile>
+      <sourceline>80</sourceline>
+      <version>1</version>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.SimpleSectionChecking</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>51</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>77</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Ts5Atl_Compile_Basic</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_Basic/source/application/Ts5Atl_Compile_Basic.c</sourcefile>
+      <sourceline>38</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test is to verify that the external interface of
+  Ts5Atl is fully implemented.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  This is a compilation test case and it only needs to be compiled.
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.Init</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultSet</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultGet</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>35</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.RunTest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.Shutdown</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>42</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.TheEnd</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>43</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>78</internalId></specobject>
+    <specobject>
+      <id>Ts5Atl_Skipped3</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_Basic/source/application/Ts5Atl_Compile_Basic.c</sourcefile>
+      <sourceline>89</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: The purpose of this test is to verify skipping of tests
+Test Object: None.
+Test Precondition: None.
+Test Execution: None.
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestCaseSkipped</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>47</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>79</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Ts5Atl_Compile_CustomTheEndFunc</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_CustomTheEndFunc/source/application/Ts5Atl_Compile_CustomTheEndFunc.c</sourcefile>
+      <sourceline>34</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test is to verify that a custom Ts5Atl_TheEnd
+  function can be configured and integrated.
+  
+Test Object: None.
+Test Precondition: None.
+Test Execution: 
+  This is a compilation test case and it only needs to be compiled.
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.TheEnd.Custom</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>44</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>80</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Ts5Atl_Compile_GenerateTestFunc</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_GenerateTestFunc/source/application/Ts5Atl_Compile_GenerateTestFunc.c</sourcefile>
+      <sourceline>34</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test is to verify that the configured
+  test function is integrated.
+  
+Test Object: None.
+Test Precondition: None.
+Test Execution: 
+  This is a compilation test case and it only needs to be compiled.
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.RunTest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>30</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>81</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>Ts5Atl_Skipped1</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_SkippedTests/source/application/Test.c</sourcefile>
+      <sourceline>15</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: The purpose of this test is to verify skipping of tests
+Test Object: None.
+Test Precondition: None.
+Test Execution: None.
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestCaseSkipped</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>47</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>82</internalId></specobject>
+    <specobject>
+      <id>Ts5Atl_Skipped2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Compile/IN/Ts5Atl_Compile_SkippedTests/source/application/Test.c</sourcefile>
+      <sourceline>32</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: The purpose of this test is to verify skipping of tests
+Test Object: None.
+Test Precondition: None.
+Test Execution: None.
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Configuration.TestCaseSkipped</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>47</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>83</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_Ts5Atl_CrcInit</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>48</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that during initialization
+  of Ts5Atl the Crc has been correctly calculated.
+  
+Test Object: 
+  
+Test Precondition: 
+    This is the first test case that is executed
+    only then TestPrepare() and Init() are the only routines that have
+    been executed and no result has been set
+  
+Test Execution: 
+  1. calculate the Crc over the result array
+  2. verification point
+     check that the Crc is equal to the value calculated by Init()
+  3. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.initialization</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>84</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_Good1</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>101</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that the calculation
+  of the Crc with different test cases is performed correctly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  The following procedure should be performed with TS5ATL_RESULT_SUCCESS
+
+  Steps:
+  1. let a test case run that sets the result to 'result_val'
+  2. calculate the Crc value
+  3. verification point
+     check that the calculated Crc is equal to the calculated one by ResultSet()
+  4. verification point
+     check that the result value is equal to 'result_val'
+  5. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>85</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_Good2</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>156</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that the calculation
+  of the Crc with different test cases is performed correctly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  The following procedure should be performed with TS5ATL_RESULT_FAILURE
+
+  Steps:
+  1. let a test case run that sets the result to 'result_val'
+  2. calculate the Crc value
+  3. verification point
+     check that the calculated Crc is equal to the calculated one by ResultSet()
+  4. verification point
+     check that the result value is equal to 'result_val'
+  5. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>86</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_Good3</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>211</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that the calculation
+  of the Crc with different test cases is performed correctly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  The following procedure should be performed with TS5ATL_RESULT_NOTRUN
+
+  Steps:
+  1. let a test case run that sets the result to 'result_val'
+  2. calculate the Crc value
+  3. verification point
+     check that the calculated Crc is equal to the calculated one by ResultSet()
+  4. verification point
+     check that the result value is equal to 'result_val'
+  5. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>87</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_Good4</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>266</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that the calculation
+  of the Crc with different test cases is performed correctly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  The following procedure should be performed with TS5ATL_RESULT_USER1
+
+  Steps:
+  1. let a test case run that sets the result to 'result_val'
+  2. calculate the Crc value
+  3. verification point
+     check that the calculated Crc is equal to the calculated one by ResultSet()
+  4. verification point
+     check that the result value is equal to 'result_val'
+  5. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>88</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_Good5</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>321</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that the calculation
+  of the Crc with different test cases is performed correctly.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  The following procedure should be performed with TS5ATL_RESULT_SUCCESS
+
+  Steps:
+  1. let a test case run that sets the result to 'result_val'
+  2. calculate the Crc value
+  3. verification point
+     check that the calculated Crc is equal to the calculated one by ResultSet()
+  4. verification point
+     check that the result value is equal to 'result_val'
+  5. verification point
+     check that the global crc flag is set to FALSE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>89</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_DataChange</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>376</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+   The purpose of this test case is to verify that an illegal
+   change of the results array is detected and reported
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+   1. let a test case run which sets the result to SUCCESS
+      (in order to have a locally defined test result value)
+   2. store the first byte of the results array
+   3. change the first byte of the results array
+   4. set the test result to SUCCESS
+   6. verification point
+      check that the test result was not changed
+   7. verification point
+      check that the global state variable is set to TRUE
+   8. restore the first byte of the results array
+   9. set the test result to SUCCESS
+   10. reset the global crc failed flag
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.NegativeCase</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>90</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Crc_CrcChange</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Crc/source/application/Ts5Atl_ImplTest_Crc.c</sourcefile>
+      <sourceline>461</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that an illegal change
+  of the crc value is detected and reported
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. let a test case run which sets the result to SUCCESS
+     (in order to have a locally defined test result value)
+  2. change the crc stored by Ts5Atl
+  3. set the test result to SUCCESS
+  4. verification point
+     check that the internal test result is not changed
+  5. verification point
+     check that the global state variable is set to TRUE
+  6. set the test result to SUCCESS
+     Note: in order to trigger the final test result
+  7. reset the global crc failed flag
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.Crc</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>8</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.validation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>10</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.recalculation</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>11</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.NegativeCase</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>12</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>91</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_Ts5Atl_GetTestcase_WithinTest</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_GetSetTestcase/source/application/Ts5Atl_ImplTest_GetSetTestcase.c</sourcefile>
+      <sourceline>89</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to check whether the function
+  Ts5Atl_GetTestcase() returns the correct "known" test value.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Call Ts5Atl_GetTestcase
+  2. VP: check if the current and "known" test value is returned
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.GetTestcase</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>39</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.GetTestcase.ReturnWithinTest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>40</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>92</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_GetTestcase_OutsideTest</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_GetSetTestcase/source/application/Ts5Atl_ImplTest_GetSetTestcase.c</sourcefile>
+      <sourceline>145</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to check whether the function
+  Ts5Atl_GetTestcase() returns the correct "known" test value if the
+  function has been called outside of a test case.
+  
+Test Object: 
+  
+Test Precondition: 
+  The global variable TS_Ts5Atl_NextIndex contains the value
+  returned by GetTestcase() when not being in the first test case.
+  
+Test Execution: 
+  1. VP: check if TS_Ts5Atl_NextIndex contains the "known" value
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.GetTestcase.ReturnOutsideTest</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>41</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>93</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_SetTestcase</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_GetSetTestcase/source/application/Ts5Atl_ImplTest_GetSetTestcase.c</sourcefile>
+      <sourceline>276</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to check whether the function
+  Ts5Atl_SetTestcase() correctly sets the test case identifier
+  and performs value range checking a specified.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. save the current value of the test case Id
+  2. call Ts5Atl_SetTestcase with the maximum value of 0xFFFFU
+  3. VP: check that E_NOT_OK is returned
+  4. VP: check that the saved value is still the result of GetTestcase
+  5. call Ts5Atl_SetTestcase with the maximum test case index value
+  6. VP: check that E_NOT_OK is returned
+  7. VP: check that the saved value is still the result of GetTestcase
+  8. call Ts5Atl_SetTestcase with the maximum test case index value minus 1
+  9. VP: check that Ts5Atl_GetTestcase() returns maximum minus 1
+  10. VP: check that E_OK is returned
+  11. call Ts5Atl_SetTestcase with 0
+  12. VP: check that Ts5Atl_GetTestcase() returns 0
+  13. VP: check that E_OK is returned
+  14. return the saved test case Id (see Step 1)
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.SetTestcase</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>36</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.SetTestcase.ParameterRangeCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>37</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.SetTestcase.ReturnValues</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>38</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>94</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_Ts5Atl_Init</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Internals/source/application/Ts5Atl_ImplTest_Internals.c</sourcefile>
+      <sourceline>54</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify that all internal variables
+  are correctly initialized.
+  
+Test Object: 
+  
+Test Precondition: 
+    This is the first test case that is executed
+    only then TestPrepare() and Init() are the only routines that have
+    been executed and no result has been set
+  
+Test Execution: 
+  1. verification point
+     check that NOTRUN has a different value than all other results
+  2. verification point
+     check that the result array is initialized to TS5ATL_RESULT_NOTRUN
+  3. verification point
+     check that critical section counters are initialized to 0
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.Init</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>29</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.Crc.initialization</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>9</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.ResultInitialization</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>26</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>95</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Types</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Internals/source/application/Ts5Atl_ImplTest_Internals.c</sourcefile>
+      <sourceline>132</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to show that the function Ts5Atl_ResultSet()
+  correctly sets the test case result, that the function Ts5Atl_ResultGet()
+  correctly retrieves the test result and that this can be done with the
+  full value range of the type Ts5Atl_ResultType.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Call Ts5Atl_ResultSet with TS5ATL_RESULT_SUCCESS
+  2. VP: check that Ts5Atl_ResultGet returns TS5ATL_RESULT_SUCCESS
+  3. Call Ts5Atl_ResultSet with TS5ATL_RESULT_FAILURE
+  4. VP: check that Ts5Atl_ResultGet returns TS5ATL_RESULT_FAILURE
+  5. Call Ts5Atl_ResultSet with TS5ATL_RESULT_NOTRUN
+  6. VP: check that Ts5Atl_ResultGet returns TS5ATL_RESULT_NOTRUN
+  7. Call Ts5Atl_ResultSet with TS5ATL_RESULT_USER1
+  8. VP: check that Ts5Atl_ResultGet returns TS5ATL_RESULT_USER1
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultSet</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>32</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultGet</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>35</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>96</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_Macros</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Internals/source/application/Ts5Atl_ImplTest_Internals.c</sourcefile>
+      <sourceline>213</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to show that checking macros are fully
+  implemented and are performing the correct checks.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. VP: check macro CHECK_IS_FALSE with a positive result
+  2. VP: check macro CHECK_IS_FALSE with a negative result
+  3. VP: check macro CHECK_IS_TRUE with a positive result
+  4. VP: check macro CHECK_IS_TRUE with a negative result
+  5. VP: check macro CHECK_IS_EQUAL with a positive result
+  6. VP: check macro CHECK_IS_EQUAL with a negative result
+  7. VP: check macro CHECK_IS_EQUAL_RESET if the value is reset
+  8. VP: check macro CHECK_RETURN_FAILURE
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>13</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros.CHECK_IS_FALSE</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>14</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros.CHECK_IS_TRUE</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>15</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros.CHECK_IS_EQUAL</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>16</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros.CHECK_IS_EQUAL_RESET</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>17</internalId></provcov>
+        <provcov>
+          <linksto>Ts5Atl.CheckMacros.RETURN_FAILURE</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>18</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>97</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_ResultSet_Param</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Internals/source/application/Ts5Atl_ImplTest_Internals.c</sourcefile>
+      <sourceline>379</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to check that an incorrect result
+  value passed to Ts5Atl_ResultSet is handled correctly and the
+  current test result is set to TS5ATL_RESULT_NOTRUN.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Call Ts5Atl_ResultSet with an incorrect result value
+  2. VP: check that the current test result has been set to TS5ATL_RESULT_NOTRUN
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultSet.ParameterCheck</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>33</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>98</internalId></specobject>
+    <specobject>
+      <id>TS_Ts5Atl_ResultEnforce</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_Internals/source/application/Ts5Atl_ImplTest_Internals.c</sourcefile>
+      <sourceline>428</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to check that, when a test
+  result is enforced by Ts5Atl_ResultEnforce, no subsequent
+  call of Ts5Atl_ResultSet or Ts5Atl_ResultEnforce changes
+  this result.
+  
+Test Object: 
+  
+Test Precondition: 
+  
+Test Execution: 
+  1. Call Ts5Atl_ResultSet with failure result value
+  2. VP: check that the current test result is TS5ATL_RESULT_FAILED
+  3. Call Ts5Atl_ResultEnforce with successful result value
+  4. VP: check that the current test result is TS5ATL_RESULT_SUCCESS
+  5. Call Ts5Atl_ResultSet with failed result value
+  6. VP: check that the current test result still is TS5ATL_RESULT_SUCCESS
+  7. Call Ts5Atl_ResultEnforce with failed result value
+  8. VP: check that the current test result still is TS5ATL_RESULT_SUCCESS
+  
+Test Input: 
+  
+Test Output: 
+  &lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.API.ResultEnforce</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>34</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>99</internalId></specobject>
+  </specobjects>
+    <specobjects doctype="tcs">
+    <specobject>
+      <id>TS_Ts5Atl_State</id>
+      <status>approved</status>
+      <source>EB test case specification (asc_Ts5Atl)</source>
+      <sourcefile>/cygdrive/c/work/workspace/LEAD_ACG-9.3.0/asc_Ts5Atl/test/ts5/Implementation/IN/Ts5Atl_ImplTest_State/source/application/Ts5Atl_ImplTest_State.c</sourcefile>
+      <sourceline>36</sourceline>
+      <version>1</version>
+      <description>&lt;pre&gt;Test Synopsis: None.
+Test Description: 
+  The purpose of this test case is to verify the internal state of the module.
+  
+Test Object: None.
+Test Precondition: 
+  The functions TestPrepare and TestMain are overwritten to
+  overwrite the behaviour of Ts5Atl and skip calling of
+  Ts5Atl_Init() which is called within the test.
+  
+Test Execution: 
+  1. leave Ts5Atl uninitialized, call some public functions
+     expecting error logs on Windows and no change of result
+     and CRC values
+  2. initialize Ts5Atl
+  3. call some public functions, expect change of result
+     and CRC values as requested
+  
+Test Input: None.
+Test Output: None.&lt;/pre&gt;</description>
+      <providescoverage>
+        <provcov>
+          <linksto>Ts5Atl.StatusVariable</linksto>
+          <dstversion>1</dstversion>
+        <linkstatus>linked</linkstatus><linkdestdoctype>req</linkdestdoctype><linkerror/><internalId>28</internalId></provcov>
+      </providescoverage>
+    <violations/><oreqmViolations/><covstatus>covered</covstatus><internalId>100</internalId></specobject>
+  </specobjects>
+  </specdocument>
+  <violations/>
+  <oreqmViolations/>
+</tracingresults>
